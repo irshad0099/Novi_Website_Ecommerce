@@ -1,4 +1,4 @@
-import ParallaxImage from '@/components/ParallaxImage'
+import HeroSlider from '@/components/HeroSlider'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import BottomNav from '@/components/layout/BottomNav'
@@ -26,80 +26,8 @@ export default function Home() {
       <PromoPopup />
       <main className="pb-nav">
 
-        {/* ─── HERO — full-banner ─── */}
-        <section className="relative overflow-hidden" style={{minHeight:'88vh'}}>
-
-          {/* ── BACKGROUND IMAGE with parallax ── */}
-          <div className="absolute inset-0 overflow-hidden">
-            <ParallaxImage
-              src="https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?w=1920&q=90"
-              alt="الرياض — المملكة العربية السعودية"
-            />
-          </div>
-
-          {/* ── DARK OVERLAY ── */}
-          <div
-            className="absolute inset-0"
-            style={{background:'linear-gradient(to bottom, rgba(10,7,2,0.45) 0%, rgba(10,7,2,0.55) 50%, rgba(10,7,2,0.80) 100%)'}}
-          />
-          {/* animated gold shimmer overlay */}
-          <div className="absolute inset-0 gradient-animated" />
-          {/* radial glow */}
-          <div
-            className="absolute inset-0"
-            style={{background:'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(201,168,76,0.22) 0%, transparent 65%)'}}
-          />
-
-          {/* ── CORNER BADGES — hidden on small phones ── */}
-          <div className="absolute top-4 md:top-6 right-4 md:right-6 z-20 g-gold rounded-lg md:rounded-xl px-3 md:px-4 py-2 md:py-2.5 text-primary-900 shadow-lg text-center hidden sm:block">
-            <p className="text-[10px] font-bold leading-none">شحن مجاني</p>
-            <p className="text-xs font-black">فوق ١٥٠ ريال</p>
-          </div>
-          <div className="absolute top-4 md:top-6 left-4 md:left-6 z-20 bg-black/50 backdrop-blur-md border border-white/20 rounded-lg md:rounded-xl px-3 md:px-4 py-2 md:py-2.5 text-white text-center hidden sm:block">
-            <p className="text-[10px] text-white/60 leading-none">تقييم العملاء</p>
-            <p className="text-sm md:text-base font-black text-primary-300">⭐ ٤.٩ / ٥</p>
-          </div>
-
-          {/* ── CENTRED TEXT CONTENT ── */}
-          <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-8" style={{minHeight:'88vh'}}>
-            <span className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 text-primary-200 px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold mb-4 md:mb-6">
-              ✨ العلامة الأولى للمناديل الفاخرة في المملكة
-            </span>
-
-            <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-white leading-tight mb-4 md:mb-5 drop-shadow-2xl" style={{fontFamily:'Amiri,serif', textShadow:'0 4px 24px rgba(0,0,0,0.6)'}}>
-              نعومة <span className="text-primary-300">تلمسها</span><br/>
-              وجودة <span className="text-primary-300">تثق</span> بها
-            </h1>
-
-            <p className="text-white/80 text-sm md:text-lg mb-6 md:mb-8 max-w-xl leading-relaxed drop-shadow" style={{textShadow:'0 2px 12px rgba(0,0,0,0.7)'}}>
-              مناديل نَدى الحرير الفاخرة بـ٣ طبقات من الألياف الطبيعية النقية.<br className="hidden sm:block"/>
-              ٦٠٠ منديل في كل علبة.
-            </p>
-
-            {/* Stats row */}
-            <div className="grid grid-cols-2 sm:flex sm:items-center gap-4 sm:gap-6 md:gap-10 mb-7 md:mb-9 w-full sm:w-auto justify-items-center">
-              {[['٦٠٠+','منديل/علبة'],['٣','طبقات ناعمة'],['+٥٠ألف','عميل سعيد'],['٤.٩⭐','تقييم']].map(([n,l]) => (
-                <div key={l} className="text-center">
-                  <p className="text-xl sm:text-2xl md:text-3xl font-black text-primary-300 drop-shadow">{n}</p>
-                  <p className="text-[10px] sm:text-[11px] text-white/60 mt-0.5">{l}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* CTAs */}
-            <div className="flex gap-3 md:gap-4 flex-wrap justify-center">
-              <Link href="#products" className="g-gold text-primary-900 font-black px-7 md:px-9 py-3 md:py-3.5 rounded-full shadow-2xl hover:shadow-xl hover:scale-105 transition-all text-sm">
-                🛒 تسوق الآن
-              </Link>
-              <Link href="/category/bundles" className="bg-white/15 backdrop-blur-sm border border-white/30 text-white font-bold px-7 md:px-9 py-3 md:py-3.5 rounded-full hover:bg-white/25 transition-colors text-sm">
-                🎁 بكجات التوفير
-              </Link>
-            </div>
-
-            {/* Landmark label bottom */}
-            <p className="absolute bottom-6 text-white/40 text-xs tracking-widest">🏙️ الرياض — المملكة العربية السعودية</p>
-          </div>
-        </section>
+        {/* ─── HERO SLIDER ─── */}
+        <HeroSlider />
 
         {/* ─── STATS STRIP ─── */}
         <div className="g-gold overflow-x-auto scrollbar-hide">
