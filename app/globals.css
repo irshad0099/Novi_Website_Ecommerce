@@ -8,8 +8,9 @@
   --gold: #c9a84c;
   --gold-light: #e4c574;
   --gold-dark: #a07830;
-  --dark: #110d03;
-  --surface: #fefcf7;
+  --dark: #081628;      /* NOVI navy */
+  --surface: #ffffff;   /* clean white */
+  --navy: #1a3461;      /* brand color from logo */
 }
 
 * { box-sizing: border-box; }
@@ -37,8 +38,8 @@ body {
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #fdf8ee; }
-::-webkit-scrollbar-thumb { background: #c9a84c; border-radius: 99px; }
+::-webkit-scrollbar-track { background: #f0f5fb; }
+::-webkit-scrollbar-thumb { background: #1a3461; border-radius: 99px; }
 
 /* Line clamp */
 .clamp-1 { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; }
@@ -74,38 +75,39 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; }
 
 /* ─── DARK MODE ─────────────────────────────────────────────────── */
 html.dark {
-  --surface: #0d0a04;
-  --dark: #f0e8d0;
+  --surface: #040c18;
+  --dark: #dce8f5;
 }
-html.dark body { background: #0d0a04; color: #f0e8d0; }
-html.dark ::-webkit-scrollbar-track { background: #1a1200; }
+html.dark body { background: #040c18; color: #dce8f5; }
+html.dark ::-webkit-scrollbar-track { background: #081628; }
+html.dark ::-webkit-scrollbar-thumb { background: #1a5287; }
 
 /* Dark cards / panels */
-html.dark .bg-white             { background-color: #1a1408 !important; }
-html.dark .bg-primary-50        { background-color: #110d04 !important; }
-html.dark .bg-primary-100       { background-color: #1e1608 !important; }
-html.dark .border-primary-100   { border-color: #2a1f08 !important; }
-html.dark .border-primary-200   { border-color: #3a2c0e !important; }
-html.dark .text-primary-900     { color: #f5e8c0 !important; }
-html.dark .text-primary-800     { color: #e8d8a8 !important; }
-html.dark .text-primary-700     { color: #d4c090 !important; }
-html.dark .text-primary-600     { color: #c9a84c !important; }
-html.dark .text-primary-500     { color: #a08030 !important; }
-html.dark .text-primary-400     { color: #806020 !important; }
+html.dark .bg-white             { background-color: #0f1f35 !important; }
+html.dark .bg-primary-50        { background-color: #081628 !important; }
+html.dark .bg-primary-100       { background-color: #0f1f35 !important; }
+html.dark .border-primary-100   { border-color: #153d6a !important; }
+html.dark .border-primary-200   { border-color: #1a5287 !important; }
+html.dark .text-primary-900     { color: #dce8f5 !important; }
+html.dark .text-primary-800     { color: #c8d8ec !important; }
+html.dark .text-primary-700     { color: #b0cce6 !important; }
+html.dark .text-primary-600     { color: #82b0d5 !important; }
+html.dark .text-primary-500     { color: #4a8abb !important; }
+html.dark .text-primary-400     { color: #2669a0 !important; }
 html.dark .text-primary-300     { color: #c9a84c !important; }
-html.dark .shadow-lg            { box-shadow: 0 10px 40px rgba(0,0,0,0.6) !important; }
-html.dark .shadow-xl            { box-shadow: 0 20px 60px rgba(0,0,0,0.7) !important; }
+html.dark .shadow-lg            { box-shadow: 0 10px 40px rgba(0,0,0,0.7) !important; }
+html.dark .shadow-xl            { box-shadow: 0 20px 60px rgba(0,0,0,0.8) !important; }
 
 /* Dark inputs */
 html.dark input, html.dark select, html.dark textarea {
-  background-color: #1a1408 !important;
-  color: #f0e8d0 !important;
-  border-color: #3a2c0e !important;
+  background-color: #0f1f35 !important;
+  color: #dce8f5 !important;
+  border-color: #153d6a !important;
 }
-html.dark input::placeholder { color: #6b5020 !important; }
+html.dark input::placeholder { color: #4a8abb !important; }
 
 /* Dark nav */
-html.dark .bg-primary-900 { background-color: #060400 !important; }
+html.dark .bg-primary-900 { background-color: #030c16 !important; }
 
 /* ─── SCROLL ANIMATIONS ─────────────────────────────────────────── */
 .reveal {
