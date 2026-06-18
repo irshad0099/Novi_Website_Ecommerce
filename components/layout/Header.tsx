@@ -221,6 +221,9 @@ export default function Header() {
                 {c.icon} {lang === 'en' ? ((c as any).nameEn ?? c.name) : c.name}
               </Link>
             ))}
+            <Link href="/about" className="px-4 py-3 text-[13px] font-semibold text-white/70 hover:text-primary-300 border-b-2 border-transparent hover:border-primary-400 transition-all whitespace-nowrap">
+              🏢 {lang === 'ar' ? 'من نحن' : 'About Us'}
+            </Link>
           </div>
         </nav>
 
@@ -246,6 +249,13 @@ export default function Header() {
                 {lang === 'en' ? ((c as any).nameEn ?? c.name) : c.name}
               </Link>
             ))}
+
+            {/* About link */}
+            <Link href="/about" onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center gap-3 px-5 py-4 text-white/80 hover:bg-primary-800 border-b border-primary-800/60 text-sm font-bold">
+              <span className="text-xl">🏢</span>
+              {lang === 'ar' ? 'من نحن' : 'About Us'}
+            </Link>
 
             {/* Bundle builder highlight link */}
             <Link href="/bundles" onClick={() => setMobileMenuOpen(false)}
