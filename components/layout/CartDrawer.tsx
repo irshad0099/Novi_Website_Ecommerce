@@ -137,6 +137,31 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
           </button>
         </div>
 
+        {/* Free shipping progress bar */}
+        {(() => {
+          const s = subtotal()
+          const FREE = 150
+          const pct  = Math.min(100, (s / FREE) * 100)
+          const rem  = Math.max(0, FREE - s)
+          return s > 0 ? (
+            <div className={`px-3 md:px-4 py-2.5 border-b flex-shrink-0 ${pct >= 100 ? 'bg-green-50 border-green-100' : 'bg-primary-50 border-primary-100'}`}>
+              {pct < 100 ? (
+                <>
+                  <div className="flex justify-between text-[11px] mb-1.5">
+                    <span className="font-bold text-primary-700">🚚 أضف <span className="text-primary-600 font-black">{rem.toFixed(0)} ر.س</span> للشحن المجاني</span>
+                    <span className="text-primary-400">{Math.round(pct)}٪</span>
+                  </div>
+                  <div className="w-full bg-primary-100 rounded-full h-2 overflow-hidden">
+                    <div className="h-full rounded-full transition-all duration-700 g-gold" style={{ width: `${pct}%` }} />
+                  </div>
+                </>
+              ) : (
+                <p className="text-center text-green-700 font-black text-[12px]">🎉 تهانينا! حصلت على الشحن المجاني</p>
+              )}
+            </div>
+          ) : null
+        })()}
+
         {/* Items */}
         <div className="flex-1 overflow-y-auto px-3 md:px-4 py-3">
           {items.length === 0 ? (
@@ -219,11 +244,6 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
                   <span>{t('cart','discount')} ({couponPct}٪)</span>
                   <span>-{disc.toFixed(2)} ر.س</span>
                 </div>
-              )}
-              {sub < 150 && (
-                <p className="text-[11px] text-primary-400 bg-primary-50 rounded-xl p-2 text-center">
-                  أضف {(150 - sub).toFixed(2)} ر.س للشحن المجاني 🚚
-                </p>
               )}
             </div>
 

@@ -17,6 +17,26 @@ const BADGE_STYLES: Record<string, string> = {
   purple: 'bg-purple-100 text-purple-700',
 }
 
+function spawnConfetti(originX: number, originY: number) {
+  const colors = ['#c9a84c','#e8c97a','#a07830','#ffd700','#ff9d44','#fff']
+  for (let i = 0; i < 20; i++) {
+    const el = document.createElement('div')
+    const size = 5 + Math.random() * 7
+    el.style.cssText = `position:fixed;left:${originX}px;top:${originY}px;width:${size}px;height:${size}px;background:${colors[~~(Math.random()*colors.length)]};border-radius:${Math.random()>.5?'50%':'2px'};pointer-events:none;z-index:9999;`
+    document.body.appendChild(el)
+    const angle = Math.random() * Math.PI * 2
+    const spd = 3 + Math.random() * 5
+    let vx = Math.cos(angle)*spd, vy = Math.sin(angle)*spd - 4.5
+    let x = originX, y = originY, opacity = 1, rot = 0
+    const tick = () => {
+      vy += 0.22; x += vx; y += vy; opacity -= 0.022; rot += 9
+      Object.assign(el.style,{left:x+'px',top:y+'px',opacity:String(Math.max(0,opacity)),transform:`rotate(${rot}deg)`})
+      if (opacity > 0) requestAnimationFrame(tick); else el.remove()
+    }
+    requestAnimationFrame(tick)
+  }
+}
+
 export default function ProductCard({ product: p }: { product: Product }) {
   const addItem = useCart(s => s.addItem)
   const { toggle, has } = useCompare()
@@ -25,6 +45,7 @@ export default function ProductCard({ product: p }: { product: Product }) {
   const [added, setAdded] = useState(false)
   const [imgErr, setImgErr] = useState(false)
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null)
+  const [tilt, setTilt] = useState({ x: 0, y: 0 })
   const inCompare = has(p.id)
 
   const displayName = lang === 'en' ? ((p as any).nameEn ?? p.name) : p.name
@@ -33,15 +54,34 @@ export default function ProductCard({ product: p }: { product: Product }) {
   const handleAdd = (e: React.MouseEvent) => {
     e.preventDefault(); e.stopPropagation()
     addItem(p); setAdded(true)
+    spawnConfetti(e.clientX, e.clientY)
     toast.success(`🛒 "${displayName.slice(0, 22)}..."`)
     setTimeout(() => setAdded(false), 700)
   }
 
+  const handleTilt = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width - 0.5
+    const y = (e.clientY - rect.top) / rect.height - 0.5
+    setTilt({ x: x * 10, y: y * 10 })
+  }
+
+  const isLowStock = p.stock > 0 && p.stock < 20
+
   return (
     <>
-      <div className="group block relative">
+      <div
+        className="group block relative"
+        onMouseMove={handleTilt}
+        onMouseLeave={() => setTilt({ x: 0, y: 0 })}
+        style={{
+          transform: `perspective(600px) rotateX(${-tilt.y}deg) rotateY(${tilt.x}deg) translateY(${tilt.x || tilt.y ? -5 : 0}px)`,
+          transition: (tilt.x || tilt.y) ? 'transform 0.05s linear' : 'transform 0.5s ease',
+          borderRadius: 16,
+        }}
+      >
         <Link href={`/products/${p.slug}`} className="block">
-          <article className="bg-white border border-primary-100 rounded-2xl overflow-hidden hover:border-primary-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+          <article className="glass-card rounded-2xl overflow-hidden hover:border-primary-300 hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
             {/* Image */}
             <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-primary-50 to-amber-50 flex-shrink-0">
               {!imgErr ? (
@@ -66,13 +106,23 @@ export default function ProductCard({ product: p }: { product: Product }) {
                 </svg>
               </button>
 
+              {/* Sold badge */}
               {p.sold > 5000 && (
                 <div className="absolute bottom-2 right-2 bg-black/55 backdrop-blur-sm text-white text-[9px] font-bold px-2 py-0.5 rounded-full">
                   🔥 {t('card','sold').replace('{n}', p.sold.toLocaleString('en'))}
                 </div>
               )}
 
-              {/* Quick View button — slides up on group hover */}
+              {/* Low stock badge — urgent pulsing */}
+              {isLowStock && (
+                <div className="absolute bottom-2 left-2">
+                  <span className="flex items-center gap-0.5 bg-red-500 text-white text-[9px] font-black px-2 py-0.5 rounded-full shadow-md stock-urgent">
+                    ⚡ {p.stock < 6 ? `آخر ${p.stock}!` : `${p.stock} فقط!`}
+                  </span>
+                </div>
+              )}
+
+              {/* Quick View button */}
               <button
                 onClick={e => { e.preventDefault(); e.stopPropagation(); setQuickViewProduct(p) }}
                 className="absolute bottom-0 inset-x-0 py-2.5 bg-primary-900/90 text-primary-100 text-[12px] font-black translate-y-full group-hover:translate-y-0 transition-transform duration-300 hover:bg-primary-900"
@@ -101,8 +151,8 @@ export default function ProductCard({ product: p }: { product: Product }) {
                 )}
               </div>
 
-              {p.stock < 30 && (
-                <p className="text-[10px] text-red-500 font-semibold mb-2">
+              {p.stock < 30 && !isLowStock && (
+                <p className="text-[10px] text-amber-600 font-semibold mb-2">
                   ⚠️ {t('card','lowStock').replace('{n}', String(p.stock))}
                 </p>
               )}
@@ -125,7 +175,6 @@ export default function ProductCard({ product: p }: { product: Product }) {
         </Link>
       </div>
 
-      {/* Quick View Modal — rendered outside card wrapper so it's at root level */}
       <QuickViewModal product={quickViewProduct} onClose={() => setQuickViewProduct(null)} />
     </>
   )

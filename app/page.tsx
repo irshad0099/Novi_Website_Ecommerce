@@ -1,3 +1,4 @@
+import ParallaxImage from '@/components/ParallaxImage'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import BottomNav from '@/components/layout/BottomNav'
@@ -28,22 +29,25 @@ export default function Home() {
         {/* ─── HERO — full-banner ─── */}
         <section className="relative overflow-hidden" style={{minHeight:'88vh'}}>
 
-          {/* ── BACKGROUND IMAGE — Saudi Arabia Riyadh skyline, full cover ── */}
-          <img
-            src="https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?w=1920&q=90"
-            alt="الرياض — المملكة العربية السعودية"
-            className="absolute inset-0 w-full h-full object-cover object-center"
-          />
+          {/* ── BACKGROUND IMAGE with parallax ── */}
+          <div className="absolute inset-0 overflow-hidden">
+            <ParallaxImage
+              src="https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?w=1920&q=90"
+              alt="الرياض — المملكة العربية السعودية"
+            />
+          </div>
 
-          {/* ── TRANSPARENT OVERLAY — lets the image show clearly while text stays readable ── */}
+          {/* ── DARK OVERLAY ── */}
           <div
             className="absolute inset-0"
             style={{background:'linear-gradient(to bottom, rgba(10,7,2,0.45) 0%, rgba(10,7,2,0.55) 50%, rgba(10,7,2,0.80) 100%)'}}
           />
-          {/* subtle gold radial glow from center-bottom */}
+          {/* animated gold shimmer overlay */}
+          <div className="absolute inset-0 gradient-animated" />
+          {/* radial glow */}
           <div
             className="absolute inset-0"
-            style={{background:'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(201,168,76,0.18) 0%, transparent 65%)'}}
+            style={{background:'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(201,168,76,0.22) 0%, transparent 65%)'}}
           />
 
           {/* ── CORNER BADGES — hidden on small phones ── */}
