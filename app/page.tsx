@@ -259,6 +259,34 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ─── BRAND STORY STRIP ─── */}
+        <section className="py-10 md:py-14 bg-primary-900 relative overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none" style={{background:'radial-gradient(ellipse 60% 70% at 50% 50%, rgba(201,168,76,0.12) 0%, transparent 70%)'}} />
+          <div className="relative z-10 max-w-screen-xl mx-auto px-4">
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+              <img src="/logo-combined.png" alt="نَدى الحرير" className="h-20 w-auto object-contain flex-shrink-0 opacity-90" />
+              <div className="flex-1 text-center md:text-right">
+                <h2 className="text-xl md:text-2xl font-black text-white mb-2" style={{fontFamily:'Amiri,serif'}}>
+                  العلامة السعودية الأولى للمناديل الفاخرة <span className="text-primary-300">منذ ٢٠١٩</span>
+                </h2>
+                <p className="text-white/50 text-sm leading-relaxed max-w-2xl">
+                  بدأنا من قلب الرياض بحلم واحد: أن تحمل كل أسرة سعودية أفضل ما يُلامس بشرتها. اليوم، يثق بنا أكثر من ٥٠,٠٠٠ عميل في أنحاء المملكة.
+                </p>
+                <div className="flex gap-4 mt-4 flex-wrap justify-center md:justify-start">
+                  {[['✅','SFDA معتمدة'],['🇸🇦','صُنع في السعودية'],['🌿','طبيعي ١٠٠٪'],['♻️','صديق للبيئة']].map(([icon, label]) => (
+                    <span key={label as string} className="flex items-center gap-1.5 bg-white/8 border border-white/10 text-white/60 text-[11px] font-bold px-3 py-1.5 rounded-full">
+                      {icon} {label as string}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <Link href="/about" className="flex-shrink-0 g-gold text-primary-900 font-black px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-shadow text-sm">
+                اعرف قصتنا ←
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* ─── NEWSLETTER ─── */}
         <section className="bg-primary-900 py-14 text-center px-4">
           <h2 className="text-2xl md:text-3xl font-black text-white mb-2" style={{fontFamily:'Amiri,serif'}}>ابقَ على اطلاع 📬</h2>

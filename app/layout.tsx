@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Toaster } from 'react-hot-toast'
 import LanguageProvider from '@/components/LanguageProvider'
 import CustomCursor from '@/components/CustomCursor'
+import BrandSplash from '@/components/BrandSplash'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         </LanguageProvider>
         <CustomCursor />
+        <BrandSplash />
         <Toaster
           position="bottom-center"
           toastOptions={{

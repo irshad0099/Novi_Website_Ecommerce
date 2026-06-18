@@ -13,10 +13,15 @@ function SuccessContent() {
   return (
     <div className="min-h-[70vh] flex items-center justify-center px-4 py-16">
       <div className="bg-white border border-primary-100 rounded-3xl p-8 md:p-12 max-w-lg w-full text-center shadow-xl">
-        <div className="text-7xl mb-5 animate-bounce">✅</div>
-        <h1 className="text-2xl md:text-3xl font-black text-primary-900 mb-3" style={{fontFamily:'Amiri,serif'}}>تم الطلب بنجاح! 🎉</h1>
-        <p className="text-primary-500 mb-7 text-sm leading-relaxed">
-          شكراً لتسوقك مع نَدى الحرير!<br />
+        {/* Brand logo */}
+        <img src="/logo-combined.png" alt="نَدى الحرير" className="h-10 w-auto object-contain mx-auto mb-5 opacity-70" />
+
+        <div className="text-6xl mb-4 animate-bounce">🎉</div>
+        <h1 className="text-2xl md:text-3xl font-black text-primary-900 mb-2" style={{fontFamily:'Amiri,serif'}}>
+          مرحباً بك في عائلة نَدى الحرير!
+        </h1>
+        <p className="text-primary-400 text-xs mb-1">أنت الآن جزء من أكثر من ٥٠,٠٠٠ أسرة سعودية تثق بنا</p>
+        <p className="text-primary-500 mb-6 text-sm leading-relaxed mt-3">
           تم تأكيد طلبك وسيصلك خلال ١–٣ أيام عمل.<br />
           ستصلك رسالة تأكيد على هاتفك قريباً.
         </p>
