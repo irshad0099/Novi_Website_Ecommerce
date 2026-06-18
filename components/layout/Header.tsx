@@ -20,12 +20,16 @@ export default function Header() {
   const [mounted, setMounted] = useState(false)
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [recentSearches, setRecentSearches] = useState<string[]>([])
+  const [megaOpen, setMegaOpen] = useState(false)
   const searchRef = useRef<HTMLDivElement>(null)
   const count = useCart(s => s.count())
   const { user, isAuthenticated } = useAuth()
   const router = useRouter()
   const path = usePathname()
   const { t, lang } = useT()
+
+  // Featured products for mega menu (first 2 isFeatured)
+  const featuredProducts = PRODUCTS.filter(p => p.isFeatured).slice(0, 2)
 
   const suggestions = q.trim().length >= 1
     ? PRODUCTS.filter(p =>
@@ -47,7 +51,7 @@ export default function Header() {
     window.addEventListener('scroll', h)
     return () => window.removeEventListener('scroll', h)
   }, [])
-  useEffect(() => { setMobileMenuOpen(false); setSearchOpen(false); setShowSuggestions(false) }, [path])
+  useEffect(() => { setMobileMenuOpen(false); setSearchOpen(false); setShowSuggestions(false); setMegaOpen(false) }, [path])
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (searchRef.current && !searchRef.current.contains(e.target as Node)) setShowSuggestions(false)
@@ -255,12 +259,31 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Desktop category nav */}
-        <nav className="bg-primary-900 hidden md:block overflow-x-auto scrollbar-hide">
+        {/* Desktop category nav with mega menu */}
+        <nav
+          className="bg-primary-900 hidden md:block overflow-x-auto scrollbar-hide relative"
+          onMouseLeave={() => setMegaOpen(false)}
+        >
           <div className="max-w-screen-xl mx-auto px-4 flex">
             <Link href="/" className="px-4 py-3 text-[13px] font-semibold text-white/70 hover:text-primary-300 border-b-2 border-transparent hover:border-primary-400 transition-all whitespace-nowrap">
               {t('header', 'home')}
             </Link>
+
+            {/* Mega menu trigger */}
+            <button
+              onMouseEnter={() => setMegaOpen(true)}
+              onClick={() => setMegaOpen(o => !o)}
+              className={`px-4 py-3 text-[13px] font-semibold border-b-2 transition-all whitespace-nowrap flex items-center gap-1 ${
+                megaOpen
+                  ? 'text-white border-primary-400'
+                  : 'text-white/70 hover:text-primary-300 border-transparent hover:border-primary-400'
+              }`}
+            >
+              التصنيفات
+              <span className={`transition-transform duration-200 ${megaOpen ? 'rotate-180' : ''}`}>▾</span>
+            </button>
+
+            {/* Individual category links */}
             {CATEGORIES.map(c => (
               <Link key={c.slug} href={`/category/${c.slug}`}
                 className={`px-4 py-3 text-[13px] font-semibold text-white/70 hover:text-primary-300 border-b-2 border-transparent hover:border-primary-400 transition-all whitespace-nowrap ${c.slug === 'bundles' ? 'text-primary-300 font-black' : ''}`}>
@@ -270,6 +293,76 @@ export default function Header() {
             <Link href="/about" className="px-4 py-3 text-[13px] font-semibold text-white/70 hover:text-primary-300 border-b-2 border-transparent hover:border-primary-400 transition-all whitespace-nowrap">
               🏢 {lang === 'ar' ? 'من نحن' : 'About Us'}
             </Link>
+          </div>
+
+          {/* Mega Menu Panel */}
+          <div
+            className={`absolute right-0 left-0 top-full bg-white shadow-xl z-50 transition-all duration-200 overflow-hidden ${
+              megaOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none'
+            }`}
+          >
+            <div className="max-w-screen-xl mx-auto flex">
+              {/* Left: 2/3 — categories grid */}
+              <div className="flex-1 p-6">
+                <p className="text-xs font-black text-primary-400 uppercase tracking-widest mb-4">جميع التصنيفات</p>
+                <div className="grid grid-cols-3 gap-3">
+                  {CATEGORIES.map(c => (
+                    <Link
+                      key={c.slug}
+                      href={`/category/${c.slug}`}
+                      onClick={() => setMegaOpen(false)}
+                      className="flex items-center gap-3 p-3 rounded-xl hover:bg-primary-50 border border-transparent hover:border-primary-200 transition-all group"
+                    >
+                      <span className="text-2xl flex-shrink-0">{c.icon}</span>
+                      <div>
+                        <p className="text-sm font-black text-primary-900 group-hover:text-primary-600 transition-colors">
+                          {lang === 'en' ? ((c as any).nameEn ?? c.name) : c.name}
+                        </p>
+                        {(c as any).nameEn && (
+                          <p className="text-[11px] text-primary-400">{(c as any).nameEn}</p>
+                        )}
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+                <div className="mt-5 pt-4 border-t border-primary-100">
+                  <Link
+                    href="/category/all"
+                    onClick={() => setMegaOpen(false)}
+                    className="inline-flex items-center gap-2 g-gold text-white font-black text-sm px-5 py-2.5 rounded-xl hover:shadow-md transition-shadow"
+                  >
+                    عرض كل المنتجات →
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right: 1/3 — featured products */}
+              <div className="w-72 bg-primary-900 p-6 flex-shrink-0">
+                <p className="text-xs font-black text-primary-300 uppercase tracking-widest mb-4">منتجات مميزة ⭐</p>
+                <div className="space-y-4">
+                  {featuredProducts.map(p => (
+                    <Link
+                      key={p.id}
+                      href={`/products/${p.slug}`}
+                      onClick={() => setMegaOpen(false)}
+                      className="flex items-center gap-3 group"
+                    >
+                      <img
+                        src={p.images[0]}
+                        alt={p.name}
+                        className="w-14 h-14 rounded-xl object-cover flex-shrink-0 border-2 border-primary-700 group-hover:border-primary-400 transition-colors"
+                      />
+                      <div className="min-w-0">
+                        <p className="text-sm font-black text-white/90 group-hover:text-white transition-colors line-clamp-2 leading-tight">
+                          {lang === 'ar' ? p.name : p.nameEn}
+                        </p>
+                        <p className="text-primary-300 font-black text-sm mt-1">{p.price.toFixed(2)} ر.س</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </nav>
 
@@ -301,6 +394,16 @@ export default function Header() {
               className="flex items-center gap-3 px-5 py-4 text-white/80 hover:bg-primary-800 border-b border-primary-800/60 text-sm font-bold">
               <span className="text-xl">🏢</span>
               {lang === 'ar' ? 'من نحن' : 'About Us'}
+            </Link>
+            <Link href="/blog" onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center gap-3 px-5 py-4 text-white/80 hover:bg-primary-800 border-b border-primary-800/60 text-sm font-bold">
+              <span className="text-xl">📝</span>
+              المدونة
+            </Link>
+            <Link href="/contact" onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center gap-3 px-5 py-4 text-white/80 hover:bg-primary-800 border-b border-primary-800/60 text-sm font-bold">
+              <span className="text-xl">📞</span>
+              تواصل معنا
             </Link>
 
             {/* Bundle builder highlight link */}

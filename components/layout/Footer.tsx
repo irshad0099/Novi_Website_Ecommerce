@@ -57,6 +57,9 @@ export default function Footer() {
             <li><a href="#" className="hover:text-primary-300 transition-colors">رؤيتنا ورسالتنا</a></li>
             <li><a href="#" className="hover:text-primary-300 transition-colors">اعتماداتنا</a></li>
             <li><a href="#" className="hover:text-primary-300 transition-colors">وظائف لدينا</a></li>
+            <li><Link href="/contact" className="hover:text-primary-300 transition-colors">تواصل معنا</Link></li>
+            <li><Link href="/blog" className="hover:text-primary-300 transition-colors">المدونة</Link></li>
+            <li><Link href="/bulk-order" className="hover:text-primary-300 transition-colors">طلبات الجملة</Link></li>
           </ul>
           <div className="flex gap-2 mt-4">
             {['📸','🐦','💬','👻','🎵'].map((i, n) => (
@@ -86,6 +89,9 @@ export default function Footer() {
             {supportLinks.map((lbl, i) => (
               <li key={i}><a href="#" className="text-sm text-white/55 hover:text-primary-300 transition-colors">{lbl}</a></li>
             ))}
+            <li><Link href="/order-tracking" className="hover:text-primary-300 transition-colors text-sm text-white/55">تتبع الطلب</Link></li>
+            <li><Link href="/shipping" className="hover:text-primary-300 transition-colors text-sm text-white/55">الشحن والإرجاع</Link></li>
+            <li><Link href="/privacy" className="hover:text-primary-300 transition-colors text-sm text-white/55">سياسة الخصوصية</Link></li>
           </ul>
         </div>
 

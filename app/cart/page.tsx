@@ -10,6 +10,8 @@ export default function CartPage() {
   const { items, removeItem, updateQty, subtotal, shipping, discount, total, applyCoupon, removeCoupon, couponCode, couponPct } = useCart()
   const [coupon, setCoupon] = useState('')
   const [mounted, setMounted] = useState(false)
+  const [giftMsg, setGiftMsg] = useState('')
+  const [showGift, setShowGift] = useState(false)
   useEffect(() => setMounted(true), [])
 
   if (!mounted) return null
@@ -72,6 +74,42 @@ export default function CartPage() {
                 <Link href="/category/all" className="flex items-center gap-2 text-primary-500 font-bold text-sm hover:text-primary-700 pt-2">
                   ← متابعة التسوق
                 </Link>
+
+                {/* Gift Message */}
+                <div className="bg-white border border-primary-100 rounded-2xl p-5">
+                  <button
+                    onClick={() => setShowGift(v => !v)}
+                    className={`w-full flex items-center justify-between text-sm font-bold transition-all ${showGift ? 'text-primary-900' : 'text-primary-600'}`}
+                  >
+                    <span>🎁 إضافة رسالة هدية</span>
+                    <span>{showGift ? '▲' : '▼'}</span>
+                  </button>
+                  {showGift && (
+                    <div className="mt-3">
+                      <div className={`border-2 rounded-xl overflow-hidden transition-colors ${giftMsg ? 'border-primary-400' : 'border-primary-200'}`}>
+                        <textarea
+                          value={giftMsg}
+                          onChange={e => setGiftMsg(e.target.value.slice(0, 150))}
+                          placeholder="اكتب رسالتك هنا... مثال: كل عام وأنت بخير يا أمي 💙"
+                          rows={3}
+                          className="w-full px-4 py-3 text-sm text-primary-900 bg-white resize-none focus:outline-none"
+                        />
+                        <div className="flex items-center justify-between px-4 py-2 bg-primary-50 border-t border-primary-100">
+                          <span className="text-xs text-primary-400">الحد الأقصى ١٥٠ حرفاً</span>
+                          <span className={`text-xs font-bold ${giftMsg.length >= 140 ? 'text-red-500' : 'text-primary-400'}`}>
+                            {giftMsg.length}/150
+                          </span>
+                        </div>
+                      </div>
+                      {giftMsg && (
+                        <div className="mt-2 bg-primary-50 border border-primary-200 rounded-xl px-4 py-3">
+                          <p className="text-xs font-bold text-primary-600 mb-1">معاينة الرسالة:</p>
+                          <p className="text-sm text-primary-800 italic">"{giftMsg}"</p>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Summary */}
@@ -102,6 +140,12 @@ export default function CartPage() {
                     <span className={ship === 0 ? 'text-emerald-600 font-bold' : ''}>{ship === 0 ? 'مجاني 🎉' : `${ship.toFixed(2)} ر.س`}</span>
                   </div>
                   {disc > 0 && <div className="flex justify-between text-sm text-emerald-600 font-bold"><span>الخصم ({couponPct}٪)</span><span>-{disc.toFixed(2)} ر.س</span></div>}
+                  {giftMsg && (
+                    <div className="flex justify-between text-sm text-primary-600">
+                      <span>رسالة هدية</span>
+                      <span className="text-emerald-600 font-bold">✓ مضافة</span>
+                    </div>
+                  )}
                   {sub < 150 && (
                     <div className="bg-primary-50 border border-primary-200 rounded-xl p-3 text-center">
                       <p className="text-xs text-primary-700 font-semibold">🚚 أضف <strong>{(150-sub).toFixed(2)} ر.س</strong> للشحن المجاني!</p>

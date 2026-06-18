@@ -10,6 +10,7 @@ import StickyCartBar from '@/components/product/StickyCartBar'
 import SizeGuide from '@/components/product/SizeGuide'
 import BackInStock from '@/components/product/BackInStock'
 import SubscriptionModal from '@/components/SubscriptionModal'
+import BeforeAfter from '@/components/product/BeforeAfter'
 import { useT } from '@/hooks/useT'
 import { formatPrice, formatDiscount, toArabicNumerals } from '@/lib/format'
 import type { Product } from '@/types'
@@ -118,6 +119,15 @@ export default function ProductDetails({ product: p }: { product: Product }) {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Before / After slider */}
+        <div className="mt-6">
+          <h3 className="text-base font-black text-primary-900 mb-3">قبل وبعد — الفرق واضح</h3>
+          <BeforeAfter
+            before="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=600&q=80"
+            after="https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?w=600&q=80"
+          />
         </div>
 
         {/* Size guide */}

@@ -5,6 +5,7 @@ import CustomCursor from '@/components/CustomCursor'
 import BrandSplash from '@/components/BrandSplash'
 import CookieConsent from '@/components/CookieConsent'
 import PageTransition from '@/components/PageTransition'
+import LiveChat from '@/components/LiveChat'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CustomCursor />
         <BrandSplash />
         <CookieConsent />
+        <LiveChat />
         <Toaster
           position="bottom-center"
           toastOptions={{

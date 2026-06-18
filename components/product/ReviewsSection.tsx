@@ -61,6 +61,7 @@ export default function ReviewsSection({ productRating, reviewCount }: { product
   const [formName, setFormName]     = useState('')
   const [formText, setFormText]     = useState('')
   const [submitted, setSubmitted]   = useState(false)
+  const [formPhotos, setFormPhotos] = useState<string[]>([])
   const { t, lang } = useT()
 
   const fmt = (n: number | string) => lang === 'ar' ? toArabicNumerals(n) : String(n)
@@ -82,7 +83,7 @@ export default function ReviewsSection({ productRating, reviewCount }: { product
     e.preventDefault()
     if (!formRating || !formName.trim() || !formText.trim()) return
     setSubmitted(true)
-    setTimeout(() => { setShowForm(false); setSubmitted(false); setFormRating(0); setFormName(''); setFormText('') }, 2000)
+    setTimeout(() => { setShowForm(false); setSubmitted(false); setFormRating(0); setFormName(''); setFormText(''); setFormPhotos([]) }, 2000)
   }
 
   return (
@@ -134,6 +135,47 @@ export default function ReviewsSection({ productRating, reviewCount }: { product
                   className="w-full px-4 py-2.5 border border-primary-200 rounded-xl text-sm bg-white text-primary-900 focus:outline-none focus:border-primary-400 resize-none"
                 />
               </div>
+              {/* Photo upload */}
+              <div>
+                <p className="text-xs text-primary-500 mb-1.5 font-semibold">{lang === 'ar' ? 'أضف صورة (اختياري)' : 'Add Photo (optional)'}</p>
+                <div className="flex gap-2 flex-wrap">
+                  {formPhotos.map((url, idx) => (
+                    <div key={idx} className="relative">
+                      <img src={url} alt="review photo" className="w-16 h-16 rounded-xl object-cover border border-primary-200" />
+                      <button
+                        type="button"
+                        onClick={() => setFormPhotos(p => p.filter((_, i) => i !== idx))}
+                        className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-red-500 text-white rounded-full text-[10px] flex items-center justify-center"
+                      >✕</button>
+                    </div>
+                  ))}
+                  {formPhotos.length < 3 && (
+                    <label className="w-16 h-16 border-2 border-dashed border-primary-300 rounded-xl flex flex-col items-center justify-center cursor-pointer hover:border-primary-500 hover:bg-primary-50 transition-colors">
+                      <span className="text-primary-400 text-lg">📷</span>
+                      <span className="text-[9px] text-primary-400 font-bold">{lang === 'ar' ? 'إضافة' : 'Add'}</span>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={e => {
+                          const file = e.target.files?.[0]
+                          if (!file) return
+                          const reader = new FileReader()
+                          reader.onload = (ev) => {
+                            if (ev.target?.result) setFormPhotos(p => [...p, ev.target!.result as string])
+                          }
+                          reader.readAsDataURL(file)
+                          e.target.value = ''
+                        }}
+                      />
+                    </label>
+                  )}
+                </div>
+                {formPhotos.length > 0 && (
+                  <p className="text-[10px] text-primary-400 mt-1">{formPhotos.length}/3 {lang === 'ar' ? 'صور' : 'photos'}</p>
+                )}
+              </div>
+
               <div className="flex gap-3">
                 <button type="submit" disabled={!formRating || !formName.trim() || !formText.trim()}
                   className="flex-1 g-gold text-white font-black py-2.5 rounded-xl text-sm disabled:opacity-40 disabled:cursor-not-allowed">

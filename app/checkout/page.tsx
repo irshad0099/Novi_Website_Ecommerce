@@ -28,6 +28,10 @@ export default function CheckoutPage() {
   const [couponInput, setCouponInput] = useState('')
   const [couponLoading, setCouponLoading] = useState(false)
 
+  const POINTS_BALANCE = 240
+  const POINTS_VALUE = Number((POINTS_BALANCE * 0.05).toFixed(2))
+  const [usePoints, setUsePoints] = useState(false)
+
   const [form, setForm] = useState({ firstName:'', lastName:'', phone:'', email:'', address:'', city:'الرياض', postal:'', notes:'' })
   const [card, setCard] = useState({ number:'', expiry:'', cvv:'', name:'' })
   const [errors, setErrors] = useState<Record<string,string>>({})
@@ -36,6 +40,7 @@ export default function CheckoutPage() {
   if (!mounted) return null
 
   const sub = subtotal(), ship = shipping(), disc = discount(), tot = total()
+  const finalTotal = usePoints ? Math.max(0, tot - POINTS_VALUE) : tot
 
   const set = (k: string, v: string) => setForm(f => ({...f, [k]: v}))
 
@@ -108,6 +113,32 @@ export default function CheckoutPage() {
       <Header />
       <main className="min-h-screen bg-primary-50 py-8">
         <div className="max-w-screen-xl mx-auto px-4">
+          {/* Progress Steps */}
+          <div className="mb-8">
+            <div className="flex items-center justify-between relative">
+              {/* Connecting line background */}
+              <div className="absolute top-5 right-0 left-0 h-0.5 bg-primary-200 z-0" />
+              {/* Connecting line fill */}
+              <div className="absolute top-5 right-0 h-0.5 bg-primary-700 z-0 transition-all" style={{ width: '50%' }} />
+              {[
+                { step: 1, label: 'سلة التسوق', done: true },
+                { step: 2, label: 'التفاصيل', active: true },
+                { step: 3, label: 'الدفع', upcoming: true },
+                { step: 4, label: 'تم الطلب', upcoming: true },
+              ].map(s => (
+                <div key={s.step} className="flex flex-col items-center gap-2 z-10 relative">
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-sm border-2 transition-all
+                    ${s.done ? 'g-gold text-white border-primary-700' :
+                      s.active ? 'bg-white border-primary-700 text-primary-700 animate-pulse' :
+                      'bg-white border-primary-200 text-primary-300'}`}>
+                    {s.done ? '✓' : s.step}
+                  </div>
+                  <span className={`text-xs font-bold ${s.done || s.active ? 'text-primary-700' : 'text-primary-300'}`}>{s.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="flex items-center gap-3 mb-7">
             <Link href="/cart" className="text-primary-400 hover:text-primary-700 transition-colors">← السلة</Link>
             <span className="text-primary-200">›</span>
@@ -213,6 +244,18 @@ export default function CheckoutPage() {
                       </div>
                     ))}
                   </div>
+                  {/* Loyalty points */}
+                  <div className="border border-primary-200 rounded-xl p-3 mb-3 bg-primary-50">
+                    <label className="flex items-center gap-3 cursor-pointer">
+                      <input type="checkbox" checked={usePoints} onChange={e => setUsePoints(e.target.checked)} className="accent-primary-600 w-4 h-4" />
+                      <div className="flex-1">
+                        <p className="text-sm font-black text-primary-900">استخدم نقاطك</p>
+                        <p className="text-xs text-primary-500">{POINTS_BALANCE} نقطة = {POINTS_VALUE} ر.س خصم</p>
+                      </div>
+                      <span className="text-xs font-black text-primary-600 bg-white border border-primary-200 px-2 py-1 rounded-lg">{POINTS_BALANCE} نقطة</span>
+                    </label>
+                  </div>
+
                   <div className="space-y-2 text-sm border-t border-primary-100 pt-3">
                     <div className="flex justify-between text-primary-600"><span>المجموع</span><span>{sub.toFixed(2)} ر.س</span></div>
                     <div className="flex justify-between text-primary-600">
@@ -221,15 +264,16 @@ export default function CheckoutPage() {
                     </div>
                     {disc > 0 && <div className="flex justify-between text-emerald-600 font-bold"><span>خصم {couponPct}٪</span><span>-{disc.toFixed(2)} ر.س</span></div>}
                     {couponCode && <div className="text-xs text-primary-400 text-left">كود: {couponCode}</div>}
+                    {usePoints && <div className="flex justify-between text-emerald-600 font-bold"><span>خصم النقاط</span><span>-{POINTS_VALUE} ر.س</span></div>}
                   </div>
                   <div className="flex justify-between font-black text-base mt-3 pt-3 border-t border-primary-100">
                     <span>الإجمالي</span>
-                    <span className="text-primary-600">{tot.toFixed(2)} ر.س</span>
+                    <span className="text-primary-600">{finalTotal.toFixed(2)} ر.س</span>
                   </div>
 
                   <button onClick={placeOrder} disabled={placing}
                     className={`w-full py-4 rounded-2xl font-black text-[15px] mt-4 transition-all shadow-lg ${placing ? 'bg-emerald-500 text-white' : 'g-gold text-white hover:shadow-xl'}`}>
-                    {placing ? '⏳ جاري تأكيد الطلب...' : `✅ تأكيد الطلب — ${tot.toFixed(2)} ر.س`}
+                    {placing ? '⏳ جاري تأكيد الطلب...' : `✅ تأكيد الطلب — ${finalTotal.toFixed(2)} ر.س`}
                   </button>
                   <p className="text-center text-[10px] text-primary-400 mt-2">🔒 بيانات مشفرة بالكامل</p>
                 </div>
