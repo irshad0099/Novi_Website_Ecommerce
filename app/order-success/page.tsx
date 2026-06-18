@@ -43,7 +43,7 @@ function SuccessContent() {
         </div>
 
         <div className="space-y-3">
-          <Link href="/" className="w-full g-gold text-primary-900 font-black py-3.5 rounded-2xl flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-shadow">
+          <Link href="/" className="w-full g-gold text-white font-black py-3.5 rounded-2xl flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-shadow">
             🛍️ متابعة التسوق
           </Link>
           <Link href="/category/bundles" className="w-full bg-primary-900 text-primary-200 font-black py-3.5 rounded-2xl flex items-center justify-center gap-2 hover:bg-primary-800 transition-colors">

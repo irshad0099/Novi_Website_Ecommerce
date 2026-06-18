@@ -31,7 +31,7 @@ export default function Home() {
 
         {/* ─── STATS STRIP ─── */}
         <div className="g-gold overflow-x-auto scrollbar-hide">
-          <div className="max-w-screen-xl mx-auto px-4 py-3 md:py-4 flex items-center justify-around gap-4 md:gap-6 text-primary-900" style={{minWidth:'max-content'}}>
+          <div className="max-w-screen-xl mx-auto px-4 py-3 md:py-4 flex items-center justify-around gap-4 md:gap-6 text-white" style={{minWidth:'max-content'}}>
             {[['🚚','شحن مجاني','فوق ١٥٠ ريال'],['✅','معتمدة رسمياً','SFDA'],['🔄','إرجاع مجاني','٧ أيام'],['💳','تابي وتمارا','تقسيط بدون فائدة'],['🌿','طبيعي ١٠٠٪','بدون كيماويات']].map(([i,tx,s]) => (
               <div key={tx as string} className="flex items-center gap-2">
                 <span className="text-xl md:text-2xl">{i}</span>
@@ -161,7 +161,7 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-2 bg-white border border-primary-200 px-3 py-1.5 md:px-4 md:py-2 rounded-xl">
                 <span className="text-lg md:text-xl font-black text-primary-600">٤.٩</span>
-                <span className="text-amber-400 text-sm">★★★★★</span>
+                <span className="text-primary-400 text-sm">★★★★★</span>
                 <span className="text-[11px] text-primary-400">(+٢,٤٠٠)</span>
               </div>
             </div>
@@ -176,8 +176,8 @@ export default function Home() {
               ].map(([init,name,prod,date,txt]) => (
                 <div key={name as string} className="bg-white border border-primary-100 rounded-2xl p-5 hover:shadow-md transition-shadow">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-full g-gold flex items-center justify-center font-black text-primary-900 flex-shrink-0">{init}</div>
-                    <div><p className="font-bold text-sm text-primary-900">{name}</p><p className="text-amber-400 text-[11px]">⭐⭐⭐⭐⭐ <span className="text-primary-400">{date}</span></p></div>
+                    <div className="w-10 h-10 rounded-full g-gold flex items-center justify-center font-black text-white flex-shrink-0">{init}</div>
+                    <div><p className="font-bold text-sm text-primary-900">{name}</p><p className="text-primary-400 text-[11px]">⭐⭐⭐⭐⭐ <span className="text-primary-400">{date}</span></p></div>
                   </div>
                   <p className="text-[13px] text-primary-700 leading-relaxed mb-3">{txt}</p>
                   <p className="text-[10px] text-primary-400 border-t border-primary-50 pt-2">المنتج: {prod}</p>
@@ -189,7 +189,7 @@ export default function Home() {
 
         {/* ─── BRAND STORY STRIP ─── */}
         <section className="py-10 md:py-14 bg-primary-900 relative overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none" style={{background:'radial-gradient(ellipse 60% 70% at 50% 50%, rgba(201,168,76,0.12) 0%, transparent 70%)'}} />
+          <div className="absolute inset-0 pointer-events-none" style={{background:'radial-gradient(ellipse 60% 70% at 50% 50%, rgba(26,52,97,0.12) 0%, transparent 70%)'}} />
           <div className="relative z-10 max-w-screen-xl mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
               <img src="/logo-combined.png" alt="نَدى الحرير" className="h-20 w-auto object-contain flex-shrink-0 opacity-90" />
@@ -208,7 +208,7 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <Link href="/about" className="flex-shrink-0 g-gold text-primary-900 font-black px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-shadow text-sm">
+              <Link href="/about" className="flex-shrink-0 g-gold text-white font-black px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-shadow text-sm">
                 اعرف قصتنا ←
               </Link>
             </div>

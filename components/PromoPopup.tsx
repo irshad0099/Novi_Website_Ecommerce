@@ -76,7 +76,7 @@ export default function PromoPopup() {
         <div
           className="absolute -inset-1 rounded-3xl opacity-60"
           style={{
-            background: 'linear-gradient(135deg, #c9a84c, #f5d78e, #c9a84c)',
+            background: 'linear-gradient(135deg, #1a3461, #2669a0, #1a3461)',
             filter: 'blur(8px)',
             zIndex: -1,
           }}
@@ -85,14 +85,14 @@ export default function PromoPopup() {
         <div
           className="relative rounded-3xl overflow-hidden shadow-2xl"
           style={{
-            background: 'linear-gradient(145deg, #0f0c02 0%, #1a1500 50%, #0a0700 100%)',
-            border: '1px solid rgba(201,168,76,0.4)',
+            background: 'linear-gradient(145deg, #040c18 0%, #081628 50%, #030c16 100%)',
+            border: '1px solid rgba(26,52,97,0.4)',
           }}
         >
           {/* Top decorative strip */}
           <div
             className="h-1 w-full"
-            style={{ background: 'linear-gradient(90deg, #c9a84c, #f5d78e, #c9a84c)' }}
+            style={{ background: 'linear-gradient(90deg, #1a3461, #2669a0, #1a3461)' }}
           />
 
           {/* Progress bar */}
@@ -101,7 +101,7 @@ export default function PromoPopup() {
               className="h-full transition-none"
               style={{
                 width: `${progress}%`,
-                background: 'linear-gradient(90deg, #c9a84c, #f5d78e)',
+                background: 'linear-gradient(90deg, #1a3461, #2669a0)',
                 transition: 'width 0.05s linear',
               }}
             />
@@ -125,8 +125,8 @@ export default function PromoPopup() {
               <span
                 className="text-[11px] font-black px-4 py-1.5 rounded-full tracking-wider uppercase"
                 style={{
-                  background: 'linear-gradient(135deg, #c9a84c, #f5d78e)',
-                  color: '#0a0700',
+                  background: 'linear-gradient(135deg, #1a3461, #2669a0)',
+                  color: '#ffffff',
                 }}
               >
                 ✨ عرض حصري لزوار الموقع
@@ -139,7 +139,7 @@ export default function PromoPopup() {
             {/* Headline */}
             <h2
               className="text-center text-2xl font-black mb-2 leading-snug"
-              style={{ color: '#f5d78e', fontFamily: 'Amiri, serif' }}
+              style={{ color: '#ffffff', fontFamily: 'Amiri, serif' }}
             >
               خصم ٥٠٪ على أول طلب!
             </h2>
@@ -153,14 +153,14 @@ export default function PromoPopup() {
             <div
               className="flex items-center justify-between rounded-2xl px-5 py-3.5 mb-5"
               style={{
-                background: 'rgba(201,168,76,0.12)',
-                border: '1.5px dashed rgba(201,168,76,0.5)',
+                background: 'rgba(26,52,97,0.12)',
+                border: '1.5px dashed rgba(26,52,97,0.5)',
               }}
             >
               <span className="text-white/50 text-xs">كود الخصم</span>
               <span
                 className="text-xl font-black tracking-widest"
-                style={{ color: '#f5d78e', fontFamily: 'monospace' }}
+                style={{ color: '#82b0d5', fontFamily: 'monospace' }}
               >
                 FIRST50
               </span>
@@ -171,7 +171,7 @@ export default function PromoPopup() {
                   if (el) { el.style.opacity = '1'; setTimeout(() => { el.style.opacity = '0' }, 1500) }
                 }}
                 className="text-[11px] font-bold px-3 py-1 rounded-lg transition-all"
-                style={{ background: 'rgba(201,168,76,0.2)', color: '#c9a84c' }}
+                style={{ background: 'rgba(26,52,97,0.2)', color: '#82b0d5' }}
               >
                 نسخ
               </button>
@@ -181,7 +181,7 @@ export default function PromoPopup() {
             <p
               id="copied-msg"
               className="text-center text-xs mb-3 transition-opacity"
-              style={{ color: '#c9a84c', opacity: 0 }}
+              style={{ color: '#82b0d5', opacity: 0 }}
             >
               ✅ تم نسخ الكود!
             </p>
@@ -192,9 +192,9 @@ export default function PromoPopup() {
               onClick={close}
               className="block w-full text-center py-4 rounded-2xl font-black text-[15px] transition-all hover:scale-[1.02] hover:shadow-xl active:scale-95"
               style={{
-                background: 'linear-gradient(135deg, #c9a84c 0%, #f5d78e 50%, #c9a84c 100%)',
-                color: '#0a0700',
-                boxShadow: '0 8px 30px rgba(201,168,76,0.35)',
+                background: 'linear-gradient(135deg, #1a3461 0%, #2669a0 50%, #1a3461 100%)',
+                color: '#ffffff',
+                boxShadow: '0 8px 30px rgba(26,52,97,0.35)',
               }}
             >
               🛒 تسوق الآن واستخدم الكود

@@ -75,7 +75,7 @@ export default function CompareDrawer() {
                   <td key={p.id} className="pt-2 text-center">
                     <Link
                       href={`/products/${p.slug}`}
-                      className="inline-block text-[11px] font-black g-gold text-primary-900 px-3 py-1.5 rounded-lg"
+                      className="inline-block text-[11px] font-black g-gold text-white px-3 py-1.5 rounded-lg"
                     >
                       {t('compare','view')}
                     </Link>

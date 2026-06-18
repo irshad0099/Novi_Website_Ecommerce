@@ -74,7 +74,7 @@ export default function Header() {
                 placeholder={t('header', 'searchPlh')}
                 className="flex-1 px-4 py-2 rounded-full border-2 border-primary-200 bg-primary-50 text-sm text-primary-900 placeholder:text-primary-400 focus:outline-none focus:border-primary-400"
               />
-              <button type="submit" className="g-gold text-primary-900 font-bold text-xs px-4 py-2 rounded-full flex-shrink-0">
+              <button type="submit" className="g-gold text-white font-bold text-xs px-4 py-2 rounded-full flex-shrink-0">
                 🔍
               </button>
               <button type="button" onClick={() => setSearchOpen(false)} className="p-2 text-primary-400">
@@ -108,7 +108,7 @@ export default function Header() {
                 placeholder={t('header', 'searchPlh')}
                 className="w-full pr-4 pl-24 py-2.5 rounded-full border-2 border-primary-200 bg-primary-50 text-sm text-primary-900 placeholder:text-primary-400 focus:outline-none focus:border-primary-400 transition-colors"
               />
-              <button type="submit" className="absolute left-1 top-[5px] g-gold text-primary-900 font-bold text-xs px-4 py-1.5 rounded-full">
+              <button type="submit" className="absolute left-1 top-[5px] g-gold text-white font-bold text-xs px-4 py-1.5 rounded-full">
                 {t('header', 'searchBtn')}
               </button>
             </form>
@@ -167,7 +167,7 @@ export default function Header() {
 
             {/* Account — desktop only */}
             {mounted && isAuthenticated() ? (
-              <Link href="/account" className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full g-gold text-primary-900 text-xs font-black">
+              <Link href="/account" className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full g-gold text-white text-xs font-black">
                 <span>{user?.firstName?.[0] || '؟'}</span>
                 <span className="max-w-[80px] truncate">{user?.firstName}</span>
               </Link>

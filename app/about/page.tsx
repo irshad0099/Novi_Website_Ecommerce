@@ -17,7 +17,7 @@ export default function AboutPage() {
 
         {/* ── Hero ── */}
         <section className="relative overflow-hidden bg-primary-900 py-20 md:py-28 px-4 text-center">
-          <div className="absolute inset-0 pointer-events-none" style={{background:'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,168,76,0.18) 0%, transparent 70%)'}} />
+          <div className="absolute inset-0 pointer-events-none" style={{background:'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(26,52,97,0.18) 0%, transparent 70%)'}} />
           <div className="absolute inset-0 gradient-animated pointer-events-none" />
           <div className="relative z-10 max-w-3xl mx-auto">
             <span className="inline-block bg-primary-300/10 border border-primary-400/30 text-primary-300 px-4 py-1.5 rounded-full text-xs font-bold mb-5">
@@ -38,8 +38,8 @@ export default function AboutPage() {
           <div className="max-w-screen-xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             {[['٢٠١٩','سنة التأسيس'],['+٥٠ألف','عميل سعيد'],['٤.٩⭐','متوسط التقييم'],['٩٢+','منتج في المتجر']].map(([n,l]) => (
               <div key={l}>
-                <p className="text-2xl md:text-3xl font-black text-primary-900">{n}</p>
-                <p className="text-[11px] text-primary-800/70 mt-0.5">{l}</p>
+                <p className="text-2xl md:text-3xl font-black text-white">{n}</p>
+                <p className="text-[11px] text-white/70 mt-0.5">{l}</p>
               </div>
             ))}
           </div>
@@ -62,7 +62,7 @@ export default function AboutPage() {
                     <p className="text-xs text-primary-400">عميل سعيد في المملكة</p>
                   </div>
                   <div className="absolute -top-4 -left-4 g-gold rounded-2xl px-4 py-2 shadow-lg">
-                    <p className="text-xs font-black text-primary-900">🏆 الأفضل تقييماً ٢٠٢٤</p>
+                    <p className="text-xs font-black text-white">🏆 الأفضل تقييماً ٢٠٢٤</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -83,7 +83,7 @@ export default function AboutPage() {
                   </p>
                 </div>
                 <div className="flex gap-3 mt-7 flex-wrap">
-                  <Link href="/#products" className="g-gold text-primary-900 font-black px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-shadow text-sm">
+                  <Link href="/#products" className="g-gold text-white font-black px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-shadow text-sm">
                     🛒 تسوق الآن
                   </Link>
                   <Link href="/category/bundles" className="bg-primary-900 text-primary-200 font-black px-6 py-2.5 rounded-full hover:bg-primary-800 transition-colors text-sm">
@@ -181,7 +181,7 @@ export default function AboutPage() {
               أكثر من ٥٠,٠٠٠ أسرة سعودية اختارت نَدى الحرير.<br/>شحن مجاني فوق ١٥٠ ريال • إرجاع ٧ أيام مجاناً
             </p>
             <div className="flex gap-3 justify-center flex-wrap">
-              <Link href="/#products" className="g-gold text-primary-900 font-black px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-shadow">
+              <Link href="/#products" className="g-gold text-white font-black px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-shadow">
                 🛒 تسوق الآن
               </Link>
               <Link href="/category/bundles" className="bg-primary-900 text-primary-200 font-black px-8 py-3.5 rounded-full hover:bg-primary-800 transition-colors">

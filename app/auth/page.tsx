@@ -118,7 +118,7 @@ function AuthForm() {
                 </div>
                 <button
                   type="submit" disabled={loading}
-                  className="w-full g-gold text-primary-900 font-black py-3.5 rounded-2xl shadow-md hover:shadow-lg transition-shadow disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full g-gold text-white font-black py-3.5 rounded-2xl shadow-md hover:shadow-lg transition-shadow disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {loading ? 'جاري التحقق...' : '🔑 تسجيل الدخول'}
                 </button>
@@ -192,7 +192,7 @@ function AuthForm() {
                 </div>
                 <button
                   type="submit" disabled={loading}
-                  className="w-full g-gold text-primary-900 font-black py-3.5 rounded-2xl shadow-md hover:shadow-lg transition-shadow disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full g-gold text-white font-black py-3.5 rounded-2xl shadow-md hover:shadow-lg transition-shadow disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {loading ? 'جاري الإنشاء...' : '✨ إنشاء الحساب'}
                 </button>

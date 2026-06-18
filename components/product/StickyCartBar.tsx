@@ -39,13 +39,13 @@ export default function StickyCartBar({ product, triggerRef }: {
       <div className="max-w-screen-xl mx-auto px-4 py-3 flex items-center gap-4">
         <div className="flex-1 min-w-0">
           <p className="text-primary-200 font-bold text-sm clamp-1">{lang === 'ar' ? product.name : (product as any).nameEn ?? product.name}</p>
-          <p className="text-amber-400 font-black text-sm">{product.price.toFixed(2)} ر.س</p>
+          <p className="text-primary-400 font-black text-sm">{product.price.toFixed(2)} ر.س</p>
         </div>
         <button
           onClick={handleAdd}
           disabled={added}
           className={`flex-shrink-0 px-6 py-3 rounded-2xl font-black text-sm transition-all shadow-lg
-            ${added ? 'bg-emerald-500 text-white' : 'g-gold text-primary-900'}`}
+            ${added ? 'bg-emerald-500 text-white' : 'g-gold text-white'}`}
         >
           {added
             ? '✅'

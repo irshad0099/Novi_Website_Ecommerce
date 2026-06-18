@@ -84,7 +84,7 @@ export default function WishlistPage() {
               </p>
               <Link
                 href="/products"
-                className="g-gold text-primary-900 font-black px-8 py-3.5 rounded-full inline-flex items-center gap-2 shadow-md hover:shadow-xl transition-shadow text-sm"
+                className="g-gold text-white font-black px-8 py-3.5 rounded-full inline-flex items-center gap-2 shadow-md hover:shadow-xl transition-shadow text-sm"
               >
                 🛍️ تصفح المنتجات
               </Link>
@@ -155,7 +155,7 @@ function WishlistCard({
 
       {/* Image */}
       <Link href={`/products/${p.slug}`}>
-        <div className="aspect-square overflow-hidden bg-gradient-to-br from-primary-50 to-amber-50">
+        <div className="aspect-square overflow-hidden bg-gradient-to-br from-primary-50 to-primary-100">
           {!imgErr ? (
             <img
               src={p.images[0]}
@@ -174,7 +174,7 @@ function WishlistCard({
         {/* Badge */}
         {p.badge && (
           <span className={`self-start text-[9px] font-black px-2 py-0.5 rounded-full mb-1.5 ${
-            p.badge.color === 'gold'   ? 'bg-amber-100 text-amber-800' :
+            p.badge.color === 'gold'   ? 'bg-primary-100 text-primary-800' :
             p.badge.color === 'red'    ? 'bg-red-100 text-red-700' :
             p.badge.color === 'green'  ? 'bg-emerald-100 text-emerald-700' :
             p.badge.color === 'blue'   ? 'bg-blue-100 text-blue-700' :
@@ -192,7 +192,7 @@ function WishlistCard({
 
         {/* Rating */}
         <div className="flex items-center gap-1 mb-2">
-          <span className="text-amber-400 text-[10px]">{'★'.repeat(Math.floor(p.rating))}</span>
+          <span className="text-primary-400 text-[10px]">{'★'.repeat(Math.floor(p.rating))}</span>
           <span className="text-[10px] text-primary-400">({p.reviewCount.toLocaleString('ar-SA')})</span>
         </div>
 
@@ -210,7 +210,7 @@ function WishlistCard({
           className={`w-full py-2.5 rounded-xl font-black text-[12px] md:text-[13px] transition-all mt-auto ${
             added
               ? 'bg-emerald-500 text-white scale-95'
-              : 'g-gold text-primary-900 hover:shadow-md hover:scale-[1.01]'
+              : 'g-gold text-white hover:shadow-md hover:scale-[1.01]'
           }`}
         >
           {added ? '✅ أضيف!' : '🛒 أضف للسلة'}

@@ -47,7 +47,7 @@ function UpsellCard({ product: p }: { product: import('@/types').Product }) {
           className={`w-full py-1 rounded-lg text-[10px] font-black transition-all ${
             added
               ? 'bg-emerald-500 text-white scale-95'
-              : 'g-gold text-primary-900 hover:opacity-90'
+              : 'g-gold text-white hover:opacity-90'
           }`}
         >
           {added ? '✅' : '+'}
@@ -169,7 +169,7 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
               <div className="text-5xl mb-4">🛒</div>
               <p className="text-lg font-black text-primary-700 mb-1">{t('cart','empty')}</p>
               <p className="text-sm text-primary-400 mb-6">{t('cart','emptySub')}</p>
-              <button onClick={onClose} className="g-gold text-primary-900 font-black px-6 py-2.5 rounded-full text-sm">
+              <button onClick={onClose} className="g-gold text-white font-black px-6 py-2.5 rounded-full text-sm">
                 {t('cart','startShopping')}
               </button>
             </div>
@@ -255,7 +255,7 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
             <Link
               href="/checkout"
               onClick={onClose}
-              className="w-full g-gold text-primary-900 font-black py-3 md:py-3.5 rounded-2xl flex items-center justify-center gap-2 text-sm md:text-[15px] shadow-lg hover:shadow-xl transition-shadow"
+              className="w-full g-gold text-white font-black py-3 md:py-3.5 rounded-2xl flex items-center justify-center gap-2 text-sm md:text-[15px] shadow-lg hover:shadow-xl transition-shadow"
             >
               🔒 {t('cart','checkout')}
             </Link>

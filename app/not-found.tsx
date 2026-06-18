@@ -7,8 +7,8 @@ export default function NotFound() {
     <>
       <Header />
       <main className="min-h-[80vh] bg-primary-900 flex items-center justify-center px-4 relative overflow-hidden">
-        {/* Gold glow background */}
-        <div className="absolute inset-0 pointer-events-none" style={{background:'radial-gradient(ellipse 60% 50% at 50% 60%, rgba(201,168,76,0.15) 0%, transparent 70%)'}} />
+        {/* Navy glow background */}
+        <div className="absolute inset-0 pointer-events-none" style={{background:'radial-gradient(ellipse 60% 50% at 50% 60%, rgba(26,52,97,0.15) 0%, transparent 70%)'}} />
         <div className="absolute inset-0 gradient-animated pointer-events-none" />
 
         <div className="relative z-10 text-center max-w-md">
@@ -17,7 +17,7 @@ export default function NotFound() {
 
           {/* 404 */}
           <div className="text-[120px] font-black leading-none mb-2" style={{
-            background:'linear-gradient(135deg,#c9a84c,#e8c97a,#a07830)',
+            background:'linear-gradient(135deg,#1a3461,#2669a0,#153d6a)',
             WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent',
             fontFamily:'Amiri,serif',
           }}>
@@ -34,7 +34,7 @@ export default function NotFound() {
           </p>
 
           <div className="flex gap-3 justify-center flex-wrap">
-            <Link href="/" className="g-gold text-primary-900 font-black px-7 py-3 rounded-full shadow-lg hover:shadow-xl transition-shadow">
+            <Link href="/" className="g-gold text-white font-black px-7 py-3 rounded-full shadow-lg hover:shadow-xl transition-shadow">
               🏠 الرئيسية
             </Link>
             <Link href="/#products" className="bg-white/10 border border-white/20 text-white font-bold px-7 py-3 rounded-full hover:bg-white/20 transition-colors">

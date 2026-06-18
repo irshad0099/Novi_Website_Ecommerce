@@ -2,7 +2,7 @@
 import { useState } from 'react'
 
 function spawnConfetti(originX: number, originY: number) {
-  const colors = ['#c9a84c','#e8c97a','#a07830','#ffd700','#ff9d44','#fff']
+  const colors = ['#1a3461','#2669a0','#153d6a','#4a8abb','#82b0d5','#fff']
   for (let i = 0; i < 28; i++) {
     const el = document.createElement('div')
     const size = 5 + Math.random() * 8
@@ -60,7 +60,7 @@ export default function AddToCartButton({ product }: { product: Product }) {
         <button
           onClick={(e) => handleAdd(e)}
           disabled={added}
-          className={`flex-1 py-3 md:py-4 rounded-2xl font-black text-sm md:text-[15px] transition-all shadow-lg ${added ? 'bg-emerald-500 text-white' : 'g-gold text-primary-900 hover:shadow-xl'}`}
+          className={`flex-1 py-3 md:py-4 rounded-2xl font-black text-sm md:text-[15px] transition-all shadow-lg ${added ? 'bg-emerald-500 text-white' : 'g-gold text-white hover:shadow-xl'}`}
         >
           {added ? '✅ تمت الإضافة!' : `🛒 أضف للسلة — ${(product.price * qty).toFixed(2)} ر.س`}
         </button>

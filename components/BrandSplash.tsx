@@ -37,15 +37,15 @@ export default function BrandSplash() {
         }}
       />
       <p style={{
-        color: '#c9a84c', fontSize: 13, fontFamily: 'Cairo,sans-serif',
+        color: '#82b0d5', fontSize: 13, fontFamily: 'Cairo,sans-serif',
         letterSpacing: 1, opacity: 0.7, textAlign: 'center',
       }}>
         نعومة تلمسها • وجودة تثق بها
       </p>
-      {/* gold shimmer bar */}
+      {/* navy shimmer bar */}
       <div style={{
         marginTop: 24, width: 80, height: 2, borderRadius: 99,
-        background: 'linear-gradient(90deg,#c9a84c,#e8c97a,#c9a84c)',
+        background: 'linear-gradient(90deg,#1a3461,#2669a0,#1a3461)',
         backgroundSize: '200% 100%',
         animation: 'shimmer 1.2s ease-in-out infinite',
       }} />

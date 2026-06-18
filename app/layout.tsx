@@ -35,8 +35,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             style: {
               fontFamily: 'Cairo, sans-serif',
               direction: 'rtl',
-              background: '#110d03',
-              color: '#e4c574',
+              background: '#0c1a2e',
+              color: '#ffffff',
               borderRadius: '14px',
               padding: '12px 20px',
               fontSize: '14px',

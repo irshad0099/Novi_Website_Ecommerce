@@ -78,14 +78,14 @@ export default function QuickViewModal({ product: p, onClose }: Props) {
 
           <div className="flex flex-col md:flex-row">
             {/* ── Left: Image ── */}
-            <div className="w-full md:w-1/2 aspect-square bg-gradient-to-br from-primary-50 to-amber-50 flex-shrink-0 relative overflow-hidden">
+            <div className="w-full md:w-1/2 aspect-square bg-gradient-to-br from-primary-50 to-primary-100 flex-shrink-0 relative overflow-hidden">
               <img
                 src={p.images[0]}
                 alt={p.name}
                 className="w-full h-full object-cover"
               />
               {p.badge && (
-                <span className="absolute top-4 right-4 text-[11px] font-black px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 shadow">
+                <span className="absolute top-4 right-4 text-[11px] font-black px-2.5 py-1 rounded-full bg-primary-100 text-primary-800 shadow">
                   {p.badge.label}
                 </span>
               )}
@@ -106,7 +106,7 @@ export default function QuickViewModal({ product: p, onClose }: Props) {
 
               {/* Rating */}
               <div className="flex items-center gap-2">
-                <span className="text-amber-400 text-sm">{'★'.repeat(Math.floor(p.rating))}</span>
+                <span className="text-primary-400 text-sm">{'★'.repeat(Math.floor(p.rating))}</span>
                 <span className="text-[12px] text-primary-500">({p.reviewCount.toLocaleString('ar-SA')} تقييم)</span>
               </div>
 
@@ -126,7 +126,7 @@ export default function QuickViewModal({ product: p, onClose }: Props) {
                 <ul className="space-y-1.5">
                   {p.features.slice(0, 3).map((f, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-primary-700">
-                      <span className="text-amber-500 mt-0.5">✓</span>
+                      <span className="text-primary-500 mt-0.5">✓</span>
                       <span>{f}</span>
                     </li>
                   ))}
@@ -145,7 +145,7 @@ export default function QuickViewModal({ product: p, onClose }: Props) {
                 <button
                   onClick={() => { addItem(p); onClose() }}
                   disabled={!isInStock}
-                  className="flex-1 py-3 rounded-2xl font-black text-sm g-gold text-primary-900 hover:shadow-lg hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100"
+                  className="flex-1 py-3 rounded-2xl font-black text-sm g-gold text-white hover:shadow-lg hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100"
                 >
                   🛒 أضف للسلة
                 </button>

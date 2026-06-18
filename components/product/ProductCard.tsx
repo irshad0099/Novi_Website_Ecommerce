@@ -10,7 +10,7 @@ import { useT } from '@/hooks/useT'
 import QuickViewModal from '@/components/product/QuickViewModal'
 
 const BADGE_STYLES: Record<string, string> = {
-  gold:   'bg-amber-100 text-amber-800',
+  gold:   'bg-primary-100 text-primary-800',
   red:    'bg-red-100 text-red-700',
   green:  'bg-emerald-100 text-emerald-700',
   blue:   'bg-blue-100 text-blue-700',
@@ -18,7 +18,7 @@ const BADGE_STYLES: Record<string, string> = {
 }
 
 function spawnConfetti(originX: number, originY: number) {
-  const colors = ['#c9a84c','#e8c97a','#a07830','#ffd700','#ff9d44','#fff']
+  const colors = ['#1a3461','#2669a0','#153d6a','#4a8abb','#82b0d5','#fff']
   for (let i = 0; i < 20; i++) {
     const el = document.createElement('div')
     const size = 5 + Math.random() * 7
@@ -83,7 +83,7 @@ export default function ProductCard({ product: p }: { product: Product }) {
         <Link href={`/products/${p.slug}`} className="block">
           <article className="glass-card rounded-2xl overflow-hidden hover:border-primary-300 hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
             {/* Image */}
-            <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-primary-50 to-amber-50 flex-shrink-0">
+            <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-primary-50 to-primary-100 flex-shrink-0">
               {!imgErr ? (
                 <img src={p.images[0]} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError={() => setImgErr(true)} />
               ) : (
@@ -137,7 +137,7 @@ export default function ProductCard({ product: p }: { product: Product }) {
               <h3 className="text-[13px] font-bold text-primary-900 clamp-2 mb-2 leading-snug flex-1">{displayName}</h3>
 
               <div className="flex items-center gap-1.5 mb-2">
-                <span className="text-amber-400 text-xs">{'★'.repeat(Math.floor(p.rating))}</span>
+                <span className="text-primary-400 text-xs">{'★'.repeat(Math.floor(p.rating))}</span>
                 <span className="text-[11px] text-primary-500">({p.reviewCount.toLocaleString('ar-SA')})</span>
               </div>
 
@@ -152,7 +152,7 @@ export default function ProductCard({ product: p }: { product: Product }) {
               </div>
 
               {p.stock < 30 && !isLowStock && (
-                <p className="text-[10px] text-amber-600 font-semibold mb-2">
+                <p className="text-[10px] text-primary-600 font-semibold mb-2">
                   ⚠️ {t('card','lowStock').replace('{n}', String(p.stock))}
                 </p>
               )}
@@ -160,7 +160,7 @@ export default function ProductCard({ product: p }: { product: Product }) {
               <div className="flex gap-1.5 mt-auto">
                 <button
                   onClick={handleAdd}
-                  className={`flex-1 py-2.5 rounded-xl font-black text-[13px] transition-all ${added ? 'bg-emerald-500 text-white scale-95' : 'g-gold text-primary-900 hover:shadow-md hover:scale-[1.01]'}`}
+                  className={`flex-1 py-2.5 rounded-xl font-black text-[13px] transition-all ${added ? 'bg-emerald-500 text-white scale-95' : 'g-gold text-white hover:shadow-md hover:scale-[1.01]'}`}
                 >
                   {added ? t('card','added') : t('card','addToCart')}
                 </button>

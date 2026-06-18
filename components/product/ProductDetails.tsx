@@ -38,7 +38,7 @@ export default function ProductDetails({ product: p }: { product: Product }) {
         {/* Stars + Sold */}
         <div className="flex items-center flex-wrap gap-3">
           <div className="flex items-center gap-1.5">
-            <span className="text-amber-400 text-lg">{'★'.repeat(Math.floor(p.rating))}</span>
+            <span className="text-primary-400 text-lg">{'★'.repeat(Math.floor(p.rating))}</span>
             <span className="font-black text-primary-700 text-sm">{toArabicNumerals(p.rating)}</span>
             <span className="text-primary-400 text-xs">({toArabicNumerals(p.reviewCount)} {lang === 'ar' ? 'تقييم' : 'reviews'})</span>
           </div>
@@ -66,7 +66,7 @@ export default function ProductDetails({ product: p }: { product: Product }) {
         {/* Badge */}
         {p.badge && (
           <span className={`inline-block font-black text-xs px-3 py-1.5 rounded-full ${
-            p.badge.color === 'gold'  ? 'bg-amber-100 text-amber-800' :
+            p.badge.color === 'gold'  ? 'bg-primary-100 text-primary-800' :
             p.badge.color === 'red'   ? 'bg-red-100 text-red-700' :
             p.badge.color === 'green' ? 'bg-emerald-100 text-emerald-700' :
             'bg-blue-100 text-blue-700'
