@@ -5,7 +5,7 @@ import Link from 'next/link'
 const SLIDES = [
   {
     img: 'https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?w=1920&q=90',
-    overlay: 'linear-gradient(135deg,rgba(8,5,0,0.65) 0%,rgba(8,5,0,0.45) 50%,rgba(8,5,0,0.75) 100%)',
+    overlay: 'rgba(5,10,20,0.55)',
     bgText1: 'الأقوى',
     bgText2: 'الأجود',
     badge: '✨ العلامة الأولى للمناديل الفاخرة في المملكة',
@@ -17,11 +17,11 @@ const SLIDES = [
     cta2: '🎁 بكجات التوفير',
     cta2Href: '/category/bundles',
     stats: [['٦٠٠+','منديل/علبة'],['٣','طبقات ناعمة'],['+٥٠ألف','عميل سعيد']],
-    accentColor: '#c9a84c',
+    accentColor: '#ffffff',
   },
   {
     img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1920&q=90',
-    overlay: 'linear-gradient(135deg,rgba(0,10,30,0.70) 0%,rgba(0,10,30,0.45) 50%,rgba(0,10,30,0.80) 100%)',
+    overlay: 'rgba(5,10,20,0.55)',
     bgText1: 'نعومة',
     bgText2: 'تلمسها',
     badge: '🌿 طبيعي ١٠٠٪ — بدون كيماويات',
@@ -33,11 +33,11 @@ const SLIDES = [
     cta2: '🔬 اعرف أكثر',
     cta2Href: '/about',
     stats: [['١٢','مرحلة فحص'],['٠','كيماويات ضارة'],['٤.٩⭐','تقييم']],
-    accentColor: '#4ade80',
+    accentColor: '#82b0d5',
   },
   {
     img: 'https://images.unsplash.com/photo-1578895101003-571866c7d3c6?w=1920&q=90',
-    overlay: 'linear-gradient(135deg,rgba(20,5,0,0.70) 0%,rgba(20,5,0,0.45) 50%,rgba(20,5,0,0.80) 100%)',
+    overlay: 'rgba(5,10,20,0.55)',
     bgText1: 'جودة',
     bgText2: 'لا تُنافَس',
     badge: '✅ معتمدة SFDA — صُنع في المملكة',
@@ -49,11 +49,11 @@ const SLIDES = [
     cta2: '📖 قصتنا',
     cta2Href: '/about',
     stats: [['٢٠١٩','سنة التأسيس'],['SFDA','معتمدة'],['🇸🇦','صُنع بالسعودية']],
-    accentColor: '#c9a84c',
+    accentColor: '#ffffff',
   },
   {
     img: 'https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?w=1920&q=90',
-    overlay: 'linear-gradient(135deg,rgba(5,0,20,0.68) 0%,rgba(5,0,20,0.42) 50%,rgba(5,0,20,0.78) 100%)',
+    overlay: 'rgba(5,10,20,0.55)',
     bgText1: 'شحن',
     bgText2: 'مجاني',
     badge: '🚚 شحن مجاني فوق ١٥٠ ريال لجميع مناطق المملكة',
@@ -65,7 +65,7 @@ const SLIDES = [
     cta2: '💬 تواصل معنا',
     cta2Href: '#',
     stats: [['١–٣','أيام توصيل'],['٧','أيام إرجاع'],['COD','الدفع عند الاستلام']],
-    accentColor: '#60a5fa',
+    accentColor: '#82b0d5',
   },
 ]
 
@@ -115,9 +115,6 @@ export default function HeroSlider() {
       {/* ── Dark overlay ── */}
       <div className="absolute inset-0" style={{ background: slide.overlay }} />
 
-      {/* ── Animated gold radial glow ── */}
-      <div className="absolute inset-0 gradient-animated pointer-events-none" />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(201,168,76,0.2) 0%, transparent 65%)' }} />
 
       {/* ── HUGE background Arabic text (billboard effect) ── */}
       <div
@@ -208,7 +205,7 @@ export default function HeroSlider() {
         <div className="flex gap-3 flex-wrap justify-center">
           <Link
             href={slide.ctaHref}
-            className="g-gold text-primary-900 font-black px-7 md:px-9 py-3 md:py-3.5 rounded-full shadow-2xl hover:shadow-xl hover:scale-105 transition-all text-sm"
+            className="g-gold text-white font-black px-7 md:px-9 py-3 md:py-3.5 rounded-full shadow-2xl hover:shadow-xl hover:scale-105 transition-all text-sm"
           >
             {slide.cta}
           </Link>
@@ -231,7 +228,7 @@ export default function HeroSlider() {
       </div>
 
       {/* ── Brand badge top-right ── */}
-      <div className="absolute top-4 md:top-6 right-4 md:right-6 z-20 g-gold rounded-lg md:rounded-xl px-3 md:px-4 py-2 md:py-2.5 text-primary-900 shadow-lg text-center hidden sm:block">
+      <div className="absolute top-4 md:top-6 right-4 md:right-6 z-20 g-gold rounded-lg md:rounded-xl px-3 md:px-4 py-2 md:py-2.5 text-white shadow-lg text-center hidden sm:block">
         <p className="text-[10px] font-bold leading-none">شحن مجاني</p>
         <p className="text-xs font-black">فوق ١٥٠ ريال</p>
       </div>
@@ -266,7 +263,7 @@ export default function HeroSlider() {
             style={{
               width: i === current ? 28 : 8,
               height: 8,
-              background: i === current ? '#c9a84c' : 'rgba(255,255,255,0.35)',
+              background: i === current ? '#1a3461' : 'rgba(255,255,255,0.35)',
             }}
             aria-label={`Slide ${i + 1}`}
           />

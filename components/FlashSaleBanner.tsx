@@ -35,19 +35,19 @@ export default function FlashSaleBanner() {
   return (
     <div
       className="relative w-full text-white text-center py-2 md:py-2.5 px-8 md:px-4 flex items-center justify-center gap-2 md:gap-3 flex-wrap text-xs md:text-sm font-bold"
-      style={{ background: 'linear-gradient(90deg, #7c0000, #b91c1c, #7c0000)' }}
+      style={{ background: 'linear-gradient(90deg, #0f2a4d, #1a3461, #0f2a4d)' }}
     >
       <button
         onClick={() => setVisible(false)}
         className="absolute left-2 top-1/2 -translate-y-1/2 text-white/60 hover:text-white text-lg leading-none w-6 h-6 flex items-center justify-center"
       >×</button>
 
-      <span className="text-yellow-300 font-black">{t('flash', 'label')}</span>
+      <span className="text-white font-black">{t('flash', 'label')}</span>
       <span className="hidden sm:inline">{t('flash', 'text')} <span
-        className="font-black tracking-widest px-1.5 py-0.5 rounded text-red-900"
-        style={{ background: '#fde68a', fontFamily: 'monospace' }}
+        className="font-black tracking-widest px-1.5 py-0.5 rounded text-primary-900"
+        style={{ background: 'white', fontFamily: 'monospace' }}
       >FIRST50</span></span>
-      <span className="text-yellow-200 sm:hidden font-black" style={{ fontFamily: 'monospace' }}>FIRST50</span>
+      <span className="text-white sm:hidden font-black" style={{ fontFamily: 'monospace' }}>FIRST50</span>
       <span className="text-white/70 text-[10px] hidden sm:inline">{t('flash', 'endsIn')}</span>
 
       <div className="flex items-center gap-1 font-black">
@@ -58,11 +58,11 @@ export default function FlashSaleBanner() {
         ].map(({ v, l }, i) => (
           <span key={i} className="flex items-center gap-0.5">
             <span
-              className="inline-flex items-center justify-center rounded text-xs md:text-sm text-red-900 font-black"
-              style={{ background: '#fde68a', minWidth: 24, height: 20, padding: '0 3px' }}
+              className="inline-flex items-center justify-center rounded text-xs md:text-sm text-primary-900 font-black"
+              style={{ background: 'white', minWidth: 24, height: 20, padding: '0 3px' }}
             >{pad(v)}</span>
             <span className="text-white/70 text-[9px] md:text-[10px]">{l}</span>
-            {i < 2 && <span className="text-yellow-300 text-sm leading-none mx-0.5">:</span>}
+            {i < 2 && <span className="text-white/60 text-sm leading-none mx-0.5">:</span>}
           </span>
         ))}
       </div>

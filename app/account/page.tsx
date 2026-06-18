@@ -10,7 +10,7 @@ import toast from 'react-hot-toast'
 
 /* ─── Types ─── */
 const STATUS_CONFIG: Record<string, { color: string; bg: string; icon: string; steps: number }> = {
-  pending:    { color: 'text-amber-700',   bg: 'bg-amber-50 border-amber-200',   icon: '⏳', steps: 1 },
+  pending:    { color: 'text-primary-700',   bg: 'bg-primary-50 border-primary-200',   icon: '⏳', steps: 1 },
   confirmed:  { color: 'text-blue-700',    bg: 'bg-blue-50 border-blue-200',     icon: '✅', steps: 2 },
   processing: { color: 'text-purple-700',  bg: 'bg-purple-50 border-purple-200', icon: '📦', steps: 2 },
   shipped:    { color: 'text-indigo-700',  bg: 'bg-indigo-50 border-indigo-200', icon: '🚚', steps: 3 },
@@ -200,7 +200,7 @@ export default function AccountPage() {
         {/* ── Banner ── */}
         <div className="bg-primary-900 py-8 px-4">
           <div className="max-w-screen-xl mx-auto flex items-center gap-4">
-            <div className="w-16 h-16 rounded-full g-gold flex items-center justify-center text-2xl font-black text-primary-900 shadow-lg flex-shrink-0">
+            <div className="w-16 h-16 rounded-full g-gold flex items-center justify-center text-2xl font-black text-white shadow-lg flex-shrink-0">
               {initials}
             </div>
             <div>
@@ -270,7 +270,7 @@ export default function AccountPage() {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {[
                     { icon: '📦', label: 'إجمالي الطلبات',  value: String(orderStats.total ?? orders.length), color: 'bg-blue-50 border-blue-100', vc: 'text-blue-700' },
-                    { icon: '🚚', label: 'قيد الشحن',        value: String(orderStats.shipped ?? 0),           color: 'bg-amber-50 border-amber-100', vc: 'text-amber-700' },
+                    { icon: '🚚', label: 'قيد الشحن',        value: String(orderStats.shipped ?? 0),           color: 'bg-primary-50 border-primary-100', vc: 'text-primary-700' },
                     { icon: '✅', label: 'تم التوصيل',       value: String(orderStats.delivered ?? 0),          color: 'bg-emerald-50 border-emerald-100', vc: 'text-emerald-700' },
                     { icon: '❤️', label: 'في المفضلة',      value: String(wishlist.length || '—'),             color: 'bg-red-50 border-red-100', vc: 'text-red-700' },
                   ].map(c => (
@@ -362,7 +362,7 @@ export default function AccountPage() {
                   <div className="bg-white border border-primary-100 rounded-2xl p-12 text-center shadow-sm">
                     <div className="text-5xl mb-4">📦</div>
                     <p className="font-bold text-primary-600 mb-1">لا توجد طلبات</p>
-                    <Link href="/" className="mt-3 g-gold text-primary-900 font-black px-6 py-2.5 rounded-full text-sm inline-block">🛍️ تسوق الآن</Link>
+                    <Link href="/" className="mt-3 g-gold text-white font-black px-6 py-2.5 rounded-full text-sm inline-block">🛍️ تسوق الآن</Link>
                   </div>
                 )}
 
@@ -431,7 +431,7 @@ export default function AccountPage() {
                             <div className="flex justify-between font-black text-primary-900 border-t border-primary-200 pt-1 mt-1"><span>الإجمالي</span><span>{order.total?.toFixed(2)} ر.س</span></div>
                           </div>
                           <div className="flex gap-2 flex-wrap">
-                            {order.status === 'delivered' && <button className="g-gold text-primary-900 font-black text-xs px-4 py-2 rounded-full">⭐ تقييم الطلب</button>}
+                            {order.status === 'delivered' && <button className="g-gold text-white font-black text-xs px-4 py-2 rounded-full">⭐ تقييم الطلب</button>}
                             {['pending','confirmed'].includes(order.status) && (
                               <button
                                 onClick={() => handleCancelOrder(order._id)}
@@ -456,7 +456,7 @@ export default function AccountPage() {
                   <h2 className="font-black text-primary-900 text-lg">الملف الشخصي</h2>
                 </div>
                 <div className="px-6 py-5 border-b border-primary-50 flex items-center gap-5">
-                  <div className="w-20 h-20 rounded-full g-gold flex items-center justify-center text-3xl font-black text-primary-900 shadow-md flex-shrink-0">{initials}</div>
+                  <div className="w-20 h-20 rounded-full g-gold flex items-center justify-center text-3xl font-black text-white shadow-md flex-shrink-0">{initials}</div>
                   <div>
                     <p className="font-black text-primary-900">{fullName}</p>
                     <p className="text-xs text-primary-400 mt-0.5">{user.email}</p>
@@ -493,7 +493,7 @@ export default function AccountPage() {
                   </div>
                   <div className="pt-2">
                     <button onClick={saveProfile} disabled={profileSaving}
-                      className="g-gold text-primary-900 font-black px-7 py-2.5 rounded-full text-sm shadow hover:shadow-md transition-shadow disabled:opacity-60">
+                      className="g-gold text-white font-black px-7 py-2.5 rounded-full text-sm shadow hover:shadow-md transition-shadow disabled:opacity-60">
                       {profileSaving ? 'جاري الحفظ...' : 'حفظ التغييرات'}
                     </button>
                   </div>
@@ -531,7 +531,7 @@ export default function AccountPage() {
                     <h2 className="font-black text-primary-900 text-lg">عناويني</h2>
                     <p className="text-xs text-primary-400">{addresses.length} عنوان محفوظ</p>
                   </div>
-                  <button onClick={() => setAddingAddress(true)} className="g-gold text-primary-900 font-black text-xs px-4 py-2.5 rounded-full shadow">+ إضافة عنوان</button>
+                  <button onClick={() => setAddingAddress(true)} className="g-gold text-white font-black text-xs px-4 py-2.5 rounded-full shadow">+ إضافة عنوان</button>
                 </div>
 
                 {loadingAddresses && <div className="space-y-3">{[1,2].map(i => <Skeleton key={i} className="h-28 rounded-2xl" />)}</div>}
@@ -569,7 +569,7 @@ export default function AccountPage() {
                       تعيين كعنوان افتراضي
                     </label>
                     <div className="flex gap-2">
-                      <button onClick={handleAddAddress} className="g-gold text-primary-900 font-black text-xs px-5 py-2 rounded-full shadow">حفظ العنوان</button>
+                      <button onClick={handleAddAddress} className="g-gold text-white font-black text-xs px-5 py-2 rounded-full shadow">حفظ العنوان</button>
                       <button onClick={() => setAddingAddress(false)} className="border border-primary-200 text-primary-600 font-bold text-xs px-5 py-2 rounded-full">إلغاء</button>
                     </div>
                   </div>
@@ -579,7 +579,7 @@ export default function AccountPage() {
                   <div key={addr._id} className={`bg-white border rounded-2xl p-5 shadow-sm ${addr.isDefault ? 'border-primary-400' : 'border-primary-100'}`}>
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex items-center gap-2.5 flex-1 min-w-0">
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center text-lg flex-shrink-0 ${addr.isDefault ? 'g-gold text-primary-900' : 'bg-primary-100 text-primary-600'}`}>
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center text-lg flex-shrink-0 ${addr.isDefault ? 'g-gold text-white' : 'bg-primary-100 text-primary-600'}`}>
                           {addr.label === 'المنزل' ? '🏠' : '🏢'}
                         </div>
                         <div>
@@ -606,7 +606,7 @@ export default function AccountPage() {
                   <div className="bg-white border-2 border-dashed border-primary-200 rounded-2xl p-8 text-center">
                     <div className="text-4xl mb-2">📍</div>
                     <p className="font-bold text-primary-600 text-sm">لا توجد عناوين محفوظة</p>
-                    <button onClick={() => setAddingAddress(true)} className="mt-3 g-gold text-primary-900 font-black text-xs px-5 py-2 rounded-full shadow inline-block">+ إضافة عنوان</button>
+                    <button onClick={() => setAddingAddress(true)} className="mt-3 g-gold text-white font-black text-xs px-5 py-2 rounded-full shadow inline-block">+ إضافة عنوان</button>
                   </div>
                 )}
               </div>
@@ -621,7 +621,7 @@ export default function AccountPage() {
                   <div className="bg-white border border-primary-100 rounded-2xl p-12 text-center">
                     <div className="text-5xl mb-4">❤️</div>
                     <p className="font-bold text-primary-600">لا توجد منتجات في المفضلة</p>
-                    <Link href="/" className="mt-3 g-gold text-primary-900 font-black px-6 py-2.5 rounded-full text-sm inline-block">تسوق الآن</Link>
+                    <Link href="/" className="mt-3 g-gold text-white font-black px-6 py-2.5 rounded-full text-sm inline-block">تسوق الآن</Link>
                   </div>
                 )}
                 {!loadingWishlist && wishlist.length > 0 && (
@@ -635,7 +635,7 @@ export default function AccountPage() {
                           <p className="font-bold text-xs text-primary-900 line-clamp-2 mb-1">{p.name}</p>
                           <p className="text-primary-300 font-black text-sm mb-2">{p.price} ر.س</p>
                           <div className="flex gap-2">
-                            <Link href={`/products/${p.slug}`} className="flex-1 g-gold text-primary-900 font-black text-[10px] py-1.5 rounded-full text-center">عرض المنتج</Link>
+                            <Link href={`/products/${p.slug}`} className="flex-1 g-gold text-white font-black text-[10px] py-1.5 rounded-full text-center">عرض المنتج</Link>
                             <button onClick={() => handleRemoveWishlist(p._id)} className="border border-red-200 text-red-500 font-bold text-[10px] px-2 py-1.5 rounded-full hover:bg-red-50">✕</button>
                           </div>
                         </div>

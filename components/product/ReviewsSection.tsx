@@ -27,7 +27,7 @@ function Stars({ rating, size = 'sm' }: { rating: number; size?: 'sm' | 'lg' }) 
   return (
     <div className={`flex gap-0.5 ${size === 'lg' ? 'text-2xl' : 'text-sm'}`}>
       {[1,2,3,4,5].map(i => (
-        <span key={i} style={{ color: i <= rating ? '#f59e0b' : '#e5e7eb' }}>★</span>
+        <span key={i} style={{ color: i <= rating ? '#1a3461' : '#e5e7eb' }}>★</span>
       ))}
     </div>
   )
