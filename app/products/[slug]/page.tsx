@@ -56,7 +56,7 @@ export default function ProductPage({ params }: Props) {
           {related.length > 0 && (
             <section className="mt-12">
               <h2 className="text-xl font-black text-primary-900 mb-5" style={{fontFamily:'Amiri,serif'}}>
-                قد يعجبك أيضاً 💛
+                قد يعجبك أيضاً 🛍️
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 {related.map(rp => <ProductCard key={rp.id} product={rp} />)}

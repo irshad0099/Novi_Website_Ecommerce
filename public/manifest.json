@@ -1,22 +1,29 @@
 {
-  "name": "NOVI نوفي | المناديل الفاخرة",
-  "short_name": "NOVI",
-  "description": "أفخر مناديل وجه ومناشف في المملكة العربية السعودية",
+  "name": "نَدى الحرير | المناديل الفاخرة",
+  "short_name": "نَدى الحرير",
+  "description": "أفخر مناديل وجه ومناشف في المملكة العربية السعودية — طبيعية ١٠٠٪، معتمدة SFDA",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#0c1a2e",
-  "orientation": "portrait",
+  "theme_color": "#1a3461",
+  "orientation": "portrait-primary",
   "lang": "ar",
   "dir": "rtl",
+  "scope": "/",
+  "prefer_related_applications": false,
   "icons": [
-    { "src": "/logo.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    { "src": "/logo.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
-  "categories": ["shopping", "lifestyle"],
-  "screenshots": [],
+  "categories": ["shopping", "lifestyle", "health"],
+  "screenshots": [
+    { "src": "/logo.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow" }
+  ],
   "shortcuts": [
-    { "name": "المنتجات", "url": "/products", "description": "تصفح جميع المنتجات" },
-    { "name": "العروض", "url": "/products?featured=true", "description": "أحدث العروض" }
+    { "name": "المنتجات المميزة", "short_name": "المميزة", "url": "/#products", "description": "تصفح أفضل منتجاتنا" },
+    { "name": "بكج التوفير", "short_name": "البكجات", "url": "/bundles", "description": "وفّر حتى ١٥٪" },
+    { "name": "سلة التسوق", "short_name": "السلة", "url": "/cart", "description": "اعرض سلتك" },
+    { "name": "من نحن", "short_name": "عنّا", "url": "/about", "description": "قصة نَدى الحرير" }
   ]
 }

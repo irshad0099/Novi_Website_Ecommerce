@@ -3,6 +3,7 @@ import { Toaster } from 'react-hot-toast'
 import LanguageProvider from '@/components/LanguageProvider'
 import CustomCursor from '@/components/CustomCursor'
 import BrandSplash from '@/components/BrandSplash'
+import CookieConsent from '@/components/CookieConsent'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </LanguageProvider>
         <CustomCursor />
         <BrandSplash />
+        <CookieConsent />
         <Toaster
           position="bottom-center"
           toastOptions={{

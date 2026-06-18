@@ -128,6 +128,34 @@ export default function ProductDetails({ product: p }: { product: Product }) {
         {/* Delivery estimator */}
         <DeliveryEstimator />
 
+        {/* Social share */}
+        <div className="flex items-center gap-2 pt-1 flex-wrap">
+          <span className="text-xs text-primary-400 font-semibold">{lang === 'ar' ? 'شارك:' : 'Share:'}</span>
+          <a
+            href={`https://wa.me/?text=${encodeURIComponent((lang === 'ar' ? p.name : (p as any).nameEn ?? p.name) + ' - ' + p.price + ' ر.س')}`}
+            target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-1.5 bg-emerald-500 text-white font-bold text-xs px-3 py-1.5 rounded-full hover:bg-emerald-600 transition-colors"
+          >
+            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.546 4.07 1.5 5.785L0 24l6.435-1.487A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.85 0-3.583-.497-5.078-1.363L3 21.5l.88-3.82A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            واتساب
+          </a>
+          <a
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent((lang === 'ar' ? p.name : (p as any).nameEn ?? p.name))}&url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`}
+            target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-1.5 bg-primary-900 text-white font-bold text-xs px-3 py-1.5 rounded-full hover:bg-primary-700 transition-colors"
+          >
+            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            تويتر
+          </a>
+          <button
+            onClick={() => { navigator.clipboard?.writeText(typeof window !== 'undefined' ? window.location.href : ''); }}
+            className="flex items-center gap-1.5 bg-primary-100 text-primary-700 font-bold text-xs px-3 py-1.5 rounded-full hover:bg-primary-200 transition-colors"
+          >
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            {lang === 'ar' ? 'نسخ الرابط' : 'Copy Link'}
+          </button>
+        </div>
+
         {/* Trust badges */}
         <div className="grid grid-cols-3 gap-2 pt-1">
           {[
