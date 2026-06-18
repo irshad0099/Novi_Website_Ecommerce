@@ -115,7 +115,7 @@ export default function CheckoutPage() {
           </div>
 
           {items.length === 0 ? (
-            <div className="text-center py-20 bg-white rounded-3xl"><p className="text-lg font-black text-primary-700 mb-4">السلة فارغة</p><Link href="/" className="g-gold text-primary-900 font-black px-6 py-3 rounded-full">تسوق الآن</Link></div>
+            <div className="text-center py-20 bg-white rounded-3xl"><p className="text-lg font-black text-primary-700 mb-4">السلة فارغة</p><Link href="/" className="g-gold text-white font-black px-6 py-3 rounded-full">تسوق الآن</Link></div>
           ) : (
             <div className="grid lg:grid-cols-3 gap-6">
 
@@ -152,7 +152,7 @@ export default function CheckoutPage() {
                   <div className="space-y-3">
                     {PAYMENTS.map(pm => (
                       <label key={pm.id} className={`flex items-center gap-4 p-4 border-2 rounded-2xl cursor-pointer transition-all ${pay === pm.id ? 'border-primary-500 bg-primary-50' : 'border-primary-100 hover:border-primary-200 bg-white'}`} onClick={() => setPay(pm.id)}>
-                        <input type="radio" name="pay" value={pm.id} checked={pay === pm.id} onChange={() => setPay(pm.id)} className="accent-amber-500 w-4 h-4" />
+                        <input type="radio" name="pay" value={pm.id} checked={pay === pm.id} onChange={() => setPay(pm.id)} className="accent-primary-600 w-4 h-4" />
                         <span className="text-2xl">{pm.icon}</span>
                         <div className="flex-1">
                           <p className="font-black text-sm text-primary-900">{pm.label}</p>
@@ -228,7 +228,7 @@ export default function CheckoutPage() {
                   </div>
 
                   <button onClick={placeOrder} disabled={placing}
-                    className={`w-full py-4 rounded-2xl font-black text-[15px] mt-4 transition-all shadow-lg ${placing ? 'bg-emerald-500 text-white' : 'g-gold text-primary-900 hover:shadow-xl'}`}>
+                    className={`w-full py-4 rounded-2xl font-black text-[15px] mt-4 transition-all shadow-lg ${placing ? 'bg-emerald-500 text-white' : 'g-gold text-white hover:shadow-xl'}`}>
                     {placing ? '⏳ جاري تأكيد الطلب...' : `✅ تأكيد الطلب — ${tot.toFixed(2)} ر.س`}
                   </button>
                   <p className="text-center text-[10px] text-primary-400 mt-2">🔒 بيانات مشفرة بالكامل</p>

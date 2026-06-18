@@ -34,7 +34,7 @@ export default function CartPage() {
               <div className="text-7xl mb-5">🛒</div>
               <p className="text-xl font-black text-primary-700 mb-2">سلتك فارغة</p>
               <p className="text-primary-400 mb-7">أضف منتجات من متجرنا للبدء</p>
-              <Link href="/" className="g-gold text-primary-900 font-black px-8 py-3.5 rounded-full inline-block shadow-md">تسوق الآن →</Link>
+              <Link href="/" className="g-gold text-white font-black px-8 py-3.5 rounded-full inline-block shadow-md">تسوق الآن →</Link>
             </div>
           ) : (
             <div className="grid md:grid-cols-3 gap-6">
@@ -103,10 +103,10 @@ export default function CartPage() {
                   </div>
                   {disc > 0 && <div className="flex justify-between text-sm text-emerald-600 font-bold"><span>الخصم ({couponPct}٪)</span><span>-{disc.toFixed(2)} ر.س</span></div>}
                   {sub < 150 && (
-                    <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 text-center">
-                      <p className="text-xs text-amber-700 font-semibold">🚚 أضف <strong>{(150-sub).toFixed(2)} ر.س</strong> للشحن المجاني!</p>
-                      <div className="mt-2 bg-amber-200 rounded-full h-1.5">
-                        <div className="bg-amber-500 h-1.5 rounded-full transition-all" style={{width:`${Math.min(100,(sub/150)*100)}%`}} />
+                    <div className="bg-primary-50 border border-primary-200 rounded-xl p-3 text-center">
+                      <p className="text-xs text-primary-700 font-semibold">🚚 أضف <strong>{(150-sub).toFixed(2)} ر.س</strong> للشحن المجاني!</p>
+                      <div className="mt-2 bg-primary-200 rounded-full h-1.5">
+                        <div className="bg-primary-500 h-1.5 rounded-full transition-all" style={{width:`${Math.min(100,(sub/150)*100)}%`}} />
                       </div>
                     </div>
                   )}
@@ -114,7 +114,7 @@ export default function CartPage() {
                     <span>الإجمالي</span>
                     <span className="text-primary-600">{tot.toFixed(2)} ر.س</span>
                   </div>
-                  <Link href="/checkout" className="w-full g-gold text-primary-900 font-black py-4 rounded-2xl flex items-center justify-center gap-2 text-[15px] shadow-lg hover:shadow-xl transition-shadow">
+                  <Link href="/checkout" className="w-full g-gold text-white font-black py-4 rounded-2xl flex items-center justify-center gap-2 text-[15px] shadow-lg hover:shadow-xl transition-shadow">
                     🔒 إتمام الشراء
                   </Link>
                   <p className="text-center text-[10px] text-primary-400">🔒 دفع آمن SSL 256bit</p>

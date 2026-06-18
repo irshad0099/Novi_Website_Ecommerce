@@ -108,7 +108,7 @@ export default function NotificationBell() {
                 key={n.id}
                 onClick={() => markRead(n.id)}
                 className={`flex items-start gap-3 px-4 py-3 cursor-pointer transition-colors hover:bg-primary-50 ${
-                  !n.read ? 'bg-amber-50/40' : ''
+                  !n.read ? 'bg-primary-50/40' : ''
                 }`}
               >
                 {/* Icon bubble */}

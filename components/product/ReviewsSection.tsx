@@ -62,9 +62,9 @@ export default function ReviewsSection({ productRating, reviewCount }: { product
           {dist.map(({ r, pct }) => (
             <div key={r} className="flex items-center gap-2">
               <span className="text-xs text-primary-500 w-3">{r}</span>
-              <span className="text-amber-400 text-xs">★</span>
+              <span className="text-primary-400 text-xs">★</span>
               <div className="flex-1 h-2 bg-primary-200 rounded-full overflow-hidden">
-                <div className="h-full bg-amber-400 rounded-full" style={{ width: `${pct}%` }} />
+                <div className="h-full bg-primary-400 rounded-full" style={{ width: `${pct}%` }} />
               </div>
               <span className="text-xs text-primary-400 w-8">{fmt(pct)}%</span>
             </div>

@@ -90,7 +90,7 @@ export default function BundlesPage() {
             اختر منتجاتك واحصل على خصم تلقائي — كلما اخترت أكثر، وفّرت أكثر
           </p>
           <div className="mt-6 inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-5 py-2">
-            <span className="text-amber-400 text-sm font-bold">✨ حتى ١٥٪ خصم فوري</span>
+            <span className="text-primary-300 text-sm font-bold">✨ حتى ١٥٪ خصم فوري</span>
           </div>
         </section>
 
@@ -108,7 +108,7 @@ export default function BundlesPage() {
                   key={tier.count}
                   className={`rounded-2xl border-2 p-4 text-center transition-all duration-300 ${
                     isActive
-                      ? 'border-amber-400 bg-amber-50 shadow-lg scale-[1.03]'
+                      ? 'border-primary-500 bg-primary-50 shadow-lg scale-[1.03]'
                       : isPassed
                         ? 'border-emerald-400 bg-emerald-50'
                         : 'border-primary-200 bg-white'
@@ -116,7 +116,7 @@ export default function BundlesPage() {
                 >
                   <div className="text-2xl mb-1">{tier.emoji}</div>
                   <p className="text-xs font-bold text-primary-500 mb-1">{tier.label}</p>
-                  <p className={`text-xl font-black ${isActive ? 'text-amber-600' : isPassed ? 'text-emerald-600' : 'text-primary-700'}`}>
+                  <p className={`text-xl font-black ${isActive ? 'text-primary-700' : isPassed ? 'text-emerald-600' : 'text-primary-700'}`}>
                     {tier.pct}٪
                   </p>
                   <p className="text-[10px] text-primary-400 mt-0.5">خصم</p>
@@ -124,7 +124,7 @@ export default function BundlesPage() {
                     <span className="inline-block mt-1 text-[10px] font-black text-emerald-600">✓ محقق</span>
                   )}
                   {isActive && (
-                    <span className="inline-block mt-1 text-[10px] font-black text-amber-600">← أنت هنا</span>
+                    <span className="inline-block mt-1 text-[10px] font-black text-primary-600">← أنت هنا</span>
                   )}
                 </div>
               )
@@ -180,12 +180,12 @@ export default function BundlesPage() {
                     {/* Selection overlay ring */}
                     <div
                       className={`absolute inset-0 rounded-2xl pointer-events-none z-10 border-[3px] transition-all duration-200 ${
-                        sel ? 'border-amber-400' : 'border-transparent'
+                        sel ? 'border-primary-500' : 'border-transparent'
                       }`}
                     />
                     {/* Checkmark badge */}
                     {sel && (
-                      <div className="absolute top-2 right-2 z-20 w-6 h-6 rounded-full bg-amber-400 text-primary-900 text-xs font-black flex items-center justify-center shadow">
+                      <div className="absolute top-2 right-2 z-20 w-6 h-6 rounded-full bg-primary-600 text-white text-xs font-black flex items-center justify-center shadow">
                         ✓
                       </div>
                     )}
@@ -202,7 +202,7 @@ export default function BundlesPage() {
                           ? 'bg-red-500 text-white'
                           : disabled
                             ? 'bg-primary-200 text-primary-400 cursor-not-allowed'
-                            : 'g-gold text-primary-900 hover:shadow-md'
+                            : 'g-gold text-white hover:shadow-md'
                       }`}
                     >
                       {sel ? '✕ إزالة من البكج' : '＋ أضف للبكج'}
@@ -301,7 +301,7 @@ export default function BundlesPage() {
                       ? 'bg-emerald-500 text-white scale-95'
                       : selected.length === 0
                         ? 'bg-primary-100 text-primary-400 cursor-not-allowed'
-                        : 'g-gold text-primary-900 hover:shadow-lg hover:scale-[1.02]'
+                        : 'g-gold text-white hover:shadow-lg hover:scale-[1.02]'
                   }`}
                 >
                   {addedBundle
@@ -356,7 +356,7 @@ export default function BundlesPage() {
             <button
               onClick={handleAddBundle}
               className={`px-5 py-2.5 rounded-xl font-black text-sm transition-all flex-shrink-0 ${
-                addedBundle ? 'bg-emerald-500 text-white' : 'g-gold text-primary-900'
+                addedBundle ? 'bg-emerald-500 text-white' : 'g-gold text-white'
               }`}
             >
               {addedBundle ? '✅ أضيف!' : '🛒 أضف للسلة'}

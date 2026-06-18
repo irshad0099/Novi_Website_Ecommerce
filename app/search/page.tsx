@@ -40,7 +40,7 @@ function SearchResults() {
         {/* Search box */}
         <form onSubmit={submit} className="flex gap-3 max-w-xl mb-8">
           <input value={input} onChange={e => setInput(e.target.value)} placeholder="ابحث عن مناديل، مناشف..." className="flex-1 px-4 py-3 border-2 border-primary-200 rounded-2xl text-sm bg-white text-primary-900 focus:outline-none focus:border-primary-400" />
-          <button type="submit" className="g-gold text-primary-900 font-black px-6 py-3 rounded-2xl shadow-md">بحث</button>
+          <button type="submit" className="g-gold text-white font-black px-6 py-3 rounded-2xl shadow-md">بحث</button>
         </form>
 
         {q ? (

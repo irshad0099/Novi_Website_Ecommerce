@@ -74,7 +74,7 @@ export default function CategoryPage({ params }: Props) {
                 <span className="font-black text-primary-500">{lang === 'ar' ? `حتى ${priceMax} ر.س` : `Up to ${priceMax} SAR`}</span>
                 <input type="range" min={10} max={500} step={10} value={priceMax}
                   onChange={e => setPriceMax(+e.target.value)}
-                  className="w-24 accent-amber-500" />
+                  className="w-24 accent-primary-600" />
               </div>
               <select value={sort} onChange={e => setSort(e.target.value)}
                 className="border-2 border-primary-200 rounded-xl px-3 py-2 text-sm text-primary-700 bg-white focus:outline-none focus:border-primary-400 font-semibold">
@@ -124,7 +124,7 @@ export default function CategoryPage({ params }: Props) {
               <div className="text-6xl mb-4">🔍</div>
               <p className="text-lg font-bold text-primary-700 mb-2">{lang === 'ar' ? 'لا توجد منتجات' : 'No products found'}</p>
               <p className="text-sm mb-4">{lang === 'ar' ? 'جرّب تغيير السعر الأقصى أو اختر فئة أخرى' : 'Try adjusting the price or choose another category'}</p>
-              <Link href="/category/all" className="g-gold text-primary-900 font-black px-6 py-2.5 rounded-full text-sm">
+              <Link href="/category/all" className="g-gold text-white font-black px-6 py-2.5 rounded-full text-sm">
                 {lang === 'ar' ? 'عرض الكل' : 'View All'}
               </Link>
             </div>
