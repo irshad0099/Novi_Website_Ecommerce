@@ -15,6 +15,10 @@ import TestimonialsCarousel from '@/components/TestimonialsCarousel'
 import InstagramGrid from '@/components/InstagramGrid'
 import AnimatedCounters from '@/components/AnimatedCounter'
 import FAQSection from '@/components/FAQSection'
+import FlashDeal from '@/components/FlashDeal'
+import LoyaltyTiers from '@/components/LoyaltyTiers'
+import ReferralProgram from '@/components/ReferralProgram'
+import CouponWheel from '@/components/CouponWheel'
 import PRODUCTS, { CATEGORIES } from '@/lib/products'
 import Link from 'next/link'
 
@@ -44,6 +48,9 @@ export default function Home() {
             ))}
           </div>
         </div>
+
+        {/* ─── FLASH DEAL ─── */}
+        <FlashDeal />
 
         {/* ─── CATEGORIES ─── */}
         <section className="py-8 md:py-12 bg-primary-50">
@@ -155,6 +162,12 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ─── LOYALTY TIERS ─── */}
+        <LoyaltyTiers />
+
+        {/* ─── REFERRAL PROGRAM ─── */}
+        <ReferralProgram />
+
         {/* ─── ANIMATED COUNTERS ─── */}
         <AnimatedCounters />
 
@@ -258,6 +271,15 @@ export default function Home() {
                 اعرف قصتنا ←
               </Link>
             </div>
+          </div>
+        </section>
+
+        {/* ─── COUPON WHEEL ─── */}
+        <section className="py-10 bg-primary-50 text-center">
+          <div className="max-w-screen-xl mx-auto px-4">
+            <h2 className="text-xl font-black text-primary-900 mb-2" style={{fontFamily:'Amiri,serif'}}>🎰 العب واربح خصماً<span className="text-primary-400">.</span></h2>
+            <p className="text-primary-400 text-sm mb-5">دورة واحدة مجانية — اربح حتى ٢٠٪ خصم</p>
+            <CouponWheel />
           </div>
         </section>
 

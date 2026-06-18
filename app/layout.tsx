@@ -4,6 +4,7 @@ import LanguageProvider from '@/components/LanguageProvider'
 import CustomCursor from '@/components/CustomCursor'
 import BrandSplash from '@/components/BrandSplash'
 import CookieConsent from '@/components/CookieConsent'
+import PageTransition from '@/components/PageTransition'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ar" dir="rtl">
       <body>
         <LanguageProvider>
+        <PageTransition />
         {children}
         </LanguageProvider>
         <CustomCursor />

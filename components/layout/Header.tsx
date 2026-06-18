@@ -19,6 +19,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [showSuggestions, setShowSuggestions] = useState(false)
+  const [recentSearches, setRecentSearches] = useState<string[]>([])
   const searchRef = useRef<HTMLDivElement>(null)
   const count = useCart(s => s.count())
   const { user, isAuthenticated } = useAuth()
@@ -34,7 +35,13 @@ export default function Header() {
       ).slice(0, 6)
     : []
 
-  useEffect(() => { setMounted(true) }, [])
+  useEffect(() => {
+    setMounted(true)
+    try {
+      const stored = localStorage.getItem('recentSearches')
+      if (stored) setRecentSearches(JSON.parse(stored))
+    } catch {}
+  }, [])
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 50)
     window.addEventListener('scroll', h)
@@ -49,9 +56,26 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', handler)
   }, [])
 
+  const saveRecentSearch = (term: string) => {
+    try {
+      const updated = [term, ...recentSearches.filter(r => r !== term)].slice(0, 5)
+      setRecentSearches(updated)
+      localStorage.setItem('recentSearches', JSON.stringify(updated))
+    } catch {}
+  }
+
+  const clearRecentSearches = () => {
+    setRecentSearches([])
+    try { localStorage.removeItem('recentSearches') } catch {}
+  }
+
   const search = (e: React.FormEvent) => {
     e.preventDefault()
-    if (q.trim()) { router.push(`/search?q=${encodeURIComponent(q.trim())}`); setSearchOpen(false) }
+    if (q.trim()) {
+      saveRecentSearch(q.trim())
+      router.push(`/search?q=${encodeURIComponent(q.trim())}`)
+      setSearchOpen(false)
+    }
   }
 
   return (
@@ -113,11 +137,31 @@ export default function Header() {
               </button>
             </form>
             {/* Suggestions dropdown */}
-            {showSuggestions && suggestions.length > 0 && (
+            {showSuggestions && (suggestions.length > 0 || (q.trim().length === 0 && recentSearches.length > 0)) && (
               <div className="absolute top-full right-0 left-0 mt-2 bg-white border border-primary-100 rounded-2xl shadow-xl z-50 overflow-hidden anim-fade-up">
+                {/* Recent searches (shown when query is empty) */}
+                {q.trim().length === 0 && recentSearches.length > 0 && (
+                  <>
+                    <div className="flex items-center justify-between px-4 py-2 border-b border-primary-50">
+                      <span className="text-xs font-black text-primary-500">🕐 {lang === 'ar' ? 'بحث أخير' : 'Recent Searches'}</span>
+                      <button onClick={clearRecentSearches} className="text-[10px] text-primary-400 hover:text-primary-600 font-bold">
+                        {lang === 'ar' ? 'مسح' : 'Clear'}
+                      </button>
+                    </div>
+                    {recentSearches.map((term, idx) => (
+                      <button key={idx}
+                        onClick={() => { setQ(term); saveRecentSearch(term); router.push(`/search?q=${encodeURIComponent(term)}`); setShowSuggestions(false) }}
+                        className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-primary-50 transition-colors border-b border-primary-50 last:border-0 text-right">
+                        <span className="text-primary-300 text-sm">🕐</span>
+                        <span className="text-sm text-primary-700 font-semibold">{term}</span>
+                      </button>
+                    ))}
+                  </>
+                )}
+                {/* Product suggestions */}
                 {suggestions.map(p => (
                   <Link key={p.id} href={`/products/${p.slug}`}
-                    onClick={() => { setShowSuggestions(false); setQ('') }}
+                    onClick={() => { saveRecentSearch(q.trim()); setShowSuggestions(false); setQ('') }}
                     className="flex items-center gap-3 px-4 py-2.5 hover:bg-primary-50 transition-colors border-b border-primary-50 last:border-0">
                     <img src={p.images[0]} alt={p.name} className="w-10 h-10 rounded-lg object-cover flex-shrink-0" />
                     <div className="flex-1 min-w-0">
@@ -127,10 +171,12 @@ export default function Header() {
                     <span className="text-xs text-primary-300 flex-shrink-0">{p.category.icon}</span>
                   </Link>
                 ))}
-                <Link href={`/search?q=${encodeURIComponent(q)}`} onClick={() => setShowSuggestions(false)}
-                  className="flex items-center justify-center gap-2 px-4 py-3 bg-primary-50 text-primary-600 text-xs font-bold hover:bg-primary-100 transition-colors">
-                  🔍 {lang === 'ar' ? `عرض كل نتائج "${q}"` : `See all results for "${q}"`}
-                </Link>
+                {suggestions.length > 0 && (
+                  <Link href={`/search?q=${encodeURIComponent(q)}`} onClick={() => { saveRecentSearch(q.trim()); setShowSuggestions(false) }}
+                    className="flex items-center justify-center gap-2 px-4 py-3 bg-primary-50 text-primary-600 text-xs font-bold hover:bg-primary-100 transition-colors">
+                    🔍 {lang === 'ar' ? `عرض كل نتائج "${q}"` : `See all results for "${q}"`}
+                  </Link>
+                )}
               </div>
             )}
           </div>

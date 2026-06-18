@@ -54,17 +54,24 @@ export default function BottomNav() {
               key={href}
               href={href}
               className={`flex flex-col items-center justify-center flex-1 h-full gap-0.5 transition-colors relative
-                ${active ? 'text-primary-600' : 'text-primary-400 hover:text-primary-600'}`}
+                ${active ? 'text-primary-700' : 'text-primary-400 hover:text-primary-600'}`}
             >
+              {/* Active background pill */}
+              {active && (
+                <span className="absolute inset-x-2 inset-y-1.5 rounded-xl bg-primary-50 -z-10" />
+              )}
               {href === '/products' && mounted && count > 0 && (
                 <span className="absolute top-2 right-[calc(50%-14px)] min-w-[16px] h-4 bg-red-500 text-white text-[9px] font-black rounded-full flex items-center justify-center px-0.5 border border-white">
                   {count > 9 ? '9+' : count}
                 </span>
               )}
               {icon(active)}
-              <span className="text-[9px] font-bold">{t('nav', labelKey)}</span>
+              <span className={`text-[9px] ${active ? 'font-black text-primary-700' : 'font-bold'}`}>{t('nav', labelKey)}</span>
               {active && (
-                <span className="absolute top-0 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-primary-600" />
+                <>
+                  <span className="absolute top-0 left-1/2 -translate-x-1/2 w-6 h-0.5 rounded-full bg-primary-700" />
+                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary-700" />
+                </>
               )}
             </Link>
           )

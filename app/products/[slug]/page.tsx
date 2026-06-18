@@ -10,6 +10,7 @@ import CompareDrawer from '@/components/product/CompareDrawer'
 import BottomNav from '@/components/layout/BottomNav'
 import WhatsAppButton from '@/components/WhatsAppButton'
 import ScrollToTop from '@/components/ScrollToTop'
+import BundleRecommendation from '@/components/product/BundleRecommendation'
 import PRODUCTS from '@/lib/products'
 import Link from 'next/link'
 
@@ -51,6 +52,9 @@ export default function ProductPage({ params }: Props) {
 
           {/* Reviews */}
           <ReviewsSection productRating={p.rating} reviewCount={p.reviewCount} />
+
+          {/* Bundle recommendation */}
+          <BundleRecommendation current={p} products={PRODUCTS} />
 
           {/* Related */}
           {related.length > 0 && (

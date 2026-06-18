@@ -7,6 +7,9 @@ import DeliveryEstimator from '@/components/product/DeliveryEstimator'
 import GiftWrap from '@/components/product/GiftWrap'
 import LoyaltyPoints from '@/components/product/LoyaltyPoints'
 import StickyCartBar from '@/components/product/StickyCartBar'
+import SizeGuide from '@/components/product/SizeGuide'
+import BackInStock from '@/components/product/BackInStock'
+import SubscriptionModal from '@/components/SubscriptionModal'
 import { useT } from '@/hooks/useT'
 import { formatPrice, formatDiscount, toArabicNumerals } from '@/lib/format'
 import type { Product } from '@/types'
@@ -117,13 +120,24 @@ export default function ProductDetails({ product: p }: { product: Product }) {
           </div>
         </div>
 
+        {/* Size guide */}
+        <SizeGuide />
+
         {/* Gift wrap */}
         <GiftWrap />
 
-        {/* Add to cart */}
-        <div ref={addToCartRef}>
-          <AddToCartButton product={p} />
-        </div>
+        {/* Back in stock (shown only when out of stock) */}
+        {p.stock === 0 && <BackInStock productName={p.name} />}
+
+        {/* Add to cart (hidden when out of stock) */}
+        {p.stock > 0 && (
+          <div ref={addToCartRef}>
+            <AddToCartButton product={p} />
+          </div>
+        )}
+
+        {/* Subscription modal */}
+        {p.stock > 0 && <SubscriptionModal product={p} />}
 
         {/* Delivery estimator */}
         <DeliveryEstimator />
