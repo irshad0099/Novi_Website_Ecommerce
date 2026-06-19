@@ -15,6 +15,7 @@ import TestimonialsCarousel from '@/components/TestimonialsCarousel'
 import InstagramGrid from '@/components/InstagramGrid'
 import AnimatedCounters from '@/components/AnimatedCounter'
 import FAQSection from '@/components/FAQSection'
+import BrandStoryVideo from '@/components/BrandStoryVideo'
 import FlashDeal from '@/components/FlashDeal'
 import LoyaltyTiers from '@/components/LoyaltyTiers'
 import ReferralProgram from '@/components/ReferralProgram'
@@ -214,34 +215,7 @@ export default function Home() {
         </section>
 
         {/* ─── BRAND STORY VIDEO ─── */}
-        <section className="py-12 md:py-16 bg-primary-900 relative overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none" style={{background:'radial-gradient(ellipse 60% 60% at 50% 50%, rgba(38,105,160,0.15) 0%, transparent 70%)'}} />
-          <div className="relative z-10 max-w-screen-xl mx-auto px-4">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-black text-white" style={{fontFamily:'Amiri,serif'}}>
-                شاهد قصة NOVI <span className="text-primary-300">🎬</span>
-              </h2>
-              <p className="text-white/50 text-sm mt-2">من الرياض إلى كل بيت سعودي</p>
-            </div>
-            <div className="max-w-3xl mx-auto relative rounded-2xl overflow-hidden shadow-2xl border border-white/10" style={{aspectRatio:'16/9'}}>
-              <img
-                src="https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?w=1280&q=90"
-                alt="brand story"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-primary-900/60 flex items-center justify-center">
-                <button className="w-20 h-20 rounded-full bg-white/20 border-2 border-white/40 flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all backdrop-blur-sm">
-                  <svg className="w-8 h-8 text-white mr-[-4px]" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </button>
-              </div>
-              <div className="absolute bottom-4 right-4 bg-primary-900/70 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">
-                ٢:٣٠ دقيقة
-              </div>
-            </div>
-          </div>
-        </section>
+        <BrandStoryVideo />
 
         {/* ─── FAQ ─── */}
         <FAQSection />
