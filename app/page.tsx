@@ -16,6 +16,7 @@ import InstagramGrid from '@/components/InstagramGrid'
 import AnimatedCounters from '@/components/AnimatedCounter'
 import FAQSection from '@/components/FAQSection'
 import BrandStoryVideo from '@/components/BrandStoryVideo'
+import ManufacturingSection from '@/components/ManufacturingSection'
 import FlashDeal from '@/components/FlashDeal'
 import LoyaltyTiers from '@/components/LoyaltyTiers'
 import ReferralProgram from '@/components/ReferralProgram'
@@ -216,6 +217,9 @@ export default function Home() {
 
         {/* ─── BRAND STORY VIDEO ─── */}
         <BrandStoryVideo />
+
+        {/* ─── MANUFACTURING SECTION ─── */}
+        <ManufacturingSection />
 
         {/* ─── FAQ ─── */}
         <FAQSection />
