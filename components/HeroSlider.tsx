@@ -2,10 +2,11 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import Link from 'next/link'
 
-// Replace these video URLs with your actual brand videos (MP4 format recommended)
+const HERO_VIDEO = '/hero-video.mp4'
+
 const SLIDES = [
   {
-    video: 'https://videos.pexels.com/video-files/3195394/3195394-hd_1280_720_25fps.mp4',
+    video: HERO_VIDEO,
     overlay: 'rgba(5,10,20,0.58)',
     bgText1: 'الأقوى',
     bgText2: 'الأجود',
@@ -21,7 +22,7 @@ const SLIDES = [
     accentColor: '#ffffff',
   },
   {
-    video: 'https://videos.pexels.com/video-files/4792744/4792744-hd_1280_720_25fps.mp4',
+    video: HERO_VIDEO,
     overlay: 'rgba(5,10,20,0.58)',
     bgText1: 'نعومة',
     bgText2: 'تلمسها',
@@ -37,7 +38,7 @@ const SLIDES = [
     accentColor: '#82b0d5',
   },
   {
-    video: 'https://videos.pexels.com/video-files/5585026/5585026-hd_1280_720_25fps.mp4',
+    video: HERO_VIDEO,
     overlay: 'rgba(5,10,20,0.58)',
     bgText1: 'جودة',
     bgText2: 'لا تُنافَس',
@@ -53,7 +54,7 @@ const SLIDES = [
     accentColor: '#ffffff',
   },
   {
-    video: 'https://videos.pexels.com/video-files/4048091/4048091-hd_1280_720_25fps.mp4',
+    video: HERO_VIDEO,
     overlay: 'rgba(5,10,20,0.58)',
     bgText1: 'شحن',
     bgText2: 'مجاني',
@@ -119,7 +120,6 @@ export default function HeroSlider() {
       {/* ── Background video ── */}
       <video
         ref={videoRef}
-        key={slide.video}
         className="absolute inset-0 w-full h-full object-cover"
         style={{
           transform: animating
