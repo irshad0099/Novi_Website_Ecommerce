@@ -9,48 +9,59 @@ import { formatPrice, formatDiscount } from '@/lib/format'
 import { useT } from '@/hooks/useT'
 import QuickViewModal from '@/components/product/QuickViewModal'
 
-// Lifestyle/usage images per category — shown on hover
-const HOVER_IMGS: Record<string, string[]> = {
+// Tissue/napkin usage images — all 100% napkin/tissue in real context
+const USAGE_IMGS: Record<string, string[]> = {
   'face-tissue': [
-    'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=85',
-    'https://images.unsplash.com/photo-1559181567-c3190144543a?w=600&q=85',
-    'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=85',
-    'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=85',
+    'https://images.unsplash.com/photo-1584651772793-d555266cce99?w=600&q=90', // tissue box on desk
+    'https://images.unsplash.com/photo-1708337338728-9fe34ccb91b4?w=600&q=90', // tissue dispenser
+    'https://images.unsplash.com/photo-1607516531499-9e57ef94a9d9?w=600&q=90', // floral tissue box on table
+    'https://images.unsplash.com/photo-1746351635660-67a0c51f5c6f?w=600&q=90', // tissue box lifestyle
+    'https://images.unsplash.com/photo-1609840112990-4265448268d1?w=600&q=90', // tissue box clear
   ],
   'wet-wipes': [
-    'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&q=85',
-    'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&q=85',
-    'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=85',
-    'https://images.unsplash.com/photo-1584813470613-5b1c1cad3d69?w=600&q=85',
+    'https://images.unsplash.com/photo-1584743578805-d7991ca2d5d4?w=600&q=90', // wipes pack open
+    'https://images.unsplash.com/photo-1734599395438-1ec2a861ed8d?w=600&q=90', // organic wipes lifestyle
+    'https://images.unsplash.com/photo-1584109807991-ebfcd80112a8?w=600&q=90', // tissue roll blue bg
+    'https://images.unsplash.com/photo-1620778864482-5f20e3d9745a?w=600&q=90', // paper roll texture
   ],
   'kitchen': [
-    'https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=600&q=85',
-    'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&q=85',
-    'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=85',
-    'https://images.unsplash.com/photo-1543353071-873f17a7a088?w=600&q=85',
+    'https://images.unsplash.com/photo-1598046937985-11c320dfd379?w=600&q=90', // tissue roll white
+    'https://images.unsplash.com/photo-1585690359409-9020f3602bdb?w=600&q=90', // multiple paper rolls
+    'https://images.unsplash.com/photo-1583496597467-d968d2fa33a8?w=600&q=90', // toilet paper white table
+    'https://images.unsplash.com/photo-1620778864482-5f20e3d9745a?w=600&q=90', // paper roll texture
   ],
   'cotton-towels': [
-    'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=600&q=85',
-    'https://images.unsplash.com/photo-1620977741926-cdaf81ee4576?w=600&q=85',
-    'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&q=85',
-    'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=85',
+    'https://images.unsplash.com/photo-1583496597467-d968d2fa33a8?w=600&q=90', // white cotton rolls on table
+    'https://images.unsplash.com/photo-1585690359409-9020f3602bdb?w=600&q=90', // white paper rolls stacked
+    'https://images.unsplash.com/photo-1598046937985-11c320dfd379?w=600&q=90', // towel roll white
+    'https://images.unsplash.com/photo-1620778864482-5f20e3d9745a?w=600&q=90', // paper texture close
   ],
   'pocket': [
-    'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=85',
-    'https://images.unsplash.com/photo-1590114072880-9b5d9cefc70b?w=600&q=85',
-    'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=85',
-    'https://images.unsplash.com/photo-1527525443983-6e60c75fff46?w=600&q=85',
+    'https://images.unsplash.com/photo-1746351635660-67a0c51f5c6f?w=600&q=90', // pocket tissue pack
+    'https://images.unsplash.com/photo-1607516531499-9e57ef94a9d9?w=600&q=90', // tissue pack lifestyle
+    'https://images.unsplash.com/photo-1584651772793-d555266cce99?w=600&q=90', // tissue on table
   ],
   'specialty': [
-    'https://images.unsplash.com/photo-1619994403073-2cec844b8e63?w=600&q=85',
-    'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=85',
-    'https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&q=85',
+    'https://images.unsplash.com/photo-1607516531499-9e57ef94a9d9?w=600&q=90', // decorative tissue box
+    'https://images.unsplash.com/photo-1746351635660-67a0c51f5c6f?w=600&q=90', // premium tissue
+    'https://images.unsplash.com/photo-1584651772793-d555266cce99?w=600&q=90', // tissue on wood desk
   ],
   'bundles': [
-    'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=85',
-    'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=85',
-    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=85',
+    'https://images.unsplash.com/photo-1585690359409-9020f3602bdb?w=600&q=90', // multiple rolls stacked
+    'https://images.unsplash.com/photo-1583496597467-d968d2fa33a8?w=600&q=90', // tissue rolls on table
+    'https://images.unsplash.com/photo-1598046937985-11c320dfd379?w=600&q=90', // tissue roll bundle
+    'https://images.unsplash.com/photo-1584109807991-ebfcd80112a8?w=600&q=90', // tissue pack blue bg
   ],
+}
+
+const USAGE_LABEL: Record<string, string> = {
+  'face-tissue': 'مناديل الوجه • على الطاولة',
+  'wet-wipes': 'مناديل مبللة • للاستخدام اليومي',
+  'kitchen': 'مناشف المطبخ • في المطبخ',
+  'cotton-towels': 'مناشف قطنية • للاستخدام المنزلي',
+  'pocket': 'مناديل الجيب • في أي مكان',
+  'specialty': 'منتجات خاصة',
+  'bundles': 'بكجات التوفير • للمنزل',
 }
 
 const BADGE_STYLES: Record<string, string> = {
@@ -88,12 +99,12 @@ export default function ProductCard({ product: p }: { product: Product }) {
   const [liked, setLiked] = useState(false)
   const [added, setAdded] = useState(false)
   const [imgErr, setImgErr] = useState(false)
-  const [hovered, setHovered] = useState(false)
+  const [flipped, setFlipped] = useState(false)
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null)
-  const [tilt, setTilt] = useState({ x: 0, y: 0 })
 
-  const catImgs = HOVER_IMGS[p.category.slug] ?? []
-  const hoverSrc = catImgs.length > 0 ? catImgs[p.id % catImgs.length] : p.images[1]
+  const catImgs = USAGE_IMGS[p.category.slug] ?? []
+  const usageSrc = catImgs.length > 0 ? catImgs[p.id % catImgs.length] : p.images[1]
+  const usageLabel = USAGE_LABEL[p.category.slug] ?? ''
   const inCompare = has(p.id)
 
   const displayName = lang === 'en' ? ((p as any).nameEn ?? p.name) : p.name
@@ -107,96 +118,135 @@ export default function ProductCard({ product: p }: { product: Product }) {
     setTimeout(() => setAdded(false), 700)
   }
 
-  const handleTilt = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    const x = (e.clientX - rect.left) / rect.width - 0.5
-    const y = (e.clientY - rect.top) / rect.height - 0.5
-    setTilt({ x: x * 10, y: y * 10 })
-  }
-
   const isLowStock = p.stock > 0 && p.stock < 20
 
   return (
     <>
-      <div
-        className="group block relative"
-        onMouseMove={handleTilt}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => { setTilt({ x: 0, y: 0 }); setHovered(false) }}
-        style={{
-          transform: `perspective(600px) rotateX(${-tilt.y}deg) rotateY(${tilt.x}deg) translateY(${tilt.x || tilt.y ? -5 : 0}px)`,
-          transition: (tilt.x || tilt.y) ? 'transform 0.05s linear' : 'transform 0.5s ease',
-          borderRadius: 16,
-        }}
-      >
+      <div className="group block relative" style={{ borderRadius: 16 }}>
         <Link href={`/products/${p.slug}`} className="block">
-          <article className="glass-card rounded-2xl overflow-hidden hover:border-primary-300 hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
-            {/* Image */}
-            <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-primary-50 to-primary-100 flex-shrink-0">
-              {!imgErr ? (
-                <>
-                  {/* Product image — fades out on hover */}
-                  <img
-                    src={p.images[0]}
-                    alt={p.name}
-                    className="absolute inset-0 w-full h-full object-cover transition-all duration-500"
-                    style={{ opacity: hovered ? 0 : 1, transform: hovered ? 'scale(1.06)' : 'scale(1)' }}
-                    onError={() => setImgErr(true)}
-                  />
-                  {/* Lifestyle/usage image — fades in on hover */}
-                  <img
-                    src={hoverSrc}
-                    alt={`${p.name} — in use`}
-                    className="absolute inset-0 w-full h-full object-cover transition-all duration-500"
-                    style={{ opacity: hovered ? 1 : 0, transform: hovered ? 'scale(1)' : 'scale(1.06)' }}
-                  />
-                </>
-              ) : (
-                <div className="w-full h-full flex items-center justify-center text-6xl">🧻</div>
-              )}
+          <article className="glass-card rounded-2xl overflow-hidden hover:border-primary-300 hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
 
-              {/* Badges */}
-              <div className="absolute top-2 right-2 flex flex-col gap-1">
-                {p.badge && <span className={`text-[10px] font-black px-2 py-1 rounded-full shadow-sm ${BADGE_STYLES[p.badge.color]}`}>{p.badge.label}</span>}
-                {(p as any).isNewArrival && !p.badge && <span className="text-[10px] font-black px-2 py-1 rounded-full bg-blue-100 text-blue-700 shadow-sm">{t('card','new')}</span>}
+            {/* ── FLIP IMAGE SECTION ── */}
+            <div
+              className="relative flex-shrink-0"
+              style={{ perspective: '1000px', aspectRatio: '1/1' }}
+              onMouseEnter={() => setFlipped(true)}
+              onMouseLeave={() => setFlipped(false)}
+            >
+              {/* 3D flip inner */}
+              <div
+                style={{
+                  transformStyle: 'preserve-3d',
+                  transition: 'transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)',
+                  transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                  position: 'relative',
+                  width: '100%',
+                  height: '100%',
+                }}
+              >
+                {/* ── FRONT: product image ── */}
+                <div
+                  className="absolute inset-0 rounded-t-2xl overflow-hidden bg-gradient-to-br from-primary-50 to-primary-100"
+                  style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+                >
+                  {!imgErr ? (
+                    <img
+                      src={p.images[0]}
+                      alt={p.name}
+                      className="w-full h-full object-cover"
+                      onError={() => setImgErr(true)}
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-6xl">🧻</div>
+                  )}
+
+                  {/* Badges */}
+                  <div className="absolute top-2 right-2 flex flex-col gap-1">
+                    {p.badge && <span className={`text-[10px] font-black px-2 py-1 rounded-full shadow-sm ${BADGE_STYLES[p.badge.color]}`}>{p.badge.label}</span>}
+                    {(p as any).isNewArrival && !p.badge && <span className="text-[10px] font-black px-2 py-1 rounded-full bg-blue-100 text-blue-700 shadow-sm">{t('card','new')}</span>}
+                  </div>
+
+                  {/* Wishlist */}
+                  <button
+                    onClick={e => { e.preventDefault(); e.stopPropagation(); setLiked(l => !l); toast(liked ? '🤍' : '❤️') }}
+                    className={`absolute top-2 left-2 w-8 h-8 rounded-full flex items-center justify-center border transition-all shadow-sm ${liked ? 'bg-red-50 border-red-200 text-red-500' : 'bg-white border-primary-100 text-primary-300 hover:text-red-400'}`}
+                  >
+                    <svg className="w-4 h-4" fill={liked ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                      <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                    </svg>
+                  </button>
+
+                  {/* Flip hint */}
+                  <div className="absolute bottom-0 inset-x-0 py-2 bg-gradient-to-t from-primary-900/70 to-transparent flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="text-white text-[10px] font-bold">🔄 اقلب لرؤية الاستخدام</span>
+                  </div>
+
+                  {/* Sold badge */}
+                  {p.sold > 5000 && (
+                    <div className="absolute bottom-8 right-2 bg-black/55 backdrop-blur-sm text-white text-[9px] font-bold px-2 py-0.5 rounded-full">
+                      🔥 {t('card','sold').replace('{n}', p.sold.toLocaleString('en'))}
+                    </div>
+                  )}
+                  {isLowStock && (
+                    <div className="absolute bottom-8 left-2">
+                      <span className="flex items-center gap-0.5 bg-red-500 text-white text-[9px] font-black px-2 py-0.5 rounded-full shadow-md stock-urgent">
+                        ⚡ {p.stock < 6 ? `آخر ${p.stock}!` : `${p.stock} فقط!`}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                {/* ── BACK: tissue usage image ── */}
+                <div
+                  className="absolute inset-0 rounded-t-2xl overflow-hidden bg-primary-900"
+                  style={{
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
+                    transform: 'rotateY(180deg)',
+                  }}
+                >
+                  <img
+                    src={usageSrc}
+                    alt={`${p.name} — في الاستخدام`}
+                    className="w-full h-full object-cover"
+                  />
+
+                  {/* Dark overlay with usage label */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900/90 via-transparent to-primary-900/30 flex flex-col justify-between p-3">
+                    {/* Top: NOVI tag */}
+                    <div className="flex justify-between items-start">
+                      <span className="bg-white/90 text-primary-900 text-[9px] font-black px-2 py-0.5 rounded-full">
+                        NOVI
+                      </span>
+                      <span className="bg-primary-600/80 text-white text-[9px] font-bold px-2 py-0.5 rounded-full backdrop-blur-sm">
+                        كيفية الاستخدام
+                      </span>
+                    </div>
+
+                    {/* Bottom: product name + usage context */}
+                    <div>
+                      <p className="text-white font-black text-[12px] leading-tight mb-1 drop-shadow">
+                        {displayName.length > 28 ? displayName.slice(0, 28) + '…' : displayName}
+                      </p>
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary-300 flex-shrink-0" />
+                        <p className="text-primary-200 text-[10px] font-semibold">{usageLabel}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Quick view on back */}
+                  <button
+                    onClick={e => { e.preventDefault(); e.stopPropagation(); setQuickViewProduct(p) }}
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm border border-white/40 text-white text-[11px] font-black px-4 py-2 rounded-full hover:bg-white/35 transition-colors"
+                  >
+                    👁 عرض سريع
+                  </button>
+                </div>
               </div>
-
-              {/* Wishlist */}
-              <button
-                onClick={e => { e.preventDefault(); e.stopPropagation(); setLiked(l => !l); toast(liked ? '🤍' : '❤️') }}
-                className={`absolute top-2 left-2 w-8 h-8 rounded-full flex items-center justify-center border transition-all shadow-sm ${liked ? 'bg-red-50 border-red-200 text-red-500' : 'bg-white border-primary-100 text-primary-300 hover:text-red-400'}`}
-              >
-                <svg className="w-4 h-4" fill={liked ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
-                </svg>
-              </button>
-
-              {/* Sold badge */}
-              {p.sold > 5000 && (
-                <div className="absolute bottom-2 right-2 bg-black/55 backdrop-blur-sm text-white text-[9px] font-bold px-2 py-0.5 rounded-full">
-                  🔥 {t('card','sold').replace('{n}', p.sold.toLocaleString('en'))}
-                </div>
-              )}
-
-              {/* Low stock badge — urgent pulsing */}
-              {isLowStock && (
-                <div className="absolute bottom-2 left-2">
-                  <span className="flex items-center gap-0.5 bg-red-500 text-white text-[9px] font-black px-2 py-0.5 rounded-full shadow-md stock-urgent">
-                    ⚡ {p.stock < 6 ? `آخر ${p.stock}!` : `${p.stock} فقط!`}
-                  </span>
-                </div>
-              )}
-
-              {/* Quick View button */}
-              <button
-                onClick={e => { e.preventDefault(); e.stopPropagation(); setQuickViewProduct(p) }}
-                className="absolute bottom-0 inset-x-0 py-2.5 bg-primary-900/90 text-primary-100 text-[12px] font-black translate-y-full group-hover:translate-y-0 transition-transform duration-300 hover:bg-primary-900"
-              >
-                {lang === 'en' ? '👁 Quick View' : '👁 عرض سريع'}
-              </button>
             </div>
 
-            {/* Body */}
+            {/* ── CARD BODY ── */}
             <div className="p-3 flex flex-col flex-1">
               <p className="text-[10px] text-primary-500 font-semibold mb-1">{catName}</p>
               <h3 className="text-[13px] font-bold text-primary-900 clamp-2 mb-2 leading-snug flex-1">{displayName}</h3>
