@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
@@ -119,7 +119,7 @@ export default function Header() {
             <div className="rounded-lg md:rounded-xl px-2 md:px-3 py-1 md:py-1.5 flex items-center" style={{ background: '#0c1a2e' }}>
               <img
                 src="/logo-combined.png"
-                alt="NOVI نوفي"
+                alt="NOVI"
                 className="h-7 md:h-11 w-auto object-contain"
                 style={{ maxWidth: 120, minWidth: 60 }}
               />

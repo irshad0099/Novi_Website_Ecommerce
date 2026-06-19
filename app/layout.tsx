@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import { Toaster } from 'react-hot-toast'
 import LanguageProvider from '@/components/LanguageProvider'
 import CustomCursor from '@/components/CustomCursor'
@@ -9,14 +9,14 @@ import LiveChat from '@/components/LiveChat'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: { default: 'NOVI نوفي | المناديل الفاخرة', template: '%s | NOVI نوفي' },
+  title: { default: 'NOVI | المناديل الفاخرة', template: '%s | NOVI' },
   description: 'أفخر مناديل وجه ومناشف في المملكة العربية السعودية. مواد طبيعية ١٠٠٪، معتمدة رسمياً، توصيل سريع.',
-  keywords: ['مناديل', 'مناشف', 'مناديل وجه', 'مناديل مبللة', 'نوفي', 'NOVI'],
+  keywords: ['مناديل', 'مناشف', 'مناديل وجه', 'مناديل مبللة', 'NOVI', 'NOVI'],
   manifest: '/manifest.json',
   themeColor: '#0c1a2e',
   appleWebApp: { capable: true, statusBarStyle: 'black-translucent', title: 'NOVI' },
   openGraph: {
-    title: 'NOVI نوفي | المناديل الفاخرة',
+    title: 'NOVI | المناديل الفاخرة',
     description: 'أفخر مناديل وجه ومناشف في المملكة العربية السعودية',
     locale: 'ar_SA',
     type: 'website',

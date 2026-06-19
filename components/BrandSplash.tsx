@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useEffect, useState } from 'react'
 
 export default function BrandSplash() {
@@ -29,7 +29,7 @@ export default function BrandSplash() {
     >
       <img
         src="/logo-combined.png"
-        alt="نَدى الحرير"
+        alt="NOVI"
         style={{
           height: 80, maxWidth: 220, objectFit: 'contain', marginBottom: 14,
           transform: phase === 'in' ? 'scale(1)' : 'scale(1)',

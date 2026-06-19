@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -192,7 +192,7 @@ export default function ContactPage() {
                   className="w-full h-56 md:h-72 border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="موقع نَدى الحرير"
+                  title="موقع NOVI"
                 />
               </div>
 

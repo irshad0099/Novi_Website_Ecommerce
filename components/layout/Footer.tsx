@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import Link from 'next/link'
 import { CATEGORIES } from '@/lib/products'
 import { useT } from '@/hooks/useT'
@@ -13,10 +13,10 @@ export default function Footer() {
       {/* ── Brand identity strip ── */}
       <div className="border-b border-white/8 py-10 px-4">
         <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center gap-6 md:gap-10">
-          <img src="/logo-combined.png" alt="NOVI نوفي" className="h-16 w-auto object-contain flex-shrink-0" />
+          <img src="/logo-combined.png" alt="NOVI" className="h-16 w-auto object-contain flex-shrink-0" />
           <div className="flex-1 text-center md:text-right">
             <h2 className="text-xl font-black text-white mb-1" style={{fontFamily:'Amiri,serif'}}>
-              نَدى الحرير — العلامة الأولى للمناديل الفاخرة في المملكة
+              NOVI — العلامة الأولى للمناديل الفاخرة في المملكة
             </h2>
             <p className="text-white/45 text-sm leading-relaxed">
               نعومة تلمسها، وجودة تثق بها. منذ ٢٠١٩ نخدم أكثر من ٥٠,٠٠٠ أسرة سعودية بأجود المناديل الطبيعية ١٠٠٪.
@@ -51,7 +51,7 @@ export default function Footer() {
 
         {/* Brand column */}
         <div>
-          <h4 className="text-sm font-black text-white mb-3">نَدى الحرير</h4>
+          <h4 className="text-sm font-black text-white mb-3">NOVI</h4>
           <ul className="space-y-2 text-sm text-white/55">
             <li><Link href="/about" className="hover:text-primary-300 transition-colors">من نحن</Link></li>
             <li><a href="#" className="hover:text-primary-300 transition-colors">رؤيتنا ورسالتنا</a></li>

@@ -1,6 +1,6 @@
-{
-  "name": "نَدى الحرير | المناديل الفاخرة",
-  "short_name": "نَدى الحرير",
+﻿{
+  "name": "NOVI | المناديل الفاخرة",
+  "short_name": "NOVI",
   "description": "أفخر مناديل وجه ومناشف في المملكة العربية السعودية — طبيعية ١٠٠٪، معتمدة SFDA",
   "start_url": "/",
   "display": "standalone",
@@ -24,6 +24,6 @@
     { "name": "المنتجات المميزة", "short_name": "المميزة", "url": "/#products", "description": "تصفح أفضل منتجاتنا" },
     { "name": "بكج التوفير", "short_name": "البكجات", "url": "/bundles", "description": "وفّر حتى ١٥٪" },
     { "name": "سلة التسوق", "short_name": "السلة", "url": "/cart", "description": "اعرض سلتك" },
-    { "name": "من نحن", "short_name": "عنّا", "url": "/about", "description": "قصة نَدى الحرير" }
+    { "name": "من نحن", "short_name": "عنّا", "url": "/about", "description": "قصة NOVI" }
   ]
 }

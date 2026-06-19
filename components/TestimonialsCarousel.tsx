@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect, useCallback } from 'react'
 import { useT } from '@/hooks/useT'
 
@@ -6,8 +6,8 @@ const TESTIMONIALS = [
   {
     nameAr: 'أم خالد الرشيدي', nameEn: 'Um Khaled',
     cityAr: 'الرياض', cityEn: 'Riyadh',
-    textAr: 'استخدم مناديل نَدى الحرير منذ سنتين ولم أغير. ناعمة جداً وطويلة الأمد. الجودة لا تُنافَس في السوق السعودي.',
-    textEn: 'I have been using Nada Al-Hareer tissues for two years and never switched. Very soft and long-lasting. Unmatched quality.',
+    textAr: 'استخدم مناديل NOVI منذ سنتين ولم أغير. ناعمة جداً وطويلة الأمد. الجودة لا تُنافَس في السوق السعودي.',
+    textEn: 'I have been using NOVI tissues for two years and never switched. Very soft and long-lasting. Unmatched quality.',
     rating: 5,
     img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=120&q=80',
     since: '٢٠٢٢',
@@ -33,8 +33,8 @@ const TESTIMONIALS = [
   {
     nameAr: 'فهد الزهراني', nameEn: 'Fahad Al-Zahrani',
     cityAr: 'مكة المكرمة', cityEn: 'Makkah',
-    textAr: 'أطلب للمنزل والمكتب دائماً من نَدى الحرير. الكمية كبيرة والسعر ممتاز. خدمة العملاء ممتازة أيضاً.',
-    textEn: 'Always order for home and office from Nada Al-Hareer. Great quantity and price. Excellent customer service too.',
+    textAr: 'أطلب للمنزل والمكتب دائماً من NOVI. الكمية كبيرة والسعر ممتاز. خدمة العملاء ممتازة أيضاً.',
+    textEn: 'Always order for home and office from NOVI. Great quantity and price. Excellent customer service too.',
     rating: 5,
     img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&q=80',
     since: '٢٠٢١',
@@ -42,8 +42,8 @@ const TESTIMONIALS = [
   {
     nameAr: 'نورة الشمري', nameEn: 'Noura Al-Shammari',
     cityAr: 'الرياض', cityEn: 'Riyadh',
-    textAr: 'من أجمل ما في نَدى الحرير أن التغليف أنيق جداً ويناسب ديكور المنزل الحديث. وطبعاً الجودة في المقام الأول.',
-    textEn: 'What I love about Nada Al-Hareer is the elegant packaging that suits modern home decor. And of course quality comes first.',
+    textAr: 'من أجمل ما في NOVI أن التغليف أنيق جداً ويناسب ديكور المنزل الحديث. وطبعاً الجودة في المقام الأول.',
+    textEn: 'What I love about NOVI is the elegant packaging that suits modern home decor. And of course quality comes first.',
     rating: 4,
     img: 'https://images.unsplash.com/photo-1494790108755-2616b612b5fd?w=120&q=80',
     since: '٢٠٢٤',

@@ -1,4 +1,4 @@
-export const translations = {
+﻿export const translations = {
   // ── HEADER ──────────────────────────────────────────────────────────────────
   header: {
     topbar:       { ar: '🚚 شحن مجاني فوق ١٥٠ ريال · 🌿 مواد طبيعية ١٠٠٪ · 🔒 دفع آمن', en: '🚚 Free shipping over 150 SAR · 🌿 100% natural materials · 🔒 Secure payment' },
@@ -23,7 +23,7 @@ export const translations = {
     address:      { ar: '📍 الرياض، المملكة العربية السعودية', en: '📍 Riyadh, Saudi Arabia' },
     hours:        { ar: '🕐 الأحد–الخميس: ٩ص–٦م', en: '🕐 Sun–Thu: 9AM–6PM' },
     whatsapp:     { ar: '💬 واتساب متاح ٢٤/٧', en: '💬 WhatsApp available 24/7' },
-    copy:         { ar: '© ٢٠٢٥ NOVI نوفي. جميع الحقوق محفوظة.', en: '© 2025 NOVI. All rights reserved.' },
+    copy:         { ar: '© ٢٠٢٥ NOVI. جميع الحقوق محفوظة.', en: '© 2025 NOVI. All rights reserved.' },
   },
 
   // ── PRODUCT CARD ────────────────────────────────────────────────────────────

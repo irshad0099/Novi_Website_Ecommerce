@@ -1,4 +1,4 @@
-import HeroSlider from '@/components/HeroSlider'
+﻿import HeroSlider from '@/components/HeroSlider'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import BottomNav from '@/components/layout/BottomNav'
@@ -138,7 +138,7 @@ export default function Home() {
         <section className="py-8 md:py-12">
           <div className="max-w-screen-xl mx-auto px-4">
             <div className="text-center mb-6 md:mb-8">
-              <h2 className="text-xl md:text-3xl font-black text-primary-900 mb-1" style={{fontFamily:'Amiri,serif'}}>لماذا نَدى الحرير<span className="text-primary-400">؟</span></h2>
+              <h2 className="text-xl md:text-3xl font-black text-primary-900 mb-1" style={{fontFamily:'Amiri,serif'}}>لماذا NOVI<span className="text-primary-400">؟</span></h2>
               <p className="text-primary-400 text-sm">جودة لا تُنافَس بثقة تستحقها</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
@@ -193,12 +193,12 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
               {[
-                ['س','سعود المطيري','مناديل نَدى كلاسيك ٦٠٠','منذ ٣ أيام','مرة ممتازة شكراً لكم! المنتج رائع والمناديل ناعمة ومريحة جداً.'],
+                ['س','سعود المطيري','مناديل NOVI كلاسيك ٦٠٠','منذ ٣ أيام','مرة ممتازة شكراً لكم! المنتج رائع والمناديل ناعمة ومريحة جداً.'],
                 ['ص','صالح الحربي','بكج التوفير ٦ علب','منذ أسبوع','متجر ممتاز والمناديل من أفضل الماركات. التوصيل سريع والتغليف محترم.'],
                 ['ب','بدرية الشهري','مناديل ماكسي ١٨٠٠','منذ أسبوعين','روعة! قوية وناعمة. جربت كثير من الماركات وهذه الأفضل بلا منازع.'],
                 ['ع','عمر الزهراني','المناشف القطنية','منذ ٣ أسابيع','ممتاز من أول استخدام. توصيل خارق السرعة. سأطلب مجدداً!'],
                 ['أ','أمل العتيبي','مبللة أطفال ١٠٠','منذ شهر','لطيفة جداً على بشرة طفلتي الحساسة. قيمة ممتازة مقابل السعر.'],
-                ['م','محمد الدوسري','بكج المنزل الشامل','منذ شهر','طلبت للمكتب كميات كبيرة. الرد سريع والسعر ممتاز. شكراً نَدى الحرير!'],
+                ['م','محمد الدوسري','بكج المنزل الشامل','منذ شهر','طلبت للمكتب كميات كبيرة. الرد سريع والسعر ممتاز. شكراً NOVI!'],
               ].map(([init,name,prod,date,txt]) => (
                 <div key={name as string} className="bg-white border border-primary-100 rounded-2xl p-5 hover:shadow-md transition-shadow">
                   <div className="flex items-center gap-3 mb-3">
@@ -219,7 +219,7 @@ export default function Home() {
           <div className="relative z-10 max-w-screen-xl mx-auto px-4">
             <div className="text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-black text-white" style={{fontFamily:'Amiri,serif'}}>
-                شاهد قصة نَدى الحرير <span className="text-primary-300">🎬</span>
+                شاهد قصة NOVI <span className="text-primary-300">🎬</span>
               </h2>
               <p className="text-white/50 text-sm mt-2">من الرياض إلى كل بيت سعودي</p>
             </div>
@@ -251,7 +251,7 @@ export default function Home() {
           <div className="absolute inset-0 pointer-events-none" style={{background:'radial-gradient(ellipse 60% 70% at 50% 50%, rgba(26,52,97,0.12) 0%, transparent 70%)'}} />
           <div className="relative z-10 max-w-screen-xl mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-              <img src="/logo-combined.png" alt="نَدى الحرير" className="h-20 w-auto object-contain flex-shrink-0 opacity-90" />
+              <img src="/logo-combined.png" alt="NOVI" className="h-20 w-auto object-contain flex-shrink-0 opacity-90" />
               <div className="flex-1 text-center md:text-right">
                 <h2 className="text-xl md:text-2xl font-black text-white mb-2" style={{fontFamily:'Amiri,serif'}}>
                   العلامة السعودية الأولى للمناديل الفاخرة <span className="text-primary-300">منذ ٢٠١٩</span>

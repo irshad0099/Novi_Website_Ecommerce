@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
@@ -63,7 +63,7 @@ function AuthForm() {
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex flex-col items-center gap-2">
             <div className="rounded-2xl px-6 py-3 inline-block" style={{ background: '#0c1a2e' }}>
-              <img src="/logo-combined.png" alt="NOVI نوفي" className="h-14 w-auto object-contain" style={{ maxWidth: 200 }} />
+              <img src="/logo-combined.png" alt="NOVI" className="h-14 w-auto object-contain" style={{ maxWidth: 200 }} />
             </div>
           </Link>
         </div>

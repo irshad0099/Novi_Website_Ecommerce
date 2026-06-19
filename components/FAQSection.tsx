@@ -1,9 +1,9 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 import { useT } from '@/hooks/useT'
 
 const FAQS_AR = [
-  { q: 'ما هي مواد مناديل نَدى الحرير؟', a: 'تُصنَّع مناديلنا من ألياف طبيعية نقية ١٠٠٪ بدون أي كيماويات ضارة، معتمدة من هيئة الغذاء والدواء السعودية SFDA، وآمنة تماماً للبشرة الحساسة وبشرة الأطفال.' },
+  { q: 'ما هي مواد مناديل NOVI؟', a: 'تُصنَّع مناديلنا من ألياف طبيعية نقية ١٠٠٪ بدون أي كيماويات ضارة، معتمدة من هيئة الغذاء والدواء السعودية SFDA، وآمنة تماماً للبشرة الحساسة وبشرة الأطفال.' },
   { q: 'كم يستغرق التوصيل؟', a: 'داخل الرياض: ١–٢ يوم عمل. باقي مناطق المملكة: ٢–٥ أيام عمل. نقدم شحناً مجانياً للطلبات فوق ١٥٠ ريال.' },
   { q: 'هل يمكنني إرجاع المنتج؟', a: 'نعم، نوفر سياسة إرجاع مجانية خلال ٧ أيام من استلام الطلب بدون أي أسئلة. فقط تواصل معنا عبر واتساب وسنرتب الاستلام.' },
   { q: 'ما هي طرق الدفع المتاحة؟', a: 'نقبل مدى، فيزا، ماستركارد، Apple Pay، الدفع عند الاستلام (COD)، تابي وتمارا للتقسيط بدون فائدة.' },
@@ -11,7 +11,7 @@ const FAQS_AR = [
   { q: 'هل تتوفر عروض للشراء بالجملة؟', a: 'نعم! نقدم خصم ٥٪ عند شراء منتجين، ١٠٪ عند ٣ منتجات، و١٥٪ عند ٤ منتجات فأكثر. تصفح صفحة بكج التوفير لمزيد من التفاصيل.' },
 ]
 const FAQS_EN = [
-  { q: 'What materials are Nada Al-Hareer tissues made of?', a: 'Our tissues are made from 100% pure natural fibers with no harmful chemicals, certified by SFDA, and completely safe for sensitive skin and babies.' },
+  { q: 'What materials are NOVI tissues made of?', a: 'Our tissues are made from 100% pure natural fibers with no harmful chemicals, certified by SFDA, and completely safe for sensitive skin and babies.' },
   { q: 'How long does delivery take?', a: 'Within Riyadh: 1–2 business days. Rest of Saudi Arabia: 2–5 business days. Free shipping on orders over 150 SAR.' },
   { q: 'Can I return a product?', a: 'Yes, we offer a free return policy within 7 days of receiving your order, no questions asked. Just contact us via WhatsApp and we will arrange the pickup.' },
   { q: 'What payment methods are available?', a: 'We accept Mada, Visa, Mastercard, Apple Pay, Cash on Delivery (COD), Tabby and Tamara for interest-free installments.' },

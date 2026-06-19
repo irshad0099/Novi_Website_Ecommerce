@@ -1,12 +1,12 @@
-import Header from '@/components/layout/Header'
+﻿import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import BottomNav from '@/components/layout/BottomNav'
 import ScrollReveal from '@/components/ScrollReveal'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'من نحن | نَدى الحرير',
-  description: 'قصة نَدى الحرير — العلامة الأولى للمناديل الفاخرة في المملكة العربية السعودية منذ ٢٠١٩',
+  title: 'من نحن | NOVI',
+  description: 'قصة NOVI — العلامة الأولى للمناديل الفاخرة في المملكة العربية السعودية منذ ٢٠١٩',
 }
 
 export default function AboutPage() {
@@ -24,7 +24,7 @@ export default function AboutPage() {
               🇸🇦 علامة سعودية فاخرة منذ ٢٠١٩
             </span>
             <h1 className="text-4xl md:text-6xl font-black text-white mb-5" style={{fontFamily:'Amiri,serif'}}>
-              قصة <span className="text-primary-300">نَدى الحرير</span>
+              قصة <span className="text-primary-300">NOVI</span>
             </h1>
             <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-xl mx-auto">
               بدأت رحلتنا من قلب الرياض بحلم واحد:<br/>
@@ -73,13 +73,13 @@ export default function AboutPage() {
                 </h2>
                 <div className="space-y-4 text-primary-600 text-sm leading-loose">
                   <p>
-                    في عام ٢٠١٩م، انطلقت <strong className="text-primary-800">نَدى الحرير</strong> بفكرة بسيطة وواضحة: السوق السعودي يستحق مناديل تليق بمستوى الحياة الراقية التي يعيشها أبناؤه.
+                    في عام ٢٠١٩م، انطلقت <strong className="text-primary-800">NOVI</strong> بفكرة بسيطة وواضحة: السوق السعودي يستحق مناديل تليق بمستوى الحياة الراقية التي يعيشها أبناؤه.
                   </p>
                   <p>
                     بدأنا بمصنع متخصص في الرياض، واستخدمنا أجود الألياف الطبيعية النقية، وطورنا تقنية <strong className="text-primary-800">ثلاث طبقات ناعمة</strong> التي تجعل كل منديل تجربة حسية فريدة لا تُنسى.
                   </p>
                   <p>
-                    اليوم، نَدى الحرير موجودة في أكثر من ٢٠ مدينة سعودية، وتثق بها أكثر من ٥٠,٠٠٠ أسرة كريمة يومياً. هذه الثقة هي التزامنا الأبدي.
+                    اليوم، NOVI موجودة في أكثر من ٢٠ مدينة سعودية، وتثق بها أكثر من ٥٠,٠٠٠ أسرة كريمة يومياً. هذه الثقة هي التزامنا الأبدي.
                   </p>
                 </div>
                 <div className="flex gap-3 mt-7 flex-wrap">
@@ -103,7 +103,7 @@ export default function AboutPage() {
             </ScrollReveal>
             <div className="relative border-r-2 border-primary-200 pr-8 space-y-10">
               {[
-                ['٢٠١٩','🚀','التأسيس','أسسنا نَدى الحرير في الرياض بفريق من ١٢ شخصاً وحلم بتغيير صناعة المناديل السعودية.'],
+                ['٢٠١٩','🚀','التأسيس','أسسنا NOVI في الرياض بفريق من ١٢ شخصاً وحلم بتغيير صناعة المناديل السعودية.'],
                 ['٢٠٢٠','✅','اعتماد SFDA','حصلنا على الاعتماد الرسمي من هيئة الغذاء والدواء السعودية، ووصلنا لـ ١٠,٠٠٠ عميل.'],
                 ['٢٠٢١','🌐','الإطلاق الرقمي','أطلقنا متجرنا الإلكتروني ووصلنا لجميع مناطق المملكة بالتوصيل السريع.'],
                 ['٢٠٢٢','🏆','جائزة الجودة','حصلنا على لقب أفضل منتج منزلي وطني من منظمة الجودة السعودية.'],
@@ -178,7 +178,7 @@ export default function AboutPage() {
             <div className="text-5xl mb-5">🧻</div>
             <h2 className="text-2xl font-black text-primary-900 mb-3" style={{fontFamily:'Amiri,serif'}}>جرّب الفرق بنفسك</h2>
             <p className="text-primary-500 text-sm mb-7 leading-relaxed">
-              أكثر من ٥٠,٠٠٠ أسرة سعودية اختارت نَدى الحرير.<br/>شحن مجاني فوق ١٥٠ ريال • إرجاع ٧ أيام مجاناً
+              أكثر من ٥٠,٠٠٠ أسرة سعودية اختارت NOVI.<br/>شحن مجاني فوق ١٥٠ ريال • إرجاع ٧ أيام مجاناً
             </p>
             <div className="flex gap-3 justify-center flex-wrap">
               <Link href="/#products" className="g-gold text-white font-black px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-shadow">

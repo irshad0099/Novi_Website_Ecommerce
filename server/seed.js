@@ -1,4 +1,4 @@
-require('dotenv').config();
+﻿require('dotenv').config();
 
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
@@ -34,21 +34,21 @@ const PRODUCTS = [
   /* ===================== FACE TISSUE (22) ===================== */
   {
     slug: 'nada-classic-600',
-    name: 'مناديل نَدى كلاسيك — ٦٠٠ منديل',
-    nameEn: 'Nada Classic 600',
+    name: 'مناديل NOVI كلاسيك — ٦٠٠ منديل',
+    nameEn: 'NOVI Classic 600',
     category: 'face-tissue',
     price: 29.99, comparePrice: 39.99,
     rating: 4.9, reviewCount: 842, stock: 500, sold: 12400, sku: 'ND-FT-001',
     badge: { label: 'الأكثر مبيعاً', color: 'gold' },
     images: imgs(0), tags: ['مناديل', 'كلاسيك'],
-    description: 'مناديل نَدى كلاسيك الفاخرة بـ٣ طبقات من الألياف الطبيعية النقية. ٦٠٠ منديل في كل علبة — أكثر من المنافسين. نعومة استثنائية تشعر بها من أول لمسة، ولطيفة جداً على البشرة الحساسة والأطفال.',
+    description: 'مناديل NOVI كلاسيك الفاخرة بـ٣ طبقات من الألياف الطبيعية النقية. ٦٠٠ منديل في كل علبة — أكثر من المنافسين. نعومة استثنائية تشعر بها من أول لمسة، ولطيفة جداً على البشرة الحساسة والأطفال.',
     features: ['٣ طبقات فاخرة ناعمة', '٦٠٠ منديل في كل علبة', 'مواد طبيعية ١٠٠٪', 'معتمدة من هيئة الغذاء والدواء السعودية', 'لطيفة على البشرة الحساسة', 'متاحة بلون وردي وأخضر'],
     specs: new Map([['العدد', '٦٠٠ منديل'], ['الطبقات', '٣'], ['الحجم', '٢١×٢١ سم'], ['الوزن', '٥٨٠ جم'], ['اللون', 'وردي / أخضر'], ['SKU', 'ND-FT-001']]),
     isBestSeller: true, isFeatured: true,
   },
   {
     slug: 'nada-ultra-soft-600',
-    name: 'مناديل نَدى الترا سوفت — ٦٠٠',
+    name: 'مناديل NOVI الترا سوفت — ٦٠٠',
     nameEn: 'Ultra Soft 600',
     category: 'face-tissue',
     price: 34.99, comparePrice: 44.99,
@@ -62,21 +62,21 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-maxi-1800',
-    name: 'مناديل نَدى ماكسي — ١٨٠٠ منديل',
-    nameEn: 'Nada Maxi 1800',
+    name: 'مناديل NOVI ماكسي — ١٨٠٠ منديل',
+    nameEn: 'NOVI Maxi 1800',
     category: 'face-tissue',
     price: 64.99, comparePrice: 89.99,
     rating: 4.9, reviewCount: 521, stock: 200, sold: 7200, sku: 'ND-FT-003',
     badge: { label: 'وفّر ٢٨٪', color: 'red' },
     images: imgs(2), tags: ['مناديل', 'ماكسي', 'كبير'],
-    description: 'أكبر علبة مناديل في المملكة! ١٨٠٠ منديل بـ٥ طبقات فاخرة. تدوم ٣ أضعاف العلبة العادية. تأتي مع ٣ علاقات مجانية. حصرية في متجر نَدى الحرير.',
-    features: ['١٨٠٠ منديل ضخمة', '٥ طبقات سميكة', '٣ علاقات مجانية مضمنة', 'الأطول دواماً في المملكة', 'حصرية في نَدى الحرير'],
+    description: 'أكبر علبة مناديل في المملكة! ١٨٠٠ منديل بـ٥ طبقات فاخرة. تدوم ٣ أضعاف العلبة العادية. تأتي مع ٣ علاقات مجانية. حصرية في متجر NOVI.',
+    features: ['١٨٠٠ منديل ضخمة', '٥ طبقات سميكة', '٣ علاقات مجانية مضمنة', 'الأطول دواماً في المملكة', 'حصرية في NOVI'],
     specs: new Map([['العدد', '١٨٠٠ منديل'], ['الطبقات', '٥'], ['الحجم', '٢٣×٢٣ سم'], ['الوزن', '١.٨ كجم']]),
     isFeatured: true, isBestSeller: true,
   },
   {
     slug: 'nada-classic-400',
-    name: 'مناديل نَدى كلاسيك — ٤٠٠ منديل',
+    name: 'مناديل NOVI كلاسيك — ٤٠٠ منديل',
     nameEn: 'Classic 400',
     category: 'face-tissue',
     price: 21.99, comparePrice: 27.99,
@@ -88,7 +88,7 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-premium-white',
-    name: 'مناديل نَدى بريميوم وايت — ٦٠٠',
+    name: 'مناديل NOVI بريميوم وايت — ٦٠٠',
     nameEn: 'Premium White 600',
     category: 'face-tissue',
     price: 37.99, comparePrice: 49.99,
@@ -101,7 +101,7 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-aloe-vera-600',
-    name: 'مناديل نَدى بالصبار — ٦٠٠ منديل',
+    name: 'مناديل NOVI بالصبار — ٦٠٠ منديل',
     nameEn: 'Aloe Vera 600',
     category: 'face-tissue',
     price: 39.99, comparePrice: 52.99,
@@ -115,7 +115,7 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-sensitive-skin',
-    name: 'مناديل نَدى للبشرة الحساسة — ٦٠٠',
+    name: 'مناديل NOVI للبشرة الحساسة — ٦٠٠',
     nameEn: 'Sensitive Skin 600',
     category: 'face-tissue',
     price: 41.99, comparePrice: 54.99,
@@ -129,7 +129,7 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-lavender-500',
-    name: 'مناديل نَدى برائحة اللافندر — ٥٠٠',
+    name: 'مناديل NOVI برائحة اللافندر — ٥٠٠',
     nameEn: 'Lavender 500',
     category: 'face-tissue',
     price: 32.99, comparePrice: 41.99,
@@ -143,7 +143,7 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-economy-600',
-    name: 'مناديل نَدى اقتصادية — ٦٠٠ منديل',
+    name: 'مناديل NOVI اقتصادية — ٦٠٠ منديل',
     nameEn: 'Economy 600',
     category: 'face-tissue',
     price: 17.99,
@@ -155,7 +155,7 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-designer-blue',
-    name: 'مناديل نَدى ديزاينر — تصميم أزرق',
+    name: 'مناديل NOVI ديزاينر — تصميم أزرق',
     nameEn: 'Designer Blue',
     category: 'face-tissue',
     price: 44.99, comparePrice: 55.99,
@@ -169,7 +169,7 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-ultra-thick-300',
-    name: 'مناديل نَدى الثقيلة — ٣٠٠ منديل',
+    name: 'مناديل NOVI الثقيلة — ٣٠٠ منديل',
     nameEn: 'Ultra Thick 300',
     category: 'face-tissue',
     price: 36.99, comparePrice: 46.99,
@@ -181,7 +181,7 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-kids-cartoon',
-    name: 'مناديل نَدى للأطفال — رسوم كرتونية',
+    name: 'مناديل NOVI للأطفال — رسوم كرتونية',
     nameEn: 'Kids Cartoon',
     category: 'face-tissue',
     price: 27.99, comparePrice: 34.99,
@@ -194,7 +194,7 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-bamboo-600',
-    name: 'مناديل نَدى بامبو — ٦٠٠ منديل',
+    name: 'مناديل NOVI بامبو — ٦٠٠ منديل',
     nameEn: 'Bamboo 600',
     category: 'face-tissue',
     price: 49.99, comparePrice: 64.99,
@@ -208,7 +208,7 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-rose-500',
-    name: 'مناديل نَدى برائحة الورد — ٥٠٠',
+    name: 'مناديل NOVI برائحة الورد — ٥٠٠',
     nameEn: 'Rose 500',
     category: 'face-tissue',
     price: 31.99, comparePrice: 39.99,
@@ -220,7 +220,7 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-vitamin-e-600',
-    name: 'مناديل نَدى بفيتامين E — ٦٠٠',
+    name: 'مناديل NOVI بفيتامين E — ٦٠٠',
     nameEn: 'Vitamin E 600',
     category: 'face-tissue',
     price: 43.99, comparePrice: 55.99,
@@ -233,7 +233,7 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-antibacterial-600',
-    name: 'مناديل نَدى مضادة للبكتيريا — ٦٠٠',
+    name: 'مناديل NOVI مضادة للبكتيريا — ٦٠٠',
     nameEn: 'Antibacterial 600',
     category: 'face-tissue',
     price: 46.99, comparePrice: 59.99,
@@ -247,7 +247,7 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-luxury-5layer',
-    name: 'مناديل نَدى لوكشري — ٥ طبقات ٤٠٠',
+    name: 'مناديل NOVI لوكشري — ٥ طبقات ٤٠٠',
     nameEn: 'Luxury 5-Layer 400',
     category: 'face-tissue',
     price: 58.99, comparePrice: 74.99,
@@ -261,7 +261,7 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-gold-box-500',
-    name: 'مناديل نَدى علبة ذهبية — ٥٠٠',
+    name: 'مناديل NOVI علبة ذهبية — ٥٠٠',
     nameEn: 'Gold Box 500',
     category: 'face-tissue',
     price: 54.99, comparePrice: 69.99,
@@ -275,20 +275,20 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-2pack-600',
-    name: 'عبوة ثنائية نَدى — ٢ × ٦٠٠',
+    name: 'عبوة ثنائية NOVI — ٢ × ٦٠٠',
     nameEn: 'Twin Pack 2x600',
     category: 'face-tissue',
     price: 52.99, comparePrice: 69.98,
     rating: 4.8, reviewCount: 445, stock: 300, sold: 8200, sku: 'ND-FT-019',
     badge: { label: 'وفّر ٢٤٪', color: 'red' },
     images: imgs(2), tags: ['مناديل', 'عبوة', 'توفير'],
-    description: 'عبوة ثنائية اقتصادية من مناديل نَدى كلاسيك.',
+    description: 'عبوة ثنائية اقتصادية من مناديل NOVI كلاسيك.',
     features: ['علبتان كلاسيك كاملتان', 'إجمالي ١٢٠٠ منديل', 'توفير ١٧ ريال فعلي', 'نفس الجودة الفاخرة', 'أفضل قيمة للعائلات'],
     specs: new Map([['العدد', '٢ علبة'], ['الإجمالي', '١٢٠٠ منديل'], ['الطبقات', '٣']]),
   },
   {
     slug: 'nada-cube-200',
-    name: 'مناديل نَدى كيوب — ٢٠٠ منديل',
+    name: 'مناديل NOVI كيوب — ٢٠٠ منديل',
     nameEn: 'Cube Box 200',
     category: 'face-tissue',
     price: 16.99, comparePrice: 21.99,
@@ -300,7 +300,7 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-flat-box-600',
-    name: 'مناديل نَدى فلات بوكس — ٦٠٠',
+    name: 'مناديل NOVI فلات بوكس — ٦٠٠',
     nameEn: 'Flat Box 600',
     category: 'face-tissue',
     price: 33.99, comparePrice: 42.99,
@@ -312,7 +312,7 @@ const PRODUCTS = [
   },
   {
     slug: 'nada-pink-600',
-    name: 'مناديل نَدى وردية — ٦٠٠ منديل',
+    name: 'مناديل NOVI وردية — ٦٠٠ منديل',
     nameEn: 'Pink Edition 600',
     category: 'face-tissue',
     price: 28.99, comparePrice: 36.99,
@@ -407,7 +407,7 @@ const PRODUCTS = [
   },
   {
     slug: 'wipe-multipack-5x80',
-    name: 'بكج مبللة نَدى — ٥ × ٨٠ منديل',
+    name: 'بكج مبللة NOVI — ٥ × ٨٠ منديل',
     nameEn: 'Multipack 5x80',
     category: 'wet-wipes',
     price: 79.99, comparePrice: 124.95,
@@ -422,7 +422,7 @@ const PRODUCTS = [
   /* ===================== COTTON TOWELS (12) ===================== */
   {
     slug: 'towel-cotton-10',
-    name: 'مناشف نَدى القطنية — ١٠ قطع',
+    name: 'مناشف NOVI القطنية — ١٠ قطع',
     nameEn: 'Cotton Towels 10pk',
     category: 'cotton-towels',
     price: 49.99, comparePrice: 64.99,
@@ -436,7 +436,7 @@ const PRODUCTS = [
   },
   {
     slug: 'towel-microfiber-10',
-    name: 'مناشف نَدى مايكروفايبر — ١٠',
+    name: 'مناشف NOVI مايكروفايبر — ١٠',
     nameEn: 'Microfiber Towels 10',
     category: 'cotton-towels',
     price: 59.99, comparePrice: 74.99,
@@ -450,7 +450,7 @@ const PRODUCTS = [
   },
   {
     slug: 'towel-bamboo-5',
-    name: 'مناشف نَدى بامبو — ٥ قطع',
+    name: 'مناشف NOVI بامبو — ٥ قطع',
     nameEn: 'Bamboo Towels 5pk',
     category: 'cotton-towels',
     price: 69.99, comparePrice: 89.99,
@@ -463,7 +463,7 @@ const PRODUCTS = [
   },
   {
     slug: 'towel-organic-8',
-    name: 'مناشف نَدى العضوية — ٨ قطع',
+    name: 'مناشف NOVI العضوية — ٨ قطع',
     nameEn: 'Organic Towels 8',
     category: 'cotton-towels',
     price: 74.99, comparePrice: 94.99,
@@ -478,7 +478,7 @@ const PRODUCTS = [
   /* ===================== KITCHEN (10) ===================== */
   {
     slug: 'kitchen-roll-3',
-    name: 'رولات مطبخ نَدى — ٣ رولات',
+    name: 'رولات مطبخ NOVI — ٣ رولات',
     nameEn: 'Kitchen Roll 3-Pack',
     category: 'kitchen',
     price: 34.99, comparePrice: 44.99,
@@ -492,7 +492,7 @@ const PRODUCTS = [
   },
   {
     slug: 'kitchen-roll-jumbo',
-    name: 'رول مطبخ نَدى جامبو',
+    name: 'رول مطبخ NOVI جامبو',
     nameEn: 'Jumbo Kitchen Roll',
     category: 'kitchen',
     price: 24.99, comparePrice: 31.99,
@@ -505,7 +505,7 @@ const PRODUCTS = [
   },
   {
     slug: 'kitchen-roll-5',
-    name: 'رولات مطبخ نَدى — ٥ رولات',
+    name: 'رولات مطبخ NOVI — ٥ رولات',
     nameEn: 'Kitchen Roll 5-Pack',
     category: 'kitchen',
     price: 54.99, comparePrice: 69.95,
@@ -518,7 +518,7 @@ const PRODUCTS = [
   },
   {
     slug: 'kitchen-complete-set',
-    name: 'طقم مطبخ نَدى الكامل',
+    name: 'طقم مطبخ NOVI الكامل',
     nameEn: 'Complete Kitchen Set',
     category: 'kitchen',
     price: 79.99, comparePrice: 109.99,
@@ -656,21 +656,21 @@ const PRODUCTS = [
   /* ===================== BUNDLES (5) ===================== */
   {
     slug: 'bundle-6x-classic',
-    name: 'بكج نَدى التوفير — ٦ علب كلاسيك',
+    name: 'بكج NOVI التوفير — ٦ علب كلاسيك',
     nameEn: 'Bundle 6x Classic',
     category: 'bundles',
     price: 149.99, comparePrice: 239.94,
     rating: 4.9, reviewCount: 890, stock: 200, sold: 12800, sku: 'ND-BD-001',
     badge: { label: 'وفّر ٣٧٪', color: 'red' },
     images: imgs(3), tags: ['بكج', 'توفير', 'عائلة'],
-    description: 'أفضل قيمة! ٦ علب من مناديل نَدى كلاسيك ٦٠٠ منديل. إجمالي ٣٦٠٠ منديل.',
+    description: 'أفضل قيمة! ٦ علب من مناديل NOVI كلاسيك ٦٠٠ منديل. إجمالي ٣٦٠٠ منديل.',
     features: ['٦ علب كلاسيك كاملة', 'إجمالي ٣٦٠٠ منديل', 'شحن مجاني مضمون', 'توفير ٩٠ ريال', 'خليط وردي وأخضر'],
     specs: new Map([['العدد', '٦ علب'], ['الإجمالي', '٣٦٠٠ منديل'], ['الشحن', 'مجاني']]),
     isBestSeller: true, isFeatured: true,
   },
   {
     slug: 'bundle-12x-mega',
-    name: 'بكج نَدى ميجا — ١٢ علبة',
+    name: 'بكج NOVI ميجا — ١٢ علبة',
     nameEn: 'Mega Bundle 12x',
     category: 'bundles',
     price: 269.99, comparePrice: 479.88,
@@ -718,7 +718,7 @@ const PRODUCTS = [
     rating: 4.9, reviewCount: 167, stock: 60, sold: 2100, sku: 'ND-BD-005',
     badge: { label: 'هدية مثالية', color: 'gold' },
     images: imgs(7), tags: ['بكج', 'هدايا', 'فاخر'],
-    description: 'صندوق هدايا فاخر يشمل أفضل منتجات نَدى الحرير.',
+    description: 'صندوق هدايا فاخر يشمل أفضل منتجات NOVI.',
     features: ['صندوق هدايا أنيق', '٦ منتجات فاخرة مختارة', 'تغليف هدايا مجاني', 'بطاقة تهنئة', 'توصيل معبأ بعناية'],
     specs: new Map([['العناصر', '٦ منتجات فاخرة'], ['التغليف', 'هدايا بصندوق أنيق']]),
   },

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect, useCallback, useRef } from 'react'
 import Link from 'next/link'
 
@@ -11,7 +11,7 @@ const SLIDES = [
     badge: '✨ العلامة الأولى للمناديل الفاخرة في المملكة',
     title: 'نعومة تلمسها',
     title2: 'وجودة تثق بها',
-    sub: 'مناديل نَدى الحرير بـ٣ طبقات من الألياف الطبيعية النقية. ٦٠٠ منديل في كل علبة.',
+    sub: 'مناديل NOVI بـ٣ طبقات من الألياف الطبيعية النقية. ٦٠٠ منديل في كل علبة.',
     cta: '🛒 تسوق الآن',
     ctaHref: '/#products',
     cta2: '🎁 بكجات التوفير',
@@ -169,7 +169,7 @@ export default function HeroSlider() {
 
         {/* Brand name */}
         <p className="text-[11px] md:text-xs font-black tracking-[0.3em] text-primary-300 mb-3 uppercase">
-          نَدى الحرير
+          NOVI
         </p>
 
         {/* Headline */}

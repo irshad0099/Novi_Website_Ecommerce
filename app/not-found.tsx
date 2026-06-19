@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
@@ -13,7 +13,7 @@ export default function NotFound() {
 
         <div className="relative z-10 text-center max-w-md">
           {/* Brand logo */}
-          <img src="/logo-combined.png" alt="نَدى الحرير" className="h-14 w-auto object-contain mx-auto mb-8 opacity-80" />
+          <img src="/logo-combined.png" alt="NOVI" className="h-14 w-auto object-contain mx-auto mb-8 opacity-80" />
 
           {/* 404 */}
           <div className="text-[120px] font-black leading-none mb-2" style={{
@@ -44,7 +44,7 @@ export default function NotFound() {
 
           {/* Brand tagline */}
           <p className="mt-10 text-primary-400/60 text-xs tracking-widest">
-            نَدى الحرير • نعومة تلمسها، وجودة تثق بها
+            NOVI • نعومة تلمسها، وجودة تثق بها
           </p>
         </div>
       </main>

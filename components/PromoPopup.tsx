@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect, useRef } from 'react'
 
 export default function PromoPopup() {
@@ -145,7 +145,7 @@ export default function PromoPopup() {
             </h2>
 
             <p className="text-center text-white/60 text-sm mb-5 leading-relaxed">
-              استمتع بأفضل مناديل نَدى الحرير الفاخرة<br />
+              استمتع بأفضل مناديل NOVI الفاخرة<br />
               بنصف السعر — لفترة محدودة فقط 🧻
             </p>
 

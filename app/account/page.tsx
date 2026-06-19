@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import Header from '@/components/layout/Header'
@@ -699,7 +699,7 @@ export default function AccountPage() {
                     ))}
                   </div>
                 </div>
-                <p className="text-center text-[11px] text-primary-300">نَدى الحرير · الإصدار ١.٠.٠ · جميع الحقوق محفوظة ٢٠٢٥</p>
+                <p className="text-center text-[11px] text-primary-300">NOVI · الإصدار ١.٠.٠ · جميع الحقوق محفوظة ٢٠٢٥</p>
               </div>
             )}
 

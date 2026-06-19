@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect, useRef } from 'react'
 
 const QUICK_REPLIES = [
@@ -49,7 +49,7 @@ export default function LiveChat() {
           <div className="g-gold text-white p-4 flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center font-black text-sm">ن</div>
             <div>
-              <p className="font-black text-sm">دعم نَدى الحرير</p>
+              <p className="font-black text-sm">دعم NOVI</p>
               <p className="text-[10px] text-white/70 flex items-center gap-1">
                 <span className="w-1.5 h-1.5 bg-green-400 rounded-full inline-block" />
                 فريق الدعم متاح ٢٤/٧

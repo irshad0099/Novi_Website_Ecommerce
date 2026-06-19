@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect, useRef } from 'react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -165,7 +165,7 @@ export default function PrivacyPage() {
             <div className="flex-1 min-w-0">
               <div className="bg-white rounded-2xl shadow-sm border border-primary-100 p-6 md:p-8 mb-6">
                 <p className="text-sm text-primary-600 leading-relaxed">
-                  تلتزم نَدى الحرير بحماية خصوصيتك وصون بياناتك الشخصية. توضح هذه الوثيقة كيفية جمع معلوماتك واستخدامها والحفاظ عليها وفقاً للأنظمة والتشريعات المعمول بها في المملكة العربية السعودية.
+                  تلتزم NOVI بحماية خصوصيتك وصون بياناتك الشخصية. توضح هذه الوثيقة كيفية جمع معلوماتك واستخدامها والحفاظ عليها وفقاً للأنظمة والتشريعات المعمول بها في المملكة العربية السعودية.
                 </p>
               </div>
 
@@ -197,7 +197,7 @@ export default function PrivacyPage() {
               {/* Footer note */}
               <div className="mt-6 bg-primary-50 border border-primary-100 rounded-2xl p-5 text-center">
                 <p className="text-sm text-primary-600">
-                  باستخدام موقع نَدى الحرير، فإنك توافق على هذه السياسة وشروط الاستخدام.
+                  باستخدام موقع NOVI، فإنك توافق على هذه السياسة وشروط الاستخدام.
                 </p>
                 <Link href="/contact" className="inline-block mt-3 text-xs font-black text-primary-700 underline underline-offset-2">
                   هل لديك استفسار؟ تواصل معنا

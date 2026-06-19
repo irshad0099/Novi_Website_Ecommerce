@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 import { useT } from '@/hooks/useT'
 
@@ -21,7 +21,7 @@ export default function ReferralProgram() {
     setTimeout(() => setCopied(false), 2000)
   }
 
-  const waShare = `https://wa.me/?text=${encodeURIComponent(`استخدم كودي ${code} واحصل على خصم ١٠٪ من نَدى الحرير! 🎁`)}`
+  const waShare = `https://wa.me/?text=${encodeURIComponent(`استخدم كودي ${code} واحصل على خصم ١٠٪ من NOVI! 🎁`)}`
 
   return (
     <section className="py-12 md:py-16 bg-primary-900 relative overflow-hidden">

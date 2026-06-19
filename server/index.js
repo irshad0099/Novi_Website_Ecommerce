@@ -1,4 +1,4 @@
-require('dotenv').config();
+﻿require('dotenv').config();
 
 const express = require('express');
 const helmet = require('helmet');
@@ -100,7 +100,7 @@ app.get('/api/health', (req, res) => {
     status: 'ok',
     timestamp: new Date().toISOString(),
     environment: process.env.NODE_ENV,
-    service: 'نَدى الحرير API',
+    service: 'NOVI API',
     version: '1.0.0',
   });
 });
@@ -132,7 +132,7 @@ const PORT = parseInt(process.env.PORT, 10) || 5000;
 
 const server = app.listen(PORT, () => {
   console.log('\n╔════════════════════════════════════════╗');
-  console.log(`║  نَدى الحرير API Server                 ║`);
+  console.log(`║  NOVI API Server                 ║`);
   console.log('╠════════════════════════════════════════╣');
   console.log(`║  Port: ${PORT}                              ║`);
   console.log(`║  Env:  ${(process.env.NODE_ENV || 'development').padEnd(32)}║`);

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -11,7 +11,7 @@ import Image from 'next/image'
 const POSTS = [
   {
     slug: 'tissue-skin-care',
-    titleAr: '٥ أسباب تجعل مناديل نَدى الحرير الأفضل للبشرة الحساسة',
+    titleAr: '٥ أسباب تجعل مناديل NOVI الأفضل للبشرة الحساسة',
     category: 'skin-care',
     readTime: 3,
     img: 'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=600&q=80',
@@ -104,7 +104,7 @@ export default function BlogPage() {
           <div className="max-w-2xl mx-auto">
             <div className="text-4xl mb-3">📰</div>
             <h1 className="text-3xl md:text-4xl font-black mb-3" style={{ fontFamily: 'Amiri,serif' }}>
-              مدونة نَدى الحرير
+              مدونة NOVI
             </h1>
             <p className="text-white/70 text-sm max-w-md mx-auto leading-relaxed">
               نصائح وأفكار حول العناية بالمنزل والصحة والتميز اليومي
