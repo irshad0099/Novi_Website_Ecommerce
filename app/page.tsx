@@ -21,6 +21,8 @@ import FlashDeal from '@/components/FlashDeal'
 import LoyaltyTiers from '@/components/LoyaltyTiers'
 import ReferralProgram from '@/components/ReferralProgram'
 import CouponWheel from '@/components/CouponWheel'
+import AwardsStrip from '@/components/AwardsStrip'
+import LogoStrip from '@/components/LogoStrip'
 import PRODUCTS, { CATEGORIES } from '@/lib/products'
 import Link from 'next/link'
 
@@ -163,6 +165,12 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ─── AWARDS STRIP ─── */}
+        <AwardsStrip />
+
+        {/* ─── LOGO STRIP ─── */}
+        <LogoStrip />
 
         {/* ─── LOYALTY TIERS ─── */}
         <LoyaltyTiers />

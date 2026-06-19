@@ -6,6 +6,7 @@ import BrandSplash from '@/components/BrandSplash'
 import CookieConsent from '@/components/CookieConsent'
 import PageTransition from '@/components/PageTransition'
 import LiveChat from '@/components/LiveChat'
+import MarqueeTicker from '@/components/MarqueeTicker'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ar" dir="rtl">
       <body>
+        <MarqueeTicker />
         <LanguageProvider>
         <PageTransition />
         {children}
