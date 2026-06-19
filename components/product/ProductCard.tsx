@@ -9,6 +9,50 @@ import { formatPrice, formatDiscount } from '@/lib/format'
 import { useT } from '@/hooks/useT'
 import QuickViewModal from '@/components/product/QuickViewModal'
 
+// Lifestyle/usage images per category — shown on hover
+const HOVER_IMGS: Record<string, string[]> = {
+  'face-tissue': [
+    'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=85',
+    'https://images.unsplash.com/photo-1559181567-c3190144543a?w=600&q=85',
+    'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=85',
+    'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=85',
+  ],
+  'wet-wipes': [
+    'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&q=85',
+    'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&q=85',
+    'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=85',
+    'https://images.unsplash.com/photo-1584813470613-5b1c1cad3d69?w=600&q=85',
+  ],
+  'kitchen': [
+    'https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=600&q=85',
+    'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&q=85',
+    'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=85',
+    'https://images.unsplash.com/photo-1543353071-873f17a7a088?w=600&q=85',
+  ],
+  'cotton-towels': [
+    'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=600&q=85',
+    'https://images.unsplash.com/photo-1620977741926-cdaf81ee4576?w=600&q=85',
+    'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&q=85',
+    'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=85',
+  ],
+  'pocket': [
+    'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=85',
+    'https://images.unsplash.com/photo-1590114072880-9b5d9cefc70b?w=600&q=85',
+    'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=85',
+    'https://images.unsplash.com/photo-1527525443983-6e60c75fff46?w=600&q=85',
+  ],
+  'specialty': [
+    'https://images.unsplash.com/photo-1619994403073-2cec844b8e63?w=600&q=85',
+    'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=85',
+    'https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&q=85',
+  ],
+  'bundles': [
+    'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=85',
+    'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=85',
+    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=85',
+  ],
+}
+
 const BADGE_STYLES: Record<string, string> = {
   gold:   'bg-primary-100 text-primary-800',
   red:    'bg-red-100 text-red-700',
@@ -44,8 +88,12 @@ export default function ProductCard({ product: p }: { product: Product }) {
   const [liked, setLiked] = useState(false)
   const [added, setAdded] = useState(false)
   const [imgErr, setImgErr] = useState(false)
+  const [hovered, setHovered] = useState(false)
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null)
   const [tilt, setTilt] = useState({ x: 0, y: 0 })
+
+  const catImgs = HOVER_IMGS[p.category.slug] ?? []
+  const hoverSrc = catImgs.length > 0 ? catImgs[p.id % catImgs.length] : p.images[1]
   const inCompare = has(p.id)
 
   const displayName = lang === 'en' ? ((p as any).nameEn ?? p.name) : p.name
@@ -73,7 +121,8 @@ export default function ProductCard({ product: p }: { product: Product }) {
       <div
         className="group block relative"
         onMouseMove={handleTilt}
-        onMouseLeave={() => setTilt({ x: 0, y: 0 })}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => { setTilt({ x: 0, y: 0 }); setHovered(false) }}
         style={{
           transform: `perspective(600px) rotateX(${-tilt.y}deg) rotateY(${tilt.x}deg) translateY(${tilt.x || tilt.y ? -5 : 0}px)`,
           transition: (tilt.x || tilt.y) ? 'transform 0.05s linear' : 'transform 0.5s ease',
@@ -85,7 +134,23 @@ export default function ProductCard({ product: p }: { product: Product }) {
             {/* Image */}
             <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-primary-50 to-primary-100 flex-shrink-0">
               {!imgErr ? (
-                <img src={p.images[0]} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError={() => setImgErr(true)} />
+                <>
+                  {/* Product image — fades out on hover */}
+                  <img
+                    src={p.images[0]}
+                    alt={p.name}
+                    className="absolute inset-0 w-full h-full object-cover transition-all duration-500"
+                    style={{ opacity: hovered ? 0 : 1, transform: hovered ? 'scale(1.06)' : 'scale(1)' }}
+                    onError={() => setImgErr(true)}
+                  />
+                  {/* Lifestyle/usage image — fades in on hover */}
+                  <img
+                    src={hoverSrc}
+                    alt={`${p.name} — in use`}
+                    className="absolute inset-0 w-full h-full object-cover transition-all duration-500"
+                    style={{ opacity: hovered ? 1 : 0, transform: hovered ? 'scale(1)' : 'scale(1.06)' }}
+                  />
+                </>
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-6xl">🧻</div>
               )}
