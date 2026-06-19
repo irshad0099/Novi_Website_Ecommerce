@@ -21,7 +21,7 @@ export default function CartPage() {
   const handleCoupon = () => {
     const ok = applyCoupon(coupon)
     if (ok) { toast.success(`🎉 خصم ${useCart.getState().couponPct}٪ مفعّل!`); setCoupon('') }
-    else toast.error('❌ كود غير صالح. جرّب NADA10')
+    else toast.error('❌ كود غير صالح. جرّب NOVI10')
   }
 
   return (
@@ -124,11 +124,11 @@ export default function CartPage() {
                     </div>
                   ) : (
                     <div className="flex gap-2">
-                      <input value={coupon} onChange={e => setCoupon(e.target.value.toUpperCase())} onKeyDown={e => e.key === 'Enter' && handleCoupon()} placeholder="NADA10..." className="flex-1 px-3 py-2.5 border border-primary-200 rounded-xl text-sm bg-primary-50 focus:outline-none focus:border-primary-400" />
+                      <input value={coupon} onChange={e => setCoupon(e.target.value.toUpperCase())} onKeyDown={e => e.key === 'Enter' && handleCoupon()} placeholder="NOVI10..." className="flex-1 px-3 py-2.5 border border-primary-200 rounded-xl text-sm bg-primary-50 focus:outline-none focus:border-primary-400" />
                       <button onClick={handleCoupon} className="px-4 py-2.5 border-2 border-primary-400 text-primary-700 font-bold text-sm rounded-xl hover:bg-primary-50">تطبيق</button>
                     </div>
                   )}
-                  <p className="text-[10px] text-primary-400 mt-2">أكواد متاحة: NADA10 · NADA15 · NADA20 · WELCOME5</p>
+                  <p className="text-[10px] text-primary-400 mt-2">أكواد متاحة: NOVI10 · NOVI15 · NOVI20 · WELCOME5</p>
                 </div>
 
                 {/* Totals */}

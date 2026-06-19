@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 function SuccessContent() {
   const params = useSearchParams()
-  const id = params.get('id') || 'NADA-00001'
+  const id = params.get('id') || 'NOVI-00001'
   const total = params.get('total') || '0.00'
 
   return (

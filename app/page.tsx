@@ -98,7 +98,7 @@ export default function Home() {
                   <p className="text-white/55 text-sm">استخدم كود الخصم عند الدفع. صالح فوق ١٠٠ ريال.</p>
                 </div>
                 <div className="bg-white/10 border-2 border-dashed border-primary-400 rounded-2xl px-8 py-4 text-center flex-shrink-0 cursor-pointer hover:bg-white/20 transition-colors">
-                  <p className="text-2xl font-black text-primary-300 tracking-widest">🏷️ NADA10</p>
+                  <p className="text-2xl font-black text-primary-300 tracking-widest">🏷️ NOVI10</p>
                   <p className="text-[10px] text-white/45 mt-1">انقر للنسخ</p>
                 </div>
               </div>

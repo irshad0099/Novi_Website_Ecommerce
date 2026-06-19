@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 const QUICK_REPLIES = [
   { id: 'order', label: 'استفسار عن طلب', response: 'سيدي/سيدتي، لتتبع طلبك يرجى التوجه لصفحة تتبع الطلبات أو إرسال رقم الطلب هنا.' },
   { id: 'product', label: 'مشكلة في المنتج', response: 'نعتذر عن هذا الأمر. يرجى إرسال صورة للمشكلة وسيتواصل معك فريق الدعم خلال ساعة.' },
-  { id: 'offers', label: 'عروض وخصومات', response: 'لدينا عروض رائعة الآن! استخدم كود NADA10 للحصول على خصم ١٠٪ على أول طلب.' },
+  { id: 'offers', label: 'عروض وخصومات', response: 'لدينا عروض رائعة الآن! استخدم كود NOVI10 للحصول على خصم ١٠٪ على أول طلب.' },
 ]
 
 export default function LiveChat() {

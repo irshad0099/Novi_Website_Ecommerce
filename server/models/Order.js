@@ -112,7 +112,7 @@ orderSchema.pre('save', async function (next) {
     const timestamp = Date.now();
     const lastFive = String(timestamp).slice(-5);
     const randomTwo = String(Math.floor(Math.random() * 90) + 10);
-    this.orderNumber = `NADA-${lastFive}${randomTwo}`;
+    this.orderNumber = `NOVI-${lastFive}${randomTwo}`;
 
     // Push initial status to history
     this.statusHistory = [

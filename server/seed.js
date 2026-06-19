@@ -728,7 +728,7 @@ const PRODUCTS = [
 
 const COUPONS = [
   {
-    code: 'NADA10',
+    code: 'NOVI10',
     discountType: 'percentage',
     discountValue: 10,
     minOrderAmount: 50,
@@ -736,7 +736,7 @@ const COUPONS = [
     isActive: true,
   },
   {
-    code: 'NADA15',
+    code: 'NOVI15',
     discountType: 'percentage',
     discountValue: 15,
     minOrderAmount: 100,
@@ -744,7 +744,7 @@ const COUPONS = [
     isActive: true,
   },
   {
-    code: 'NADA20',
+    code: 'NOVI20',
     discountType: 'percentage',
     discountValue: 20,
     minOrderAmount: 150,

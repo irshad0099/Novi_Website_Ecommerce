@@ -86,7 +86,7 @@ export default function Header() {
     <>
       {/* Topbar */}
       <div className="bg-primary-900 text-primary-200 text-center py-1 text-[10px] sm:text-[11px] font-semibold tracking-wide px-3 hidden sm:block">
-        {t('header', 'topbar')} &nbsp;·&nbsp; 🎁 <span className="text-primary-300 font-black">NADA10</span>
+        {t('header', 'topbar')} &nbsp;·&nbsp; 🎁 <span className="text-primary-300 font-black">NOVI10</span>
       </div>
 
       {/* Main header */}

@@ -4,9 +4,9 @@ import { persist } from 'zustand/middleware'
 import type { Product, CartItem } from '@/types'
 
 const COUPONS: Record<string, number> = {
-  NADA10: 10,
-  NADA15: 15,
-  NADA20: 20,
+  NOVI10: 10,
+  NOVI15: 15,
+  NOVI20: 20,
   WELCOME5: 5,
   FIRST50: 50,
 }

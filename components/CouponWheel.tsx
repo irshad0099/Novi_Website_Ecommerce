@@ -3,14 +3,14 @@ import { useState, useRef } from 'react'
 import { useT } from '@/hooks/useT'
 
 const SEGMENTS = [
-  { label: 'NADA5',    desc: 'خصم ٥٪', color: '#1a3461' },
-  { label: 'NADA10',   desc: 'خصم ١٠٪', color: '#153d6a' },
+  { label: 'NOVI5',    desc: 'خصم ٥٪', color: '#1a3461' },
+  { label: 'NOVI10',   desc: 'خصم ١٠٪', color: '#153d6a' },
   { label: 'شحن مجاني', desc: 'على أي طلب', color: '#2669a0' },
-  { label: 'NADA15',   desc: 'خصم ١٥٪', color: '#0f2a4d' },
+  { label: 'NOVI15',   desc: 'خصم ١٥٪', color: '#0f2a4d' },
   { label: 'WELCOME5', desc: 'خصم ٥٪', color: '#1a3461' },
-  { label: 'NADA20',   desc: 'خصم ٢٠٪', color: '#153d6a' },
-  { label: 'NADA10',   desc: 'خصم ١٠٪', color: '#2669a0' },
-  { label: 'NADA15',   desc: 'خصم ١٥٪', color: '#0f2a4d' },
+  { label: 'NOVI20',   desc: 'خصم ٢٠٪', color: '#153d6a' },
+  { label: 'NOVI10',   desc: 'خصم ١٠٪', color: '#2669a0' },
+  { label: 'NOVI15',   desc: 'خصم ١٥٪', color: '#0f2a4d' },
 ]
 const SIZE = 280
 const CX = SIZE/2, CY = SIZE/2, R = SIZE/2 - 10

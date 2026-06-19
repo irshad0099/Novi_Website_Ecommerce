@@ -103,7 +103,7 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
     if (!coupon.trim()) return
     const ok = applyCoupon(coupon)
     if (ok) { toast.success(`🎉 ${t('cart','discount')} ${useCart.getState().couponPct}%!`); setCoupon('') }
-    else toast.error('❌ كود غير صالح. جرّب: NADA10')
+    else toast.error('❌ كود غير صالح. جرّب: NOVI10')
   }
 
   return (
