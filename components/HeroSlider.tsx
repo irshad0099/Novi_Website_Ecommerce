@@ -1,11 +1,12 @@
-﻿'use client'
+'use client'
 import { useState, useEffect, useCallback, useRef } from 'react'
 import Link from 'next/link'
 
+// Replace these video URLs with your actual brand videos (MP4 format recommended)
 const SLIDES = [
   {
-    img: 'https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?w=1920&q=90',
-    overlay: 'rgba(5,10,20,0.55)',
+    video: 'https://videos.pexels.com/video-files/3195394/3195394-hd_1280_720_25fps.mp4',
+    overlay: 'rgba(5,10,20,0.58)',
     bgText1: 'الأقوى',
     bgText2: 'الأجود',
     badge: '✨ العلامة الأولى للمناديل الفاخرة في المملكة',
@@ -20,8 +21,8 @@ const SLIDES = [
     accentColor: '#ffffff',
   },
   {
-    img: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1920&q=90',
-    overlay: 'rgba(5,10,20,0.55)',
+    video: 'https://videos.pexels.com/video-files/4792744/4792744-hd_1280_720_25fps.mp4',
+    overlay: 'rgba(5,10,20,0.58)',
     bgText1: 'نعومة',
     bgText2: 'تلمسها',
     badge: '🌿 طبيعي ١٠٠٪ — بدون كيماويات',
@@ -36,8 +37,8 @@ const SLIDES = [
     accentColor: '#82b0d5',
   },
   {
-    img: 'https://images.unsplash.com/photo-1578895101003-571866c7d3c6?w=1920&q=90',
-    overlay: 'rgba(5,10,20,0.55)',
+    video: 'https://videos.pexels.com/video-files/5585026/5585026-hd_1280_720_25fps.mp4',
+    overlay: 'rgba(5,10,20,0.58)',
     bgText1: 'جودة',
     bgText2: 'لا تُنافَس',
     badge: '✅ معتمدة SFDA — صُنع في المملكة',
@@ -52,8 +53,8 @@ const SLIDES = [
     accentColor: '#ffffff',
   },
   {
-    img: 'https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?w=1920&q=90',
-    overlay: 'rgba(5,10,20,0.55)',
+    video: 'https://videos.pexels.com/video-files/4048091/4048091-hd_1280_720_25fps.mp4',
+    overlay: 'rgba(5,10,20,0.58)',
     bgText1: 'شحن',
     bgText2: 'مجاني',
     badge: '🚚 شحن مجاني فوق ١٥٠ ريال لجميع مناطق المملكة',
@@ -63,7 +64,7 @@ const SLIDES = [
     cta: '🎁 اطلب الآن',
     ctaHref: '/#products',
     cta2: '💬 تواصل معنا',
-    cta2Href: '#',
+    cta2Href: '/contact',
     stats: [['١–٣','أيام توصيل'],['٧','أيام إرجاع'],['COD','الدفع عند الاستلام']],
     accentColor: '#82b0d5',
   },
@@ -73,12 +74,15 @@ export default function HeroSlider() {
   const [current, setCurrent] = useState(0)
   const [animating, setAnimating] = useState(false)
   const [direction, setDirection] = useState<'next'|'prev'>('next')
+  const [videoLoaded, setVideoLoaded] = useState(false)
   const timerRef = useRef<ReturnType<typeof setTimeout>>()
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   const go = useCallback((idx: number, dir: 'next'|'prev' = 'next') => {
     if (animating) return
     setDirection(dir)
     setAnimating(true)
+    setVideoLoaded(false)
     setTimeout(() => {
       setCurrent(idx)
       setAnimating(false)
@@ -88,33 +92,59 @@ export default function HeroSlider() {
   const next = useCallback(() => go((current + 1) % SLIDES.length, 'next'), [current, go])
   const prev = useCallback(() => go((current - 1 + SLIDES.length) % SLIDES.length, 'prev'), [current, go])
 
-  // Auto-play
+  // Auto-play — advances slide every 8s (longer for video)
   useEffect(() => {
-    timerRef.current = setTimeout(next, 5500)
+    timerRef.current = setTimeout(next, 8000)
     return () => clearTimeout(timerRef.current)
   }, [current, next])
+
+  // Ensure video plays after slide change
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+    v.load()
+    const playPromise = v.play()
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Autoplay blocked — video stays paused, that's fine
+      })
+    }
+  }, [current])
 
   const slide = SLIDES[current]
 
   return (
     <section className="relative overflow-hidden" style={{ minHeight: '92vh' }}>
 
-      {/* ── Background image ── */}
-      <div
-        className="absolute inset-0 transition-all duration-700"
+      {/* ── Background video ── */}
+      <video
+        ref={videoRef}
+        key={slide.video}
+        className="absolute inset-0 w-full h-full object-cover"
         style={{
-          backgroundImage: `url(${slide.img})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          transform: animating ? (direction === 'next' ? 'scale(1.04) translateX(-2%)' : 'scale(1.04) translateX(2%)') : 'scale(1) translateX(0)',
-          transition: 'transform 1s cubic-bezier(0.4,0,0.2,1)',
-          filter: 'brightness(0.88)',
+          transform: animating
+            ? (direction === 'next' ? 'scale(1.06) translateX(-2%)' : 'scale(1.06) translateX(2%)')
+            : 'scale(1) translateX(0)',
+          transition: 'transform 1.2s cubic-bezier(0.4,0,0.2,1), opacity 0.6s ease',
+          opacity: animating ? 0 : 1,
+          filter: 'brightness(0.85)',
         }}
-      />
+        autoPlay
+        muted
+        loop
+        playsInline
+        onCanPlay={() => setVideoLoaded(true)}
+      >
+        <source src={slide.video} type="video/mp4" />
+      </video>
+
+      {/* ── Fallback dark bg while video loads ── */}
+      {!videoLoaded && (
+        <div className="absolute inset-0 bg-primary-950" style={{ background: '#0a1628' }} />
+      )}
 
       {/* ── Dark overlay ── */}
       <div className="absolute inset-0" style={{ background: slide.overlay }} />
-
 
       {/* ── HUGE background Arabic text (billboard effect) ── */}
       <div
@@ -133,7 +163,6 @@ export default function HeroSlider() {
           lineHeight: 0.85,
           whiteSpace: 'nowrap',
           letterSpacing: '-0.01em',
-          marginBottom: 0,
           textShadow: '0 0 80px rgba(255,255,255,0.3)',
         }}>
           {slide.bgText1}
@@ -216,9 +245,12 @@ export default function HeroSlider() {
             {slide.cta2}
           </Link>
         </div>
+
+        {/* Mute/Unmute hint */}
+        <p className="mt-6 text-white/25 text-[10px] tracking-widest">▶ فيديو يشتغل تلقائياً</p>
       </div>
 
-      {/* ── Slide counter top-right ── */}
+      {/* ── Slide counter top-left ── */}
       <div className="absolute top-5 left-5 z-20 hidden sm:flex items-center gap-2">
         <span className="text-2xl font-black text-white/90" style={{ fontFamily: 'Amiri, serif' }}>
           {String(current + 1).padStart(2, '0')}
@@ -281,7 +313,7 @@ export default function HeroSlider() {
         />
       </div>
 
-      {/* ── Bottom landmark label ── */}
+      {/* ── Bottom label ── */}
       <p className="absolute bottom-14 md:bottom-12 left-1/2 -translate-x-1/2 text-white/30 text-[10px] tracking-widest whitespace-nowrap z-20">
         🏙️ المملكة العربية السعودية
       </p>
