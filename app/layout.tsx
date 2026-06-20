@@ -28,13 +28,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ar" dir="rtl">
       <body>
+        <BrandSplash />
         <MarqueeTicker />
         <LanguageProvider>
         <PageTransition />
         {children}
         </LanguageProvider>
         <CustomCursor />
-        <BrandSplash />
         <CookieConsent />
         <LiveChat />
         <Toaster
